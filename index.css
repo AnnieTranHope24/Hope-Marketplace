@@ -1,0 +1,14 @@
+header {
+    background-color: aqua;
+    border-color: brown;
+}
+
+.headlist {
+    list-style: none;
+    display: flex;
+}
+.navbar {
+    background-color:aliceblue;
+    border-color: black;
+    margin-bottom: 0em;
+}
