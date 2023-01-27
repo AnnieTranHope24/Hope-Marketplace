@@ -6,6 +6,7 @@ header {
 .headlist {
     list-style: none;
     display: flex;
+    
 }
 .navbar {
     background-color:aliceblue;
@@ -19,6 +20,12 @@ header {
     font-family: 'Courier New', Courier, monospace;
     font-size: 2em;
     font-weight: 600;
-    padding: 2em;
+    padding-top: 1em;
+    margin-left: 40%;
+    text-align: center;
     
+    
+}
+#aboutTitle > h1 {
+    text-align: center;
 }
