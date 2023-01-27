@@ -12,3 +12,8 @@ header {
     border-color: black;
     margin-bottom: 0em;
 }
+
+.footernav{
+    background-color: dimgray;
+    border-color:black;
+}
