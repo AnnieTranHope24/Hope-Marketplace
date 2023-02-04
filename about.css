@@ -15,6 +15,7 @@ header {
 }
 
 #aboutTitle {
+    border-radius: 0.5px;
     background-color:aliceblue;
     border-color: black;
     font-family: 'Courier New', Courier, monospace;
@@ -28,4 +29,15 @@ header {
 }
 #aboutTitle > h1 {
     text-align: center;
+}
+
+.profile {
+    background-color: lightsteelblue;
+    background-size: 100em;
+    padding: 10em;
+}
+
+.profiles{
+    border-radius: 4px;
+    width: 500px;
 }
