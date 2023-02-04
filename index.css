@@ -1,18 +1,37 @@
+/* Header */
 header {
-    background-color: aqua;
+    background-color: fuchsia;
     border-color: brown;
+    margin-bottom: -1px;
+    padding: -1px;
 }
 
-.headlist {
+.header-headlist {
     list-style: none;
     display: flex;
 }
 .navbar {
-    background-color:aliceblue;
+    background-color: yellow;
     border-color: black;
-    margin-bottom: 0em;
+    background-size: cover;
+    margin-bottom: -10px;
+    /* padding: 2em; */
+    /* margin-top: 0em; */
 }
 
+.header-searchbox, .header-cart, .header-account {
+    margin-top: 3.5em;
+    margin-left: 3.5em;
+}
+
+.header-logo {
+    background-color: fuchsia;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+
+
+/* Footer */
 .footernav{
     background-color: dimgray;
     border-color:black;
