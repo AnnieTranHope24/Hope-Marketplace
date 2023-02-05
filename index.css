@@ -1,16 +1,43 @@
 /* Header */
-header {
-    position: fixed;
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    position:fixed;
     width:100%;
-    background-color: fuchsia;
+    height:100px;
+    background-color: rgb(255, 85, 0);
+    justify-content: space-between;
 }
 
-.nav-item{
-    list-style: none;
-}
 a{
     color: white;
     text-decoration: none;
+}
+
+
+
+ .topmenu {
+    display: flex;
+    gap:30%;
+    font-weight: bold;
+    font-size: 25px;
+    padding:0 10%;
+ }
+.topnav {
+    list-style: none;
+}
+
+#image-logo {
+    width:100px;
+    height: 100px;
+    top:0;
+    left:0;
+}
+.nav-item{
+    list-style: none;
 }
 
 
@@ -22,16 +49,8 @@ a{
     align-items: center;
     padding:0 24px;
     background-color: black;
-    margin-bottom: 10px;
 }
   
-  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-
 
 .nav-menu{
     display: flex;
