@@ -139,3 +139,13 @@ a{
 #footerPic {
     margin-bottom: -4px;
 }
+
+footer {
+    background-color: #EF924D;
+}
+
+#copyRight {
+    background-color: #EF924D;
+    margin-left: 40%;
+    
+}
