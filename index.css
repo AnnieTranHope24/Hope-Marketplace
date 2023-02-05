@@ -4,38 +4,34 @@
     margin: 0;
     box-sizing: border-box;
 }
-header{
-    position:fixed;
-    width:100%;
-    height:100px;
-    background-color: #EC6107;
-    justify-content: space-between;
-}
 
 a{
     color: white;
     text-decoration: none;
 }
 
-
-
- .topmenu {
+header{
+    position:fixed;
+    width:100%;
+    height:50px;
+    background-color: #EC6107;
+}
+.topmenu{
+    position:absolute;
+    list-style: none;
     display: flex;
-    gap:30%;
+    top:0;
+    right:500px;
+    gap:100%;
     font-weight: bold;
     font-size: 25px;
-    padding:0 10%;
+    padding:10px 10%;
+    justify-content: space-between;
  }
 .topnav {
     list-style: none;
 }
 
-#image-logo {
-    width:100px;
-    height: 100px;
-    top:0;
-    left:0;
-}
 .nav-item{
     list-style: none;
 }
@@ -49,12 +45,9 @@ a{
     align-items: center;
     padding:0 24px;
     background-color: black;
+    margin-top: -4px;
+    border-top:2px solid white;
 }
-
-#searchIcon {
-    
-}
-  
 
 .nav-menu{
     display: flex;
