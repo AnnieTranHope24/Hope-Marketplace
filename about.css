@@ -9,7 +9,7 @@ body{
 header {
     position: fixed;
     width: 100%;
-    background-color: aqua;
+    background-color: #EC6107 ;
     border-color: brown;
 }
 
@@ -36,6 +36,7 @@ a{
     padding:0 24px;
     background-color: black;
     margin-bottom: 10px;
+    margin-top: -4px;
 }
   
   /* The sticky class is added to the navbar with JS when it reaches its scroll position */
@@ -122,14 +123,19 @@ a{
     text-align: center;
 }
 
-.profile {
-    background-color: lightsteelblue;
-    background-size: 100em;
-    padding: 10em;
-}
-
 .profiles{
     margin-top: 180px;
     border-radius: 4px;
     width: 500px;
+}
+
+/* Footer */
+.footernav{
+    background-color: #EC6107;
+    border-color:black;
+
+}
+
+#footerPic {
+    margin-bottom: -4px;
 }

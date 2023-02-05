@@ -2,7 +2,7 @@
 header {
     position: fixed;
     width:100%;
-    background-color: fuchsia;
+    background-color: #EC6107;
 }
 
 .nav-item{
@@ -23,6 +23,10 @@ a{
     padding:0 24px;
     background-color: black;
     margin-bottom: 10px;
+}
+
+#searchIcon {
+    
 }
   
   /* The sticky class is added to the navbar with JS when it reaches its scroll position */
@@ -142,7 +146,7 @@ a{
   }
 
 .header-logo {
-    background-color: fuchsia;
+    background-color: #EC6107;
     background-size: 50px 50px;
     background-repeat: no-repeat;
 }
@@ -150,6 +154,11 @@ a{
 
 /* Footer */
 .footernav{
-    background-color: dimgray;
+    background-color: #EC6107;
     border-color:black;
+
+}
+
+#footerPic {
+    margin-bottom: -4px;
 }
