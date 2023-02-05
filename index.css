@@ -35,7 +35,7 @@ a{
 
 .nav-menu{
     display: flex;
-    gap:45%;
+    gap:30%;
     font-weight: bold;
     font-size: 25px;
     padding:0 10%;
