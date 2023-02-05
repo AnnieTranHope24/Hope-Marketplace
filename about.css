@@ -1,4 +1,14 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(110, 103, 103);
+}
 header {
+    position: fixed;
+    width: 100%;
     background-color: aqua;
     border-color: brown;
 }
@@ -8,11 +18,64 @@ header {
     display: flex;
     
 }
-.navbar {
-    background-color:aliceblue;
-    border-color: black;
-    margin-bottom: 0em;
+.nav-item{
+    list-style: none;
 }
+a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    min-height: 70px;
+    display:flex;
+    align-items: center;
+    padding:0 24px;
+    background-color: black;
+    margin-bottom: 10px;
+}
+  
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+
+.nav-menu{
+    display: flex;
+    gap:45%;
+    font-weight: bold;
+    font-size: 25px;
+    padding:0 10%
+}
+
+.hamburger {
+    display:none;
+    cursor:pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.nav-item a:hover{
+    border-top:1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: rgba(249, 245, 245, 0.517);
+    transition: 0.5s;
+}
+
 
 #aboutTitle {
     border-radius: 0.5px;
@@ -38,6 +101,7 @@ header {
 }
 
 .profiles{
+    margin-top: 180px;
     border-radius: 4px;
     width: 500px;
 }

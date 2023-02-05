@@ -1,27 +1,66 @@
 /* Header */
 header {
+    position: fixed;
+    width:100%;
     background-color: fuchsia;
-    border-color: brown;
-    margin-bottom: -1px;
-    padding: -1px;
 }
 
-.header-headlist {
+.nav-item{
     list-style: none;
-    display: flex;
 }
-.navbar {
-    background-color: yellow;
-    border-color: black;
-    background-size: cover;
-    margin-bottom: -10px;
-    /* padding: 2em; */
-    /* margin-top: 0em; */
+a{
+    color: white;
+    text-decoration: none;
 }
 
-.header-searchbox, .header-cart, .header-account {
-    margin-top: 3.5em;
-    margin-left: 3.5em;
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    min-height: 70px;
+    display:flex;
+    align-items: center;
+    padding:0 24px;
+    background-color: black;
+    margin-bottom: 10px;
+}
+  
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+
+.nav-menu{
+    display: flex;
+    gap:45%;
+    font-weight: bold;
+    font-size: 25px;
+    padding:0 10%
+}
+
+.hamburger {
+    display:none;
+    cursor:pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.nav-item a:hover{
+    border-top:1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: rgba(249, 245, 245, 0.517);
+    transition: 0.5s;
 }
 
 .header-logo {

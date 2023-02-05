@@ -9,13 +9,14 @@
 
 <body>
     <header>
+      <div class="topnav">
       <ul class="header-headlist">
          <li class="header-logo" height = "150px">
             <a href="#" id="image-logo" ><img src="images/HF.svg" width="100px" height="100px"/></a>
          </li>
          <li class="header-searchbox">
             <form >
-               <input type ="text" name="search">
+               <input type ="text" placeholder="Search..">
                <input type ="image" id="searchimage" src="images/share.png">
             </form>            
          </li>
@@ -27,23 +28,34 @@
 
          </li>
       </ul>
-      
+      </div>
       <nav class="navbar">
          <!-- Menu icon + Menu + Academics + Finess + Care + Fashion + Entertainment-->
-         <a href="index.html" ><img src="images/share.png"/>Menu</a>
-         <a href="index.html" >Academics</a>
-         <a href="index.html" >Fitness</a>
-         <a href="index.html" >Room</a>
-         <a href="index.html" >Fashion</a>
-         <a href="index.html" >Entertainment</a>
-   
+         <div class="hamgurger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+         </div>
+        <ul class="nav-menu">
+         <li class="nav-item">
+            <a href="index.html" > Academics </a>
+         </li>
+         <li class="nav-item">
+            <a href="index.html" > Fitness </a>
+         </li>
+         <li class="nav-item">
+            <a href="index.html" >Room</a>
+         </li>
+         <li class="nav-item">
+            <a href="index.html" >Fashion</a>
+         </li>
+         <li class="nav-item">
+            <a href="index.html" >Entertainment</a>
+         </li>
+      </ul>
        </nav> 
-
-
-
-      <hr/>
+       <script src="hamburger.js"></script>
     </header>
-
     <main>
 
       <div>
@@ -143,6 +155,7 @@
       </nav> 
 
     </footer>
+    <script src="hamburger.js"></script>
     </body>
 
 
