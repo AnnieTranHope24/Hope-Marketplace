@@ -1,186 +1,253 @@
 /* Header */
 *{
-    padding:0;
-    margin: 0;
-    box-sizing: border-box;
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 a{
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 header{
-    position:fixed;
-    width:100%;
-    height:50px;
-    background-color: #EC6107;
-}
-.topmenu{
-    position:absolute;
-    list-style: none;
-    display: flex;
-    top:0;
-    right:500px;
-    gap:100%;
-    font-weight: bold;
-    font-size: 25px;
-    padding:10px 10%;
-    justify-content: space-between;
+  position: relative;
+  width:100%;
+  height:90px;
+  gap:23%;
+  background-color: #EC6107;
+  display:flex;
+  align-items: center;
+  margin-bottom: 50px;
  }
-.topnav {
-    list-style: none;
+.logo {
+position: relative;
+width: 250px;
+height: 100px;
+top:0;
+left:0;
+display: inline-flex;
+margin-top: -150px;
+margin-left: -70px;
+}
+.container {
+min-height: 80px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
+.search_box {
+background:#aa440e;
+position: relative;
+padding:15px;
+border-radius: 50px;
+display:inline-flex;
+}
+
+.search_box .search_btn {
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: #f58e53;
+justify-content: center;
+align-items: center;
+color:#fff;
+margin-left:15px;
+padding:3px 1px;
+cursor: pointer;
+}
+.search_box .mySearch {
+outline:none;
+border:0;
+background: #f1f1f1;
+color:#111;
+padding:12px 20px;
+width:500px;
+height: 30px;
+border-radius: 50px;
+}
+
+::placeholder{
+color:#818181
+}
+
+::-webkit-input-placeholder{
+color:#111;
+}
+
+.personal {
+position: absolute;
+width: 100px;
+min-height: 50px;
+top:0;
+right:0;
+gap: 100%;
+display: inline-flex;
+align-items: center;
+margin: 25px 180px;
+} 
+
+.account {
+font-size: x-large;
+font-weight: bold;
+color:#111;
+}
+
+.account:hover {
+color:white;
+}
+
+.cart:hover{
+  border:3px solid #f1f1f1;
+  padding: 1px;
+  border-radius: 5px ;
+  transition: 0.1s ease-in;
+}
 .nav-item{
-    list-style: none;
+  list-style: none;
 }
 
 
 .navbar {
-    position: fixed;
-    width: 100%;
-    min-height: 70px;
-    display:flex;
-    align-items: center;
-    padding:0 24px;
-    background-color: black;
-    margin-top: -4px;
-    border-top:2px solid white;
+  position: absolute;
+  width: 100%;
+  min-height: 40px;
+  display:flex;
+  align-items: center;
+  padding:0 24px;
+  background-color: black;
+  margin-top: 125px;
+  border-top:2px solid white;
 }
 
 .nav-menu{
-    display: flex;
-    gap:30%;
-    font-weight: bold;
-    font-size: 25px;
-    padding:0 10%;
+  display: flex;
+  gap:60%;
+  font-size: 18px;
+  padding:0 10%;
 }
 
 .hamburger {
-    display:none;
-    cursor:pointer;
+  display:none;
+  cursor:pointer;
 }
 
 .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
 }
 
 .nav-item a:hover{
-    border-top:1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    color: rgba(249, 245, 245, 0.517);
-    transition: 0.5s;
+  border-top:1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  color: rgba(249, 245, 245, 0.517);
+  transition: 0.5s;
 }
 
 .menu {
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-  
-  .change .bar1 {
-    transform: translate(0, 11px) rotate(-45deg);
-  }
-  
-  .change .bar2 {opacity: 0;}
-  
-  .change .bar3 {
-    transform: translate(0, -11px) rotate(45deg);
-  }
-
-  
-.sidebar {
-    height: 100%;
-    width: 0; 
-    position: fixed; 
-    z-index: 1; 
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden; 
-    padding-top: 60px; 
-    transition: 0.5s; 
-  }
-
-  .sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-
-  .sidebar a:hover {
-    color: #f1f1f1;
-  }
-
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main {
-    transition: margin-left .5s;
-    padding: 20px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
-  }
-
-  .overlay{
-    width:900px;
-    height: max-content;
-    z-index: 3;
-    display:none;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-.header-logo {
-    background-color: #EC6107;
-    background-size: 50px 50px;
-    background-repeat: no-repeat;
+  display: inline-block;
+  cursor: pointer;
 }
+
+.bar1, .bar2, .bar3 {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+
+.sidebar {
+  height: 100%;
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s; 
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+.overlay{
+  width:900px;
+  height: max-content;
+  z-index: 3;
+  display:none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
 
 
 /* Footer */
 .footernav{
-    background-color: #EC6107;
-    border-color:black;
+  background-color: #EC6107;
+  border-color:black;
 
 }
 
 #footerPic {
-    margin-bottom: -4px;
+  margin-bottom: -4px;
 }
 
 footer {
-    background-color: #EF924D;
+  background-color: #EF924D;
 }
 
 #copyRight {
-    background-color: #EF924D;
-    margin-left: 40%;
-    
+  background-color: #EF924D;
+  margin-left: 40%;
+  
 }
