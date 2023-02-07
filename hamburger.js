@@ -1,33 +1,13 @@
-const hamburger = document.getElementsByClassName("menu").addEventListener("click", openMenu);
-const sidebar = document.getElementsByClassName("sidebar")
-const overlay = document.getElementsByClassName("overlay")
+const bar1 = document.querySelector(".bar1");
+const bar2 = document.querySelector(".bar2");
+const bar3 = document.querySelector(".bar3");
+const burger = document.querySelector(".menu");
+const sidebar = document.querySelector(".sidebar");
 
-let menuOpen = false
-
-function openMenu(){
-    menuOpen = true
-    overlay.style.display = "block"
-    sidebar.style.width = "250px";
-}
-
-function closeMenu(){
-    menuOpen = true
-    overlay.style.display = "none"
-    sidebar.style.width = "0";
-}
-
-hamburger.addEventListener('click', function () {
-    if(!menuOpen){
-        openMenu()
-    }
-})
-
-.addEventListener('click', function () {
-    if(menuOpen){
-        closeMenu()
-    }
-})
-
-function burger() {
-    this.classList.toggle("change");
-  }
+burger.addEventListener("click", () => {
+    bar1.classList.toggle("change1");
+    bar2.classList.toggle("change2");
+    bar3.classList.toggle("change3");
+    sidebar.classList.toggle("reveal");
+    burger.classList.toggle(".changemenu");
+});
