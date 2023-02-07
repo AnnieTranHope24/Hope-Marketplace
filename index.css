@@ -175,7 +175,7 @@ color:white;
 
 
 .sidebar {
-  position:absolute;
+  position:fixed;
   height: 100%;
   width: 0;  
   top: 90px;
