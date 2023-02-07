@@ -123,10 +123,26 @@ a{
     text-align: center;
 }
 
+.allProfiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    /* padding: 20px 10px; */
+    /* max-width: 1400px; */
+    margin: 10px;
+    margin-left: 30px;
+    gap: 31%;
+}
 .profiles{
     margin-top: 180px;
     border-radius: 4px;
-    width: 500px;
+
+    width: 100%;
+    max-width: 450px;
+    height: 600px;
+    object-fit: cover;
 }
 
 /* Footer */
@@ -141,11 +157,11 @@ a{
 }
 
 footer {
-    background-color: #EF924D;
+    background-color: #EC6107;
 }
 
 #copyRight {
-    background-color: #EF924D;
+    background-color: #EC6107;
     margin-left: 40%;
     
 }
