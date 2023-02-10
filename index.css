@@ -29,6 +29,7 @@ left:0;
 display: inline-flex;
 margin-top: -150px;
 margin-left: -70px;
+/* overflow-x: hidden; */
 }
 .container {
 min-height: 80px;
