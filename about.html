@@ -5,50 +5,79 @@
     <title>About</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather&display=swap" rel="stylesheet">    
 </head>    
 
 <body>
-        <header>
-          <ul class="headlist">
-             <li class="header-logo" height = "150px">
-               <a href="#" id="image-logo" ><img src="images/HF.svg" width="100px" height="100px"/></a>
-             </li>
-             <li id="aboutTitle">
-                <h1>About Us</h1>
-             </li>
-          </ul>
-          <div>
-          
-          <nav class="navbar">
-            <div class="hamgurger">
-               <span class="bar"></span>
-               <span class="bar"></span>
-               <span class="bar"></span>
-            </div>
-            <!-- Menu icon + Menu + Academics + Finess + Care + Fashion + Entertainment-->
-           <ul class="nav-menu">
-            <li class="nav-item">
-               <a href="index.html" >Academics</a>
-            </li>
-            <li class="nav-item">
-               <a href="index.html" >Fitness</a>
-            </li>
-            <li class="nav-item">
-               <a href="index.html" >Room</a>
-            </li>
-            <li class="nav-item">
-               <a href="index.html" >Fashion</a>
-            </li>
-            <li class="nav-item">
-               <a href="index.html" >Entertainment</a>
-            </li>
-         </ul>
-          </nav> 
-          </div>
-          </header>
+   <header id="nav-placeholder">
+      <ul class="top-nav">
+         <li class="logo">
+            <a href="index.html"><img class=fit-logo src="images/icons/logo4.svg" ></a>
+         </li>
+         <li class="container">
+            <form method="get" action="http://www.randyconnolly.com/tests/process.php"  >
+
+               <div class="search_box">
+                  <input name="search" type="text" class="mySearch" onkeyup="myFunction()" placeholder="Search.."
+                     src="images/icons/search.svg">
+                  <div>
+                     <button class="search_btn" type="submit"><img src="images/icons/search.svg" alt="search button" width="30px" height="25px"></button>
+                  </div>
+               </div>
+   
+               </form>
+         </li>
+         <li class="personal">
+            <a class="account" href="account.html" color:black>Account</a>
+            <a class="cart" href="cart.html"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
+         </li>
+      </ul>
+>>>>>>> ad98a9868c754e21b91a59c3f491fdb4a5b12b56
+       <nav class="navbar">
+             <div class="menu">
+             <div class="bar1"></div>
+             <div class="bar2"></div>
+             <div class="bar3"></div>
+             </div> -->
+                    <!-- Menu icon + Menu + Academics + Finess + Care + Fashion + Entertainment-->
+
+           <div class="sidebar">
+>>>>>>> ad98a9868c754e21b91a59c3f491fdb4a5b12b56
+                   <h1>All Menu</h1>
+                   <a href="#" class="item"><div>Academics<i class="arrow right"></i></div></i></a>
+                   <a href="#" class="item"><div>Fitness <i class="arrow right"></i> </div></a>
+                   <a href="#" class="item"><div>Room <i class="arrow right"></i></div></a>
+                   <a href="#" class="item"><div>Fashion <i class="arrow right"></i></div></a>
+                   <a href="#" class="item"><div>Entertainment <i class="arrow right"></i></div></a>
+
+             </div> 
+>>>>>>> ad98a9868c754e21b91a59c3f491fdb4a5b12b56
+          <!-- Menu icon + Menu + Academics + Finess + Care + Fashion + Entertainment-->
+     
+         <ul class="nav-menu">
+          <li class="nav-item">
+             <a href="academics.html" > Academics </a>
+          </li>
+          <li class="nav-item">
+             <a href="fitness.html" > Fitness </a>
+          </li>
+          <li class="nav-item">
+             <a href="room.html" >Room</a>
+          </li>
+          <li class="nav-item">
+             <a href="fashion.html" >Fashion</a>
+          </li>
+          <li class="nav-item">
+             <a href="entertainment.html" >Entertainment</a>
+          </li>
+       </ul>
+        </nav> 
+    </header>
+
+    <div class="overlay"></div>
    <div class="allProfiles">
       <div>
          <img class="profiles" src="images/bereket.jpeg" alt="profile picture of bereket">
@@ -69,12 +98,19 @@
      
    </div>
    <footer>
+             
       <nav class="footernav">
-         <img id='footerPic' src="images/HF.svg" width="100px" height="100px" alt="Logo">
-         <a href="about.html">About Us </a>
+         <ul name="ul-footernav">
+            <!-- <a href="index.html"><img class=fit-logo src="images/icons/logo4.svg" ></a> -->
+            <li name ="footernav-logo">
+               <a href="index.html"><img class=fit-logo src="images/icons/logo4.svg" ></a>
+            </li>
+            <li class="aboutus" ><a  href="about.html">About Us </a></li>
+         </ul>
+
       </nav> 
 
       <span id="copyRight"><small>&copy; 2022 Hope Marketplace. All Rights Reserved</small></span>
-    </footer> 
+    </footer>
 
 </body>

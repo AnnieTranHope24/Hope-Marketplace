@@ -240,17 +240,36 @@ header {
 
 }
 
-#footerPic {
-  margin-bottom: -4px;
+.footernav ul {
+  display: flex;
+  list-style-type: none;
+  margin-left: -45px;
 }
 
+.footernav a {
+  color: black;
+
+}
+
+.aboutus {
+  margin-top: 2em;
+}
+.aboutus a{
+  margin-left: 34em;
+
+}
+
+.aboutus {
+  border-color: #111;
+  color: #aa440e;
+}
 footer {
   background-color: #EC6107;
 }
 
 #copyRight {
   background-color: #EC6107;
-  margin-left: 40%;
+  margin-left: 45%;
   
 }
 
@@ -267,6 +286,7 @@ footer {
   max-width: 300px;
   height: 350px;
   object-fit: cover;
+
 }
 
 .gallery div {
@@ -281,8 +301,25 @@ footer {
   /* max-width: 1400px; */
   margin: 0 auto;
   gap: 16px;
-  
+  /* width: 100%; */
 
+}
+
+.gallery ul {
+  display: table;
+  width: 100%;
+}
+
+.gallery li {
+  display: table-cell;
+}
+
+.gallery a {
+  display: block;
+  border: 1px solid;
+  text-align: center;
+  margin: 0 5px;
+  background: white;
 }
   /* change the font-family later */
 /* .gallery {
