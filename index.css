@@ -73,7 +73,7 @@ position: absolute;
 width: 100px;
 height: 80px;
 top:0;
-right:10%;
+right:8%;
 gap: 50%;
 display: inline-flex;
 align-items: center;
@@ -144,23 +144,18 @@ color:white;
   width: 30px;
   height: 3px;
   background-color: #fff;
-  margin: 6px 0;
-  align-items: center;
+  margin-bottom: 5px;
   transition: 0.4s;
 }
 
 .change1 {
-  top:0;
-  margin-left: 285px;
   transform: translate(0, 9.5px) rotate(-45deg);
 }
 
 .change2 {opacity: 0;}
 
 .change3 {
-  top:0;
-  margin-left: 285px;
-  transform: translate(0, -9.5px) rotate(45deg);
+  transform: translate(0, -8px) rotate(48deg);
 }
 
 
