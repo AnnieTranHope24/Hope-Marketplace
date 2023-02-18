@@ -16,14 +16,13 @@
 
 <body>
 
-   <header id="nav-placeholder">
-      <ul class="top-nav">
-         <li class="logo">
-            <a href="index.html"><img class=fit-logo src="images/icons/logo4.svg" ></a>
-         </li>
-         <li class="container">
+   <header>
+      <div class="top-nav">
+         <div class="nav-item">
+            <a href="index.html"><img class="logo" src="images/icons/logo.svg"/></a>
+         </div>
+         <div class="nav-item">
             <form method="get" action="http://www.randyconnolly.com/tests/process.php"  >
-
             <div class="search_box">
                <input name="search" type="text" class="mySearch" onkeyup="myFunction()" placeholder="Search.."
                   src="images/icons/search.svg">
@@ -31,57 +30,64 @@
                   <button class="search_btn" type="submit"><img src="images/icons/search.svg" alt="search button" width="30px" height="25px"></button>
                </div>
             </div>
-
             </form>
-         </li>
-         <li class="personal">
-            <a class="account" href="account.html" color:black>Account</a>
-            <a class="cart" href="cart.html"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
-         </li>
-      </ul>
->>>>>>> ad98a9868c754e21b91a59c3f491fdb4a5b12b56
+         </div>
+         <div class="nav-item">
+         <div class="personal">
+            <a id="account" href="account.html">Account</a>
+            <a id="cart" href="cart.html"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
+         </div>
+         </div>
+      </div>
+
        <nav class="navbar">
-             <div class="menu">
-             <div class="bar1"></div>
-             <div class="bar2"></div>
-             <div class="bar3"></div>
-             </div>
-                    <!-- Menu icon + Menu + Academics + Finess + Care + Fashion + Entertainment-->
-
-           <div class="sidebar">
->>>>>>> ad98a9868c754e21b91a59c3f491fdb4a5b12b56
-                   <h1>All Menu</h1>
-                   <a href="#" class="item"><div>Academics<i class="arrow right"></i></div></i></a>
-                   <a href="#" class="item"><div>Fitness <i class="arrow right"></i> </div></a>
-                   <a href="#" class="item"><div>Room <i class="arrow right"></i></div></a>
-                   <a href="#" class="item"><div>Fashion <i class="arrow right"></i></div></a>
-                   <a href="#" class="item"><div>Entertainment <i class="arrow right"></i></div></a>
-
-             </div> 
->>>>>>> ad98a9868c754e21b91a59c3f491fdb4a5b12b56
-          <!-- Menu icon + Menu + Academics + Finess + Care + Fashion + Entertainment-->
-     
-         <ul class="nav-menu">
-          <li class="nav-item">
+            <div class="dropdown">
              <a href="academics.html" > Academics </a>
-          </li>
-          <li class="nav-item">
+             <div class="dropdown-content">
+               <a href="#"> Textbooks</a>
+               <a href="#"> Books</a>
+               <a href="#"> Binders</a>
+               <a href="#"> NoteCards</a>
+          </div>
+         </div>
+            <div class="dropdown"> 
              <a href="fitness.html" > Fitness </a>
-          </li>
-          <li class="nav-item">
+             <div class="dropdown-content">
+               <a href="#"> Watches</a>
+               <a href="#"> Home Workout Equipment</a>
+               <a href="#"> Fitness Clothes</a>
+               <a href="#"> Sport Equipment</a>
+          </div>
+         </div>
+            <div class="dropdown"> 
              <a href="room.html" >Room</a>
-          </li>
-          <li class="nav-item">
+             <div class="dropdown-content">
+               <a href="#"> Plants</a>
+               <a href="#"> Lights</a>
+               <a href="#"> Rugs</a>
+               <a href="#"> Art</a>
+          </div>
+         </div>
+            <div class="dropdown"> 
              <a href="fashion.html" >Fashion</a>
-          </li>
-          <li class="nav-item">
+             <div class="dropdown-content">
+               <a href="#"> Mens Clothes</a>
+               <a href="#"> Womens Clothes</a>
+               <a href="#"> Shoes</a>
+               <a href="#"> Assessories</a>
+          </div>
+         </div>
+            <div class="dropdown"> 
              <a href="entertainment.html" >Entertainment</a>
-          </li>
-       </ul>
+             <div class="dropdown-content">
+               <a href="#"> Laptops</a>
+               <a href="#"> Movies</a>
+               <a href="#"> Games</a>
+               <a href="#"> Music</a>
+          </div>
+         </div>
         </nav> 
     </header>
-
-    <div class="overlay"></div>
 
     <!-- Main display items -->
     <main>
@@ -153,7 +159,7 @@
          <ul name="ul-footernav">
             <!-- <a href="index.html"><img class=fit-logo src="images/icons/logo4.svg" ></a> -->
             <li name ="footernav-logo">
-               <a href="index.html"><img class=fit-logo src="images/icons/logo4.svg" ></a>
+               <a href="index.html"><img class=fit-logo src="images/icons/logo.svg" width="500px" ></a>
             </li>
             <li class="aboutus" ><a  href="about.html">About Us </a></li>
          </ul>
