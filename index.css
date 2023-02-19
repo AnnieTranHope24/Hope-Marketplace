@@ -157,7 +157,7 @@ header {
 .footernav ul {
   display: flex;
   list-style-type: none;
-  margin-left: -45px;
+  margin-left: 0;
 }
 
 .footernav a {
