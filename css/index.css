@@ -180,7 +180,8 @@ header {
   margin-top: 2em;
 }
 .aboutus a{
-  margin-left: 34em;
+  flex: 1;
+  left: 50%;
 
 }
 
@@ -338,5 +339,128 @@ footer {
 
 .gallery a {
   margin-right: 40px;
+}
+
+/* Carousel container for the best seller */
+.carousel-container {
+  width: 1100px;
+  margin: 50px auto;
+  position: relative;
+  /* border-left-width: 4px;
+  border-left-style: solid; */
+  /* border-left-color: #aaa; */
+
+  
+}
+.carousel-container h1 {
+  color: black;
+}
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 95%;
+  }
+}
+.inner-carousel {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+.track {
+  display: inline-flex;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+.card-container {
+  width: 275px;
+  height: 400px;
+  flex-shrink: 0;
+  padding-right: 10px;
+}
+.card-container img {
+  width: 100%;
+  max-width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border: 2px solid black;
+}
+@media (max-width: 768px) {
+  .card-container {
+    width: 184px;
+  }
+}
+.card {
+  width: 100%;
+  height: 100%;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;*/
+  background-position: center bottom;
+  background-size: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+
+.card1 {
+  background-image: url("images/academics/Chemtextbook.jpg");
+}
+.card2 {
+  background-image: url("images/academics/EconTextbook.jpg");
+}
+.card3 {
+  background-image: url("images/academics/stattextbook.jpg");
+}
+.card4 {
+  background-image: url("images/academics/physics.jpg");
+}
+.card5 {
+  background-image: url("images/academics/travel.jpg");
+}
+
+
+.nav button {
+  /* cursor: pointer;
+  position: absolute;
+  top: 48%;
+  width: auto;
+  margin-top: -23px;
+  padding: 17px;
+  color: grey;
+  font-weight: bold;
+  font-size: 19px;
+  transition: 0.4s ease;
+  border-radius: 0 5px 5px 0;
+  user-select: none; */
+
+
+
+
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  outline: none;
+  border: 1px solid #000;
+  
+}
+.nav .prev {
+  left: -30px;
+  display: none;
+  /* cursor: pointer; */
+}
+.nav .prev.show {
+  display: block;
+}
+.nav .next {
+  right: -30px;
+  cursor: pointer;
+  
+}
+.nav .next.hide {
+  display: none;
 }
 
