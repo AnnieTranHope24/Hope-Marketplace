@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="about.html" />
+
   
     <!-- <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
@@ -98,42 +99,43 @@
       </div>   -->
 
       <!-- Carousel -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   -->
-         <!-- Indicators -->
-         <ol class="carousel-indicators">
-           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-           <li data-target="#myCarousel" data-slide-to="1"></li>
-           <li data-target="#myCarousel" data-slide-to="2"></li>
-         </ol>
-       
-         <!-- Wrapper for slides -->
-         <div class="carousel-inner">
-           <div class="item active">
-             <img src="images/academics/academicscover.gif" alt="Los Angeles">
-           </div>
-       
-           <div class="item">
-             <img src="images/academics/academicscover.gif" alt="Chicago">
-           </div>
-       
-           <div class="item">
-             <img src="images/academics/academicscover.gif" alt="New York">
-           </div>
+ <!-- Slideshow container -->
+      <div class="slideshow-container">
+
+         <!-- Full images with numbers and message Info -->
+         <div class="Containers">
+            <div class="MessageInfo">1 / 3</div>
+            <img class="slideImage" src="images/academics/academicscover.gif" style="width:40%">
+            <div class="Info">First caption</div>
          </div>
-       
-         <!-- Left and right controls -->
-         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-           <span class="glyphicon glyphicon-chevron-left"></span>
-           <span class="sr-only">Previous</span>
-         </a>
-         <a class="right carousel-control" href="#myCarousel" data-slide="next">
-           <span class="glyphicon glyphicon-chevron-right"></span>
-           <span class="sr-only">Next</span>
-         </a>
-       </div>      
+      
+         <div class="Containers">
+            <div class="MessageInfo">2 / 3</div>
+            <img class="slideImage" src="images/academics/academicscover.gif" style="width:40%">
+            <div class="Info">Second Caption</div>
+         </div>
+      
+         <div class="Containers">
+            <div class="MessageInfo">3 / 3</div>
+            <img class="slideImage" src="images/academics/academicscover.gif" style="width:40%">
+            <div class="Info">Third Caption</div>
+         </div>
+      
+         <!-- Back and forward buttons -->
+         <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+         <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      <!-- The circles/dots -->
+      <div style="text-align:center">
+         <span class="dots" onclick="currentSlide(1)"></span>
+         <span class="dots" onclick="currentSlide(2)"></span>
+         <span class="dots" onclick="currentSlide(3)"></span>
+      </div>    
+      
+      
+
 
       <div class="gallery">
          <div >
@@ -209,6 +211,7 @@
       </nav> 
 
       <span id="copyRight"><small>&copy; 2022 Hope Marketplace. All Rights Reserved</small></span>
+      <script src="index.js"></script>
     </footer>
     <script src="hamburger.js"></script>
     </body>
