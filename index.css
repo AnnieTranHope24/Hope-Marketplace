@@ -228,6 +228,8 @@ footer {
   transition: 0.4s ease;
   border-radius: 0 5px 5px 0;
   user-select: none;
+  margin-left: -25%;
+  margin-right: -25%;
 }
 
 /* Place the "forward button" to the right */
@@ -297,6 +299,7 @@ footer {
 
 .slideImage {
   object-fit: cover;
+  margin-left: 30%
 }
 
 /* end of Carousel */
