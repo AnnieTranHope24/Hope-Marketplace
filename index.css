@@ -211,51 +211,20 @@ footer {
   box-sizing: border-box;
 }
 
-.gallery img {
+.gallery {
+  background-color: #818181;
+  padding: 20px;
+}
+
+.gallery img{
   width: 100%;
-  max-width: 300px;
-  height: 350px;
+  max-width: 250px;
+  height: 300px;
   object-fit: cover;
-
-}
-
-.gallery div {
-  margin: 0;
-  font-family: sans-serif; 
-  /* display: flex; */
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  /* padding: 20px 10px; */
-  /* max-width: 1400px; */
-  margin: 0 auto;
-  gap: 16px;
-  /* width: 100%; */
-
-}
-
-.gallery ul {
-  display: table;
-  width: 100%;
-}
-
-.gallery li {
-  display: table-cell;
+  border: 2px solid black;
 }
 
 .gallery a {
-  display: block;
-  border: 1px solid;
-  text-align: center;
-  margin: 0 5px;
-  background: white;
+  margin-right: 40px;
 }
-  /* change the font-family later */
-/* .gallery {
-  margin: 0;
-  font-family: sans-serif; 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-} */
+
