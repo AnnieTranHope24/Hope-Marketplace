@@ -205,9 +205,16 @@ footer {
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 100%;
   position: relative;
   margin: auto;
+  /* background-color: #ded2ae; */
+
+
+}
+
+#item1 {
+  background-color: #ded2ae;
 
 }
 
@@ -228,8 +235,10 @@ footer {
   transition: 0.4s ease;
   border-radius: 0 5px 5px 0;
   user-select: none;
-  margin-left: -25%;
-  margin-right: -25%;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  
 }
 
 /* Place the "forward button" to the right */
@@ -299,7 +308,9 @@ footer {
 
 .slideImage {
   object-fit: cover;
-  margin-left: 30%
+  margin-left: 30%;
+  border-radius: 45%;
+
 }
 
 /* end of Carousel */
