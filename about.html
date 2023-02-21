@@ -3,16 +3,16 @@
 <head>    
     <meta charset="utf-8">
     <title>About</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="about.css" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather&display=swap" rel="stylesheet">    
     <header>
       <div class="top-nav">
          <div class="nav-item">
-            <a href="index.html"><img class="logo" src="images/icons/logo.svg" width="400px"/></a>
+            <a href="index.html"><img src="images/icons/logo.svg" width="400px"/></a>
          </div>
          <div class="nav-item">
             <form class="search-form" method="get" action="http://www.randyconnolly.com/tests/process.php">
@@ -99,41 +99,79 @@
          </div>
       </nav>
    </header>
-
-    <div class="overlay"></div>
-   <div class="allProfiles">
-      <div>
-         <img class="profiles" src="images/bereket.jpeg" alt="profile picture of bereket">
-         <h2>Developer - Bereket Bessie</h2>
-         <p>
-            Bereket Bessie is a student at hope college studying computer science and economics
-         </p>
-
-      </div>
-
-      <div>
-         <img class="profiles" src="images/annie.jpg" alt="profile picture of annie">
-         <h2>Developer - Annie Tran</h2>
-         <p>
-            Bereket Bessie is a student at hope college studying computer science
-         </p> 
-      </div>
-     
-   </div>
+<body>
+   <div class="text">
+   <h1>For Students, by Students</h1>
+   <p> The mission and purpose of two students making a website for students at their school to create a platform that allows students to easily trade or sell items they no longer need or use, and to facilitate cost savings for students who might otherwise have to purchase new items at full price.
+ The primary mission of the website is to promote sustainability and reduce waste by encouraging the reuse of goods within the school community. By enabling students to trade or sell items they no longer need, the website helps to prevent those items from being thrown away and ending up in landfills. This is an important goal for students who are increasingly aware of the need to reduce their environmental impact. 
+ In addition to promoting sustainability, the website also has a financial purpose. By allowing students to exchange goods with one another, the website enables students to save money on items they might otherwise have to purchase new. For example, if a student needs a new textbook for a class, they could use the website to find another student who has already taken the class and no longer needs the book. This could save the student a significant amount of money, particularly if the textbook is expensive. 
+ Overall, the mission and purpose of the website created by these two students is to provide a platform that promotes sustainability and cost savings for students in their school community. By enabling students to exchange goods with one another, the website helps to reduce waste and save money, while also fostering a sense of community and collaboration among the students.</p>
+</div>
+<div id="st">
+ <div class="row" id="stories">
+            <div class="col">
+                  <img class="profiles1" src="images/icons/bereket.jpg" alt="profile picture of bereket" class="img-responsive"> 
+                  <h4>Web developer</h4>   
+                  <p>Bereket Bessie</p>
+                  <div class="links">
+                     <a href="mailto:bereket.bessie@hope.edu" > <img src="images/icons/envelope.svg" ></a> 
+                     <a href="https://www.linkedin.com/in/bereket-bessie-088267253" > <img src="images/icons/linkedin.svg" ></a> 
+                     <a href="" > <img src="images/icons/instagram.svg"></a> 
+                     <a href="" > <img src="images/icons/twitter.svg" ></a> 
+                     <a href="" > <img src="images/icons/snapchat.svg" ></a> 
+                  </div>
+                  <p class="more-details"> My name is Bereket Bessie and I'm currently a student at Hope College, studying Computer Science and Economics. I'm passionate about exploring the intersection of technology and business, and I'm always eager to learn more about how these fields can work together to drive innovation and create positive change in the world. When I'm not studying or working on projects, you can usually find me hiking, playing soccer, or catching up on my favorite shows on Netflix. </p>
+                  <button class="botton" onclick="details()" type="button">View details</button>
+            </div>
+            <div class="col">
+               <img class="profiles2" src="images/icons/annie.jpg" alt="profile picture of annie" class="img-responsive">  
+               <h4>Web developer</h4>  
+               <p>Annie Tran</p>
+               <div class="links">
+                  <a href="mailto:ngoc.tran@hope.edu" > <img src="images/icons/envelope.svg" ></a> 
+                  <a href="" > <img src="images/icons/linkedin.svg" ></a> 
+                  <a href="" > <img src="images/icons/instagram.svg"></a> 
+                  <a href="" > <img src="images/icons/twitter.svg" ></a> 
+                  <a href="" > <img src="images/icons/snapchat.svg" ></a> 
+                 </div>
+                <p class="more-details1"> Annie Tran is a student at hope college studying computer science  </p>
+                <button class="botton" onclick="details1()"  type="button">View details</button>
+            </div>
+ </div>
+</div>
+<div class="video">
+ <video controls class="vid">
+   <source src="images/icons/aboutUs.mp4" type="video/mp4"/>
+ </video>
+</div>
+ <script src="js/hamburger.js"></script>
+</body>
    <footer>
-
-      <nav class="footernav">
-         <ul name="ul-footernav">
-            <!-- <a href="index.html"><img class=fit-logo src="images/icons/logo4.svg" ></a> -->
-            <li name ="footernav-logo">
-               <a href="index.html"><img class="logo" src="images/icons/logo.svg" width="400px"/></a>
-            </li>
-            <li class="aboutus"><a href="about.html">About Us </a></li>
-         </ul>
-
-      </nav>
-
+      <div class="footer-nav">
+            <div class="footer-item">
+               <h3>Get to Know Us</h3>
+                  <a href="about.html"> About Us</a><br>
+                  <div class="links">
+                  <a href="mailto:ngoc.tran@hope.edu" > <img src="images/icons/envelope.svg" ></a> 
+                  <a href="" > <img src="images/icons/linkedin.svg" ></a> 
+                  <a href="" > <img src="images/icons/instagram.svg"></a> 
+                  <a href="" > <img src="images/icons/twitter.svg" ></a> 
+                  <a href="" > <img src="images/icons/snapchat.svg" ></a> 
+                  </div>
+            </div>
+            <div class="footer-item">
+               <h3>Make Money with Us</h3>
+               <a href="#"> Sell products</a>
+               <a href="#"> Advertis Your Products</a>
+               <a href="#"> Get paid </a>
+            </div>
+            <div class="footer-item">
+               <h3>Frequently Asked Questions</h3>
+               <a href="#"> How to find products</a>
+               <a href="#"> What is the condition of products</a>
+               <a href="#"> How to contact seller </a>
+               <a href="#"> Help</a>
+            </div>
+      </div>
       <span id="copyRight"><small>&copy; 2022 Hope Marketplace. All Rights Reserved</small></span>
     </footer>
-
-</body>
