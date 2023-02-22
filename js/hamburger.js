@@ -17,3 +17,22 @@ function details(){
         x.style.display = "none"
       }
     }
+    
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+
+const hamburger = document.querySelector(".hamburger");
+//const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+   // navMenu.classList.toggle("active");
+}

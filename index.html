@@ -1,354 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-    <meta charset="utf-8">
-    <title>Hope Marketplace</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="about.html" />
-  
-    <!-- <script src="//code.jquery.com/jquery.min.js"></script>
-    <script>
-    $.get("header.html", function(data){
-        $("#nav-placeholder").replaceWith(data);
-    });
-    </script> -->
+
+<head>
+  <meta charset="utf-8">
+  <title>Hope Marketplace</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="about.html" />
+  <link rel="stylesheet" href="css/moblie-index.css">
 </head>
 
 <body>
-
   <header>
-    <div class="top-nav">
-       <div class="nav-item">
-          <a href="index.html"><img src="images/icons/logo.svg" width="400px"/></a>
-       </div>
-       <div class="nav-item">
-          <form class="search-form" method="get" action="http://www.randyconnolly.com/tests/process.php">
-             <div class="search_box">
-                <input name="search" type="text" class="mySearch" onkeyup="myFunction()" placeholder="Search.."
-                   src="images/icons/search.svg">
-                <div>
-                   <button class="search_btn" type="submit"><img src="images/icons/search.svg" alt="search button"
-                         width="30px" height="25px"></button>
-                </div>
-             </div>
-          </form>
-       </div>
-       <div class="nav-item">
-          <div class="personal">
-             <a id="account" href="account.html">Account</a>
-             <a class="cart" href="cart.html"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
+    <div class="topnav">
+      <a class="logo" href="index.html"><img src="images/icons/logo.svg" width="400px" /></a>
+      <form class="search-form" method="get" action="http://www.randyconnolly.com/tests/process.php">
+        <div class="search_box">
+          <input name="search" type="text" class="mySearch" placeholder="Search.." src="images/icons/search.svg">
+          <div>
+            <button class="search_btn" type="submit"><img src="images/icons/search.svg" alt="search button" width="25px"
+                height="20px"></button>
           </div>
-       </div>
+        </div>
+      </form>
+      <div class="personal">
+        <a href="account.html"><img src="images/icons/person-circle.svg" width="30px"></a>
+        <a id="account" href="account.html">Account</a>
+        <div class="cart">
+          <a class="cart" href="cart.html"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
+        </div>
+      </div>
     </div>
+    <div class="navbar">
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+       </div>
+        <form class="nav_moblie"  method="get" action="http://www.randyconnolly.com/tests/process.php">
+          <div class="searchbox_moblie">
+            <input name="search" type="text" class="mySearch" placeholder="Search.." src="images/icons/search.svg">
+            <div>
+              <button class="search_btn" type="submit"><img src="images/icons/search.svg" alt="search button" width="25px"
+                  height="20px"></button>
+            </div>
+          </div>
+        </form>
+      <div class="dropdown">
+        <a id="category" href="academics.html"> Academics </a>
+        <div class="dropdown-content">
+          <div>
+            <h3>Resources</h3>
+            <a href="#"> Textbooks</a>
+            <a href="#"> Books</a>
+            <a href="#"> Test Prep</a>
+          </div>
+          <div>
+            <h3>Supplies</h3>
+            <a href="#"> Folder</a>
+            <a href="#"> Pens & Pencils</a>
+            <a href="#"> Binders</a>
+            <a href="#"> NoteCards</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a id="category" href="fitness.html"> Fitness </a>
+        <div class="dropdown-content">
+          <div>
+            <a href="#"> Yoga Matts</a>
+            <a href="#"> Home Workout Equipment</a>
+            <a href="#"> Fitness Clothes</a>
+            <a hrer="#"> Weightlifting Belts</a>
+            <a href="#"> Foam Rollers</a>
+            <a href="#"> Sport Equipment</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a id="category" href="room.html">Room</a>
+        <div class="dropdown-content">
+          <div>
+            <a href="#"> Plants</a>
+            <a href="#"> Lights</a>
+            <a href="#"> Rugs</a>
+            <a href="#"> Art</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a id="category" href="fashion.html">Fashion</a>
+        <div class="dropdown-content">
+          <div>
+            <a href="#"> Mens Clothes</a>
+            <a href="#"> Womens Clothes</a>
+            <a href="#"> Shoes</a>
+            <a href="#"> Assessories</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a id="category" href="entertainment.html">Entertainment</a>
+        <div class="dropdown-content">
+          <div>
+            <a href="#"> Laptops</a>
+            <a href="#"> Movies</a>
+            <a href="#"> Games</a>
+            <a href="#"> Music</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <nav class="navbar">
-       <div class="dropdown">
-          <a id="category" href="academics.html"> Academics </a>
-          <div class="dropdown-content">
-             <div>
-                <h3>Resources</h3>
-                <a href="#"> Textbooks</a>
-                <a href="#"> Books</a>
-                <a href="#"> Test Prep</a>
-             </div>
-             <div>
-                <h3>Supplies</h3>
-                <a href="#"> Folder</a>
-                <a href="#"> Pens & Pencils</a>
-                <a href="#"> Binders</a>
-                <a href="#"> NoteCards</a>
-             </div>
-          </div>
-       </div>
-       <div class="dropdown">
-          <a id="category" href="fitness.html"> Fitness </a>
-          <div class="dropdown-content">
-             <div>
-                <a href="#"> Watches</a>
-                <a href="#"> Home Workout Equipment</a>
-                <a href="#"> Fitness Clothes</a>
-                <a href="#"> Sport Equipment</a>
-             </div>
-          </div>
-       </div>
-       <div class="dropdown">
-          <a id="category" href="room.html">Room</a>
-          <div class="dropdown-content">
-             <div>
-                <a href="#"> Plants</a>
-                <a href="#"> Lights</a>
-                <a href="#"> Rugs</a>
-                <a href="#"> Art</a>
-             </div>
-          </div>
-       </div>
-       <div class="dropdown">
-          <a id="category" href="fashion.html">Fashion</a>
-          <div class="dropdown-content">
-             <div>
-                <a href="#"> Mens Clothes</a>
-                <a href="#"> Womens Clothes</a>
-                <a href="#"> Shoes</a>
-                <a href="#"> Assessories</a>
-             </div>
-          </div>
-       </div>
-       <div class="dropdown">
-          <a id="category" href="entertainment.html">Entertainment</a>
-          <div class="dropdown-content">
-             <div>
-                <a href="#"> Laptops</a>
-                <a href="#"> Movies</a>
-                <a href="#"> Games</a>
-                <a href="#"> Music</a>
-             </div>
-          </div>
-       </div>
-    </nav>
- </header>
+  <!-- Main display items -->
+  <main>
 
-   <!-- Main display items -->
-   <main>
-
-      <!-- <div class="cover">
+    <!-- <div class="cover">
          <a href="index.html" ><img src="images/academics/academicscover.gif"></a>
       </div>   -->
 
-       <!-- Carousel -->
- <!-- Slideshow container -->
- <div class="slideshow-container">
+    <!-- Carousel -->
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
 
-   <!-- Full images with numbers and message Info -->
-   <div class="Containers" id="item1">
-      <div class="MessageInfo">1 / 5</div>
-      <img class="slideImage" src="images/academics/academicscover.gif" style="width:40%">
-      <!-- <div class="Info">First caption</div> -->
-   </div>
+      <!-- Full images with numbers and message Info -->
+      <div class="Containers" id="item1">
+        <div class="MessageInfo">1 / 5</div>
+        <img class="slideImage" src="images/academics/academicscover.gif" style="width:40%">
+        <!-- <div class="Info">First caption</div> -->
+      </div>
 
-   <div class="Containers">
-      <div class="MessageInfo">2 / 5</div>
-      <img class="slideImage" src="images/fitness/healthfitnesscover.gif" style="width:40%">
-      <!-- <div class="Info">Second Caption</div> -->
-   </div>
+      <div class="Containers">
+        <div class="MessageInfo">2 / 5</div>
+        <img class="slideImage" src="images/fitness/healthfitnesscover.gif" style="width:40%">
+        <!-- <div class="Info">Second Caption</div> -->
+      </div>
 
-   <div class="Containers">
-      <div class="MessageInfo">3 / 5</div>
-      <img class="slideImage" src="images/entertainment/techcover.gif" style="width:40%">
-      <!-- <div class="Info">Third Caption</div> -->
-   </div>
+      <div class="Containers">
+        <div class="MessageInfo">3 / 5</div>
+        <img class="slideImage" src="images/entertainment/techcover.gif" style="width:40%">
+        <!-- <div class="Info">Third Caption</div> -->
+      </div>
 
-   <div class="Containers">
-      <div class="MessageInfo">4 / 5</div>
-      <img class="slideImage" src="images/room/cozyroom.gif" style="width:40%">
-      <!-- <div class="Info">Fourth Caption</div> -->
-   </div>
+      <div class="Containers">
+        <div class="MessageInfo">4 / 5</div>
+        <img class="slideImage" src="images/room/cozyroom.gif" style="width:40%">
+        <!-- <div class="Info">Fourth Caption</div> -->
+      </div>
 
-   <div class="Containers">
-      <div class="MessageInfo">5 / 5</div>
-      <img class="slideImage" src="images/fashion/fashioncover.gif" style="width:40%">
-      <!-- <div class="Info">Fifth Caption</div> -->
-   </div>
+      <div class="Containers">
+        <div class="MessageInfo">5 / 5</div>
+        <img class="slideImage" src="images/fashion/fashioncover.gif" style="width:40%">
+        <!-- <div class="Info">Fifth Caption</div> -->
+      </div>
 
-   <!-- Back and forward buttons -->
-   <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
-   <a class="forward" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
+      <!-- Back and forward buttons -->
+      <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
 
-<!-- The circles/dots -->
-<div style="text-align:center">
-   <span class="dots" onclick="currentSlide(1)"></span>
-   <span class="dots" onclick="currentSlide(2)"></span>
-   <span class="dots" onclick="currentSlide(3)"></span>
-   <span class="dots" onclick="currentSlide(4)"></span>
-   <span class="dots" onclick="currentSlide(5)"></span>
-</div>    
+    <!-- The circles/dots -->
+    <div style="text-align:center">
+      <span class="dots" onclick="currentSlide(1)"></span>
+      <span class="dots" onclick="currentSlide(2)"></span>
+      <span class="dots" onclick="currentSlide(3)"></span>
+      <span class="dots" onclick="currentSlide(4)"></span>
+      <span class="dots" onclick="currentSlide(5)"></span>
+    </div>
 
 
-         <div class="carousel-container" id="carousel-container1">
-            <h1>Best Sellers in Academics</h1>
-            <div class="inner-carousel">
-              <div class="track" id="track1">
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/Chemtextbook.jpg"></a>
-                  <!-- <div class="card card1"></div> -->
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/EconTextbook.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/stattextbook.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/physics.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/travel.jpg">
-                </div>
-              </div>
-              <div class="nav">
-                <button class="prev" id="prev1"><i class="fas fa-arrow-left fa-2x"></i>&#10094;</button>
-                <button class="next" id="next1"><i class="fas fa-arrow-right fa-2x"></i>&#10095;</button>
-              </div>
-            </div>
+    <div class="carousel-container" id="carousel-container1">
+      <h1>Best Sellers in Academics</h1>
+      <div class="inner-carousel">
+        <div class="track" id="track1">
+          <div class="card-container">
+            <a href="#"><img src="images/academics/Chemtextbook.jpg"></a>
+            <!-- <div class="card card1"></div> -->
           </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/EconTextbook.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/stattextbook.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/physics.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/travel.jpg">
+          </div>
+        </div>
+        <div class="nav">
+          <button class="prev" id="prev1"><i class="fas fa-arrow-left fa-2x"></i>&#10094;</button>
+          <button class="next" id="next1"><i class="fas fa-arrow-right fa-2x"></i>&#10095;</button>
+        </div>
+      </div>
+    </div>
 
 
-         <div class="carousel-container" id="carousel-container2">
-            <h1>Best Sellers in Fitness</h1>
-            <div class="inner-carousel">
-              <div class="track" id="track2">
-                <div class="card-container">
-                  <a href="#"><img src="images/fitness/band.jpg"></a>
-                  <!-- <div class="card card1"></div> -->
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fitness/waterbottle.png">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fitness/yogamatt.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fitness/jumprope.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fitness/pushupboard.jpg">
-                </div>
-              </div>
-              <div class="nav">
-                <button class="prev" id="prev2">&#10094;</button>
-                <button class="next" id="next2">&#10095;</button>
-              </div>
-            </div>
-          </div>    
-          
+    <div class="carousel-container" id="carousel-container2">
+      <h1>Best Sellers in Fitness</h1>
+      <div class="inner-carousel">
+        <div class="track" id="track2">
+          <div class="card-container">
+            <a href="#"><img src="images/fitness/band.jpg"></a>
+            <!-- <div class="card card1"></div> -->
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fitness/waterbottle.png">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fitness/yogamatt.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fitness/jumprope.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fitness/pushupboard.jpg">
+          </div>
+        </div>
+        <div class="nav">
+          <button class="prev" id="prev2">&#10094;</button>
+          <button class="next" id="next2">&#10095;</button>
+        </div>
+      </div>
+    </div>
 
 
-         <div class="carousel-container" id="carousel-container3">
-            <h1>Best Sellers in Room</h1>
-            <div class="inner-carousel">
-              <div class="track" id="track3">
-                <div class="card-container">
-                  <a href="#"><img src="images/room/desklamp.jpg"></a>
-                  <!-- <div class="card card1"></div> -->
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/room/LEDlights.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/room/plant.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/physics.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/travel.jpg">
-                </div>
-              </div>
+
+    <div class="carousel-container" id="carousel-container3">
+      <h1>Best Sellers in Room</h1>
+      <div class="inner-carousel">
+        <div class="track" id="track3">
+          <div class="card-container">
+            <a href="#"><img src="images/room/desklamp.jpg"></a>
+            <!-- <div class="card card1"></div> -->
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/room/LEDlights.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/room/plant.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/physics.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/travel.jpg">
+          </div>
+        </div>
 
 
-              <div class="nav">
-                <button class="prev" id="prev3">&#10094;</button>
-                <button class="next" id="next3">&#10095;</button>
-              </div>
-            </div>
-          </div> 
+        <div class="nav">
+          <button class="prev" id="prev3">&#10094;</button>
+          <button class="next" id="next3">&#10095;</button>
+        </div>
+      </div>
+    </div>
 
 
-         <div class="carousel-container" id="carousel-container4">
-            <h1>Best Sellers in Fashion</h1>
-            <div class="inner-carousel">
-              <div class="track" id="track4">
-                <div class="card-container">
-                  <a href="#"><img src="images/fashion/jackect.jpg"></a>
-                  <!-- <div class="card card1"></div> -->
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fashion/shirt.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fashion/Sweater.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fashion/sweatpants.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/fashion/Sweatshirt.jpg">
-                </div>
-              </div>
+    <div class="carousel-container" id="carousel-container4">
+      <h1>Best Sellers in Fashion</h1>
+      <div class="inner-carousel">
+        <div class="track" id="track4">
+          <div class="card-container">
+            <a href="#"><img src="images/fashion/jackect.jpg"></a>
+            <!-- <div class="card card1"></div> -->
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fashion/shirt.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fashion/Sweater.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fashion/sweatpants.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/fashion/Sweatshirt.jpg">
+          </div>
+        </div>
 
 
-              <div class="nav">
-                <button class="prev" id="prev4">&#10094;</button>
-                <button class="next" id="next4">&#10095;</button>
-              </div>
-            </div>
-          </div>         
+        <div class="nav">
+          <button class="prev" id="prev4">&#10094;</button>
+          <button class="next" id="next4">&#10095;</button>
+        </div>
+      </div>
+    </div>
 
 
-         <div class="carousel-container" id="carousel-container5">
-            <h1>Best Sellers in Fashion</h1>
-            <div class="inner-carousel">
-              <div class="track" id="track5">
-                <div class="card-container">
-                  <a href="#"><img src="images/entertainment/appletv.jpg"></a>
-                  <!-- <div class="card card1"></div> -->
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/entertainment/headphones.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/entertainment/laptop.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/physics.jpg">
-                </div>
-                <div class="card-container">
-                  <a href="#"><img src="images/academics/travel.jpg">
-                </div>
-              </div>
+    <div class="carousel-container" id="carousel-container5">
+      <h1>Best Sellers in Fashion</h1>
+      <div class="inner-carousel">
+        <div class="track" id="track5">
+          <div class="card-container">
+            <a href="#"><img src="images/entertainment/appletv.jpg"></a>
+            <!-- <div class="card card1"></div> -->
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/entertainment/headphones.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/entertainment/laptop.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/physics.jpg">
+          </div>
+          <div class="card-container">
+            <a href="#"><img src="images/academics/travel.jpg">
+          </div>
+        </div>
 
 
-              <div class="nav">
-                <button class="prev" id="prev5">&#10094;</button>
-                <button class="next" id="next5">&#10095;</button>
-              </div>
-            </div>         
+        <div class="nav">
+          <button class="prev" id="prev5">&#10094;</button>
+          <button class="next" id="next5">&#10095;</button>
+        </div>
+      </div>
 
-   </main>
-   <footer>
+  </main>
+  <footer>
     <div class="footer-nav">
-          <div class="footer-item">
-             <h3>Get to Know Us</h3>
-                <a href="about.html"> About Us</a><br>
-                <div class="links">
-                <a href="mailto:ngoc.tran@hope.edu" > <img src="images/icons/envelope.svg" ></a> 
-                <a href="" > <img src="images/icons/linkedin.svg" ></a> 
-                <a href="" > <img src="images/icons/instagram.svg"></a> 
-                <a href="" > <img src="images/icons/twitter.svg" ></a> 
-                <a href="" > <img src="images/icons/snapchat.svg" ></a> 
-                </div>
-          </div>
-          <div class="footer-item">
-             <h3>Make Money with Us</h3>
-             <a href="#"> Sell products</a>
-             <a href="#"> Advertis Your Products</a>
-             <a href="#"> Get paid </a>
-          </div>
-          <div class="footer-item">
-             <h3>Frequently Asked Questions</h3>
-             <a href="#"> How to find products</a>
-             <a href="#"> What is the condition of products</a>
-             <a href="#"> How to contact seller </a>
-             <a href="#"> Help</a>
-          </div>
+      <div class="footer-item">
+        <h3>Get to Know Us</h3>
+        <a href="about.html"> About Us</a><br>
+        <div class="links">
+          <a href="mailto:ngoc.tran@hope.edu"> <img src="images/icons/envelope.svg"></a>
+          <a href=""> <img src="images/icons/linkedin.svg"></a>
+          <a href=""> <img src="images/icons/instagram.svg"></a>
+          <a href=""> <img src="images/icons/twitter.svg"></a>
+          <a href=""> <img src="images/icons/snapchat.svg"></a>
+        </div>
+      </div>
+      <div class="footer-item">
+        <h3>Make Money with Us</h3>
+        <a href="#"> Sell products</a>
+        <a href="#"> Advertis Your Products</a>
+        <a href="#"> Get paid </a>
+      </div>
+      <div class="footer-item">
+        <h3>Frequently Asked Questions</h3>
+        <a href="#"> How to find products</a>
+        <a href="#"> What is the condition of products</a>
+        <a href="#"> How to contact seller </a>
+        <a href="#"> Help</a>
+      </div>
     </div>
     <span id="copyRight"><small>&copy; 2022 Hope Marketplace. All Rights Reserved</small></span>
   </footer>
-    <script src="hamburger.js"></script>
-    <script src="js/index.js"></script>
-    </body>
+  <script src="js/hamburger.js"></script>
+  <script src="js/index.js"></script>
+</body>
 
 
 </html>
