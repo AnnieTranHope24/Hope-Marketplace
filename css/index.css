@@ -217,6 +217,7 @@ color:white;
   height: 30px;
   object-fit:fit;
   margin-right: 30px;
+  
 }
 .nav-link:hover {
   margin: 0px 25px;
@@ -315,6 +316,9 @@ footer {
   margin-top: 5px;
 }
 
+#copyRight {
+  margin-left: 43%;
+}
 /*End of Footer*/
 
 /* Main */
@@ -333,9 +337,26 @@ footer {
 }
 
 #item1 {
-  background-color: #ded2ae;
+  background-color: #e5d9bf;
 
 }
+#item2 {
+  background-color: #797faf;
+
+}
+#item3 {
+  background-color: #8387a9;
+
+}
+#item4 {
+  background-color: #241964;
+
+}
+#item5 {
+  background-color: #f3efe3;
+
+}
+
 
 /* Make the images invisible by default */
 
@@ -428,10 +449,15 @@ footer {
 .slideImage {
   object-fit: cover;
   margin-left: 30%;
-  border-radius: 45%;
+  border-radius: 10%;
   max-height: 400px;
+  width: 100%;
+  z-index: 0;
+  margin-bottom: -4px;
 
 }
+
+
 
 /* end of Carousel */
 
@@ -474,9 +500,16 @@ footer {
 .carousel-container h1 {
   color: black;
 }
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .carousel-container {
     width: 95%;
+  }
+  .inner-carousel {
+    overflow-x: auto;
+  }
+
+  .inner-carousel::-webkit-scrollbar{
+    width:0;
   }
 }
 .inner-carousel {
