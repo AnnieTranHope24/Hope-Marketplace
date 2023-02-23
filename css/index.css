@@ -429,6 +429,7 @@ footer {
   object-fit: cover;
   margin-left: 30%;
   border-radius: 45%;
+  max-height: 400px;
 
 }
 
@@ -569,6 +570,8 @@ footer {
   left: -30px;
   display: none;
   /* cursor: pointer; */
+  top: 43%;  
+  
 }
 .nav .prev.show {
   display: block;
@@ -576,6 +579,7 @@ footer {
 .nav .next {
   right: -30px;
   cursor: pointer;
+  top: 43%;
   
 }
 .nav .next.hide {
