@@ -1,4 +1,56 @@
 .itemclass {
-    list-style: none;
     display: flex;
+    flex-wrap: wrap;
+}
+
+.item-pic img {
+    height: 650px;
+}
+
+.description {
+    padding-top: 3%;
+}
+
+.description h1,h2,p,div,select,button {
+    margin-top: 5px;
+}
+
+.description > h1{
+    
+    font-size: 30px;
+}
+
+.description > h2 {
+
+    font-size: 25px;
+}
+#text {
+    font-size: 20px;
+}
+
+.review-row {
+    display: flex;
+}
+
+.review-row p {
+    padding-top: 4%;
+    padding-left: 1%;
+}
+.quality-sel {
+    height: 50px;
+    width: 50px;
+}
+.add-button {
+    height: 50px;
+    width: 150px;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 15px;
+    background-color: orange;
+}
+.rating{
+    margin: 4%;
+}
+
+.rating h1 {
+    font-size: 20px;
 }
