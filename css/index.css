@@ -208,18 +208,20 @@ color:white;
   text-align: start;
   color:black;
   font-weight: 550;
-  padding:1.5em 3em ;
+  padding:1.5em 1em ;
+  margin: 0px 25px;
+  border-radius: 50px;
   transition: 0.2s ease-in;
   flex:1;
 }
 .nav-link > img  {
   width:30px;
   height: 30px;
+  margin: -10px 0;
   object-fit:fit;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 .nav-link:hover {
-  margin: 0px 25px;
   color: black;
   border-radius: 50px;
   background-color: gray;
@@ -230,7 +232,7 @@ color:white;
   flex:1;
   left: -100%;
   top: 7rem;
-  background-color:white;
+  background-color:rgb(255,255,255,0.95);
   width: 50%;
   height:100%;
   text-align: center;

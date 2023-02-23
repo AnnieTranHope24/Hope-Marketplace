@@ -1,0 +1,39 @@
+.inner-carousel {
+    width: 100%;
+    height: 400px;
+    overflow-x: auto;
+  }
+  
+  .track {
+    display: inline-flex;
+    height: 100%;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .card-container {
+    width: 275px;
+    height: 400px;
+    flex-shrink: 0;
+    padding-right: 10px;
+  }
+
+  .card-container img {
+    width: 100%;
+    max-width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border: 2px solid black;
+  }
+
+  @media (max-width: 950px) {
+    .card-container {
+      width: 184px;
+    }
+    .card-container img {
+        height:200px;
+    }
+  }
+
+.wrapper::-webkit-scrollbar {
+width:0;
+}
