@@ -36,3 +36,26 @@ function mobileMenu() {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 }
+
+function addItem(amount) {
+  var item = document.getElementById('item-counter');
+  var count = parseInt(item.textContent);
+  if(amount > 0){
+  count++;
+  item.textContent = count;
+  }
+  document.getElementById("add-btn").style.display = "none";
+  document.getElementById("remove-btn").style.display = "inline";
+}
+
+function removeItem(amount) {
+  var item = document.getElementById('item-counter');
+  var count = parseInt(item.textContent);
+  if (count > 0 & amount > 0) {
+    count-= amount;
+    item.textContent = count;
+  }
+  document.getElementById("add-btn").style.display = "inline";
+  document.getElementById("remove-btn").style.display = "none";
+}
+

@@ -1,39 +1,50 @@
-.inner-carousel {
-    width: 100%;
-    height: 400px;
-    overflow-x: auto;
-  }
-  
-  .track {
-    display: inline-flex;
-    height: 100%;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .card-container {
-    width: 275px;
-    height: 400px;
-    flex-shrink: 0;
-    padding-right: 10px;
-  }
-
-  .card-container img {
-    width: 100%;
-    max-width: 250px;
-    height: 300px;
-    object-fit: cover;
-    border: 2px solid black;
-  }
 
   @media (max-width: 950px) {
-    .card-container {
-      width: 184px;
-    }
-    .card-container img {
-        height:200px;
-    }
   }
 
-.wrapper::-webkit-scrollbar {
-width:0;
+
+.wrapper {
+  max-height: 400px;
+  display:flex;
+  flex:1;
+  overflow-x:auto;
+}
+
+.wrapper::-webkit-scrollbar{
+  width:0;
+}
+
+.wrapper .item {
+ width:400px;
+ height:300px;
+ background-color: rgb(223, 217, 217);
+ margin:30px;
+ padding: 10px;
+ text-align: center;
+ box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+ line-height: 30px;
+}
+
+.item img {
+  min-width:200px;
+  max-height: 200px;
+  object-fit:contain;
+  }
+
+#remove-btn{
+  display:none;
+}
+
+#add-btn , #remove-btn {
+  color: black;
+  background-color: lightblue;
+  padding: 5px ;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+h1{
+  margin-left: 20px;
+  font-size: larger;
 }

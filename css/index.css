@@ -92,11 +92,6 @@ color:#111;
 color:white;
 }
 
-.cart:hover{
-  border-bottom:3px solid #f1f1f1;
-  transition: 0.1s ease-in;
-}
-
 .navbar {
   width: 100%;
   height: 1.9em;
@@ -104,7 +99,7 @@ color:white;
   justify-content: space-between;
   align-items: center;
   font-size: 25px;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
   background-color: black;
   border-top:2px solid rgba(0,0,0,0.5);
   box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
@@ -165,8 +160,11 @@ color:white;
 }
 
 .cart {
-  margin: 10px;
+  display:block;
+  text-align: center;
+  margin: -6px 15px  0px 10px;
 }
+
 
 .hamburger {
   display: none;
@@ -219,7 +217,7 @@ color:white;
   height: 30px;
   margin: -10px 0;
   object-fit:fit;
-  margin-right: 30px;
+  margin-right: 20px;
   
 }
 .nav-link:hover {
@@ -270,6 +268,45 @@ color:white;
     cursor: pointer;
 }
 
+
+@media (max-width: 950px) {
+  .card-container {
+    width: 184px;
+  }
+  .card-container img {
+      height:200px;
+  }
+}
+
+.inner-carousel {
+  width: 100%;
+  height: 400px;
+  overflow-x: auto;
+}
+
+.track {
+  display: inline-flex;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-container {
+  width: 275px;
+  height: 400px;
+  flex-shrink: 0;
+  padding-right: 10px;
+}
+
+.card-container img {
+  width: 100%;
+  max-width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border: 2px solid black;
+}
+.inner-carousel::-webkit-scrollbar {
+width:0;
+}
 
 }
 
@@ -379,8 +416,6 @@ footer {
   user-select: none;
   padding-left: 30px;
   padding-right: 30px;
-
-  
 }
 
 /* Place the "forward button" to the right */
@@ -496,8 +531,6 @@ footer {
   /* border-left-width: 4px;
   border-left-style: solid; */
   /* border-left-color: #aaa; */
-
-  
 }
 .carousel-container h1 {
   color: black;
@@ -505,13 +538,6 @@ footer {
 @media (max-width: 950px) {
   .carousel-container {
     width: 95%;
-  }
-  .inner-carousel {
-    overflow-x: auto;
-  }
-
-  .inner-carousel::-webkit-scrollbar{
-    width:0;
   }
 }
 .inner-carousel {
