@@ -27,51 +27,121 @@ function SlideShow(n) {
   circles[slidePosition-1].className += " enable";
 } 
 
-// code for carousel container for the best sellers
-// const prev = document.querySelector(".prev");
-// const next = document.querySelector(".next");
-// const carousel = document.querySelector(".carousel-container");
-// const track = document.querySelector(".track");
-// let width = carousel.offsetWidth;
-// let index = 0;
-// window.addEventListener("resize", function () {
-//   width = carousel.offsetWidth;
-// });
 
-CarouselSlide("#prev1", "#next1", "#carousel-container1", "#track1")
-CarouselSlide("#prev2", "#next2", "#carousel-container2", "#track2")
-CarouselSlide("#prev3", "#next3", "#carousel-container3", "#track3")
-CarouselSlide("#prev4", "#next4", "#carousel-container4", "#track4")
-CarouselSlide("#prev5", "#next5", "#carousel-container5", "#track5")
-function CarouselSlide (namePrev, nameNext, nameCarousel, nameTrack){
-  const prev = document.querySelector(namePrev);
-  const next = document.querySelector(nameNext);
-  const carousel = document.querySelector(nameCarousel);
-  const track = document.querySelector(nameTrack);
-  let width = carousel.offsetWidth;
-  let index = 0;
-  window.addEventListener("resize", function () {
-    width = carousel.offsetWidth; 
-  });
 
-  next.addEventListener("click", function (e) {
-    e.preventDefault();
-    index = index + 1;
-    prev.classList.add("show");
-    track.style.transform = "translateX(" + index * -width + "px)";
-    if (track.offsetWidth - index * width < index * width) {
-      next.classList.add("hide");
-    }
-  });
-  prev.addEventListener("click", function (e) {
-    e.preventDefault();
-    index = index - 1;
-    next.classList.remove("hide");
-    if (index === 0) {
-      prev.classList.remove("show");
-    }
-    track.style.transform = "translateX(" + index * -width + "px)";
-  });  
-}
 
+// Tiny slider
+let slider = tns({
+  container: '.my-slider',
+  items: 4,
+  slideBy: '1',
+  autoplay: false,
+  prevButton: document.querySelector('#slide-prev1'),  // Node reference
+  nextButton: document.querySelector('#slide-next1'), 
+  nav: false,                          // String selector
+  responsive: {
+    950: {
+      items: 4,
+      gutter: 20
+    },
+    500: {
+      items: 2,
+      gutter: 20      
+    },
+
+
+  }
+  
+})
+let slider2 = tns({
+  container: '.my-slider2',
+  items: 4,
+  slideBy: '1',
+  autoplay: false,
+  prevButton: document.querySelector('#slide-prev2'),  // Node reference
+  nextButton: document.querySelector('#slide-next2'), 
+  nav: false,                          // String selector
+  responsive: {
+    950: {
+      items: 4,
+      gutter: 20
+    },
+    500: {
+      items: 2,
+      gutter: 20      
+    },
+
+
+  }
+  
+})
+
+let slider3 = tns({
+  container: '.my-slider3',
+  items: 4,
+  slideBy: '1',
+  autoplay: false,
+  prevButton: document.querySelector('#slide-prev3'),  // Node reference
+  nextButton: document.querySelector('#slide-next3'), 
+  nav: false,                          // String selector
+  responsive: {
+    950: {
+      items: 4,
+      gutter: 20
+    },
+    500: {
+      items: 2,
+      gutter: 20      
+    },
+
+
+  }
+  
+})
+
+let slider4 = tns({
+  container: '.my-slider4',
+  items: 4,
+  slideBy: '1',
+  autoplay: false,
+  prevButton: document.querySelector('#slide-prev4'),  // Node reference
+  nextButton: document.querySelector('#slide-next4'), 
+  nav: false,                          // String selector
+  responsive: {
+    950: {
+      items: 4,
+      gutter: 20
+    },
+    500: {
+      items: 2,
+      gutter: 20      
+    },
+
+
+  }
+  
+})
+
+let slider5 = tns({
+  container: '.my-slider5',
+  items: 4,
+  slideBy: '1',
+  autoplay: false,
+  prevButton: document.querySelector('#slide-prev5'),  // Node reference
+  nextButton: document.querySelector('#slide-next5'), 
+  nav: false,                          // String selector
+  responsive: {
+    950: {
+      items: 4,
+      gutter: 20
+    },
+    500: {
+      items: 2,
+      gutter: 20      
+    },
+
+
+  }
+  
+})
 
