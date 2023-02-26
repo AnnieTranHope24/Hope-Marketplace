@@ -460,7 +460,7 @@ footer {
   object-fit: cover;
   margin-left: 30%;
   border-radius: 10%;
-  max-height: 450px;
+  max-height: 550px;
   width: 100%;
   z-index: 0;
   margin-bottom: -4px;
@@ -530,3 +530,19 @@ footer {
 
 }
 
+.Back, .forward {
+  cursor: pointer;
+  position: absolute;
+  top: 48%;
+  width: auto;
+  margin-top: -23px;
+  padding: 17px;
+  color: grey;
+  font-weight: bold;
+  font-size: 19px;
+  transition: 0.4s ease;
+  border-radius: 0 5px 5px 0;
+  user-select: none;
+  padding-left: 30px;
+  padding-right: 30px;
+}
