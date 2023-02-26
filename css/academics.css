@@ -35,12 +35,12 @@
   display:none;
 }
 
-#add-btn , #remove-btn {
+.add{
   color: black;
   background-color: lightblue;
   padding: 5px ;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
 }
 
@@ -48,3 +48,4 @@ h1{
   margin-left: 20px;
   font-size: larger;
 }
+

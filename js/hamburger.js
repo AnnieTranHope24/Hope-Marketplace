@@ -1,22 +1,20 @@
 
-function details(){
-  const x = document.querySelector(".more-details");
-    if (x.style.display === "none") {
-      x.style.display = "flex";
+function details(num){
+  const detail1 = document.querySelector(".more-details");
+  const detail2 = document.querySelector(".more-details1");
+  if(num == 1){
+    if (detail1.style.display === "none") {
+      detail1.style.display = "flex";
     } else {
-      x.style.display = "none"
+      detail1.style.display = "none"
     }
+  }else {    if (detail2.style.display === "none") {
+    detail2.style.display = "flex";
+  } else {
+    detail2.style.display = "none"
   }
-
-  function details1(){
-    const x = document.querySelector(".more-details1");
-    const y = document.querySelector(".botton1");
-      if (x.style.display === "none") {
-        x.style.display = "flex";
-      } else {
-        x.style.display = "none"
-      }
-    }
+  }
+}
     
     function myFunction() {
       var x = document.getElementById("myLinks");
@@ -37,25 +35,25 @@ function mobileMenu() {
     navMenu.classList.toggle("active");
 }
 
-function addItem(amount) {
-  var item = document.getElementById('item-counter');
-  var count = parseInt(item.textContent);
-  if(amount > 0){
-  count++;
-  item.textContent = count;
-  }
-  document.getElementById("add-btn").style.display = "none";
-  document.getElementById("remove-btn").style.display = "inline";
-}
+const adds = document.querySelectorAll(".add");
 
-function removeItem(amount) {
+adds.forEach((add) => {
+  let isAdded = false;
+ add.addEventListener("click",() => {
   var item = document.getElementById('item-counter');
   var count = parseInt(item.textContent);
-  if (count > 0 & amount > 0) {
-    count-= amount;
+  if(!isAdded) {
+    add.textContent = "Remove Item";
+    add.style.backgroundColor = "#f35a5a";
+    isAdded = true;
+    count++;
+    item.textContent = count;
+  }else {
+    add.textContent = "Add Item";
+    add.style.backgroundColor = "lightblue";
+    isAdded = false;
+    count--;
     item.textContent = count;
   }
-  document.getElementById("add-btn").style.display = "inline";
-  document.getElementById("remove-btn").style.display = "none";
-}
-
+ });
+});
