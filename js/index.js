@@ -39,7 +39,7 @@ let slider = tns({
   autoplay: false,
   prevButton: document.querySelector('#slide-prev1'),  // Node reference
   nextButton: document.querySelector('#slide-next1'), 
-  nav: false,                          // String selector
+  nav: false,                          
   responsive: {
     950: {
       items: 4,
@@ -61,7 +61,7 @@ let slider2 = tns({
   autoplay: false,
   prevButton: document.querySelector('#slide-prev2'),  // Node reference
   nextButton: document.querySelector('#slide-next2'), 
-  nav: false,                          // String selector
+  nav: false,                         
   responsive: {
     950: {
       items: 4,
@@ -84,7 +84,7 @@ let slider3 = tns({
   autoplay: false,
   prevButton: document.querySelector('#slide-prev3'),  // Node reference
   nextButton: document.querySelector('#slide-next3'), 
-  nav: false,                          // String selector
+  nav: false,                     
   responsive: {
     950: {
       items: 4,
@@ -107,7 +107,7 @@ let slider4 = tns({
   autoplay: false,
   prevButton: document.querySelector('#slide-prev4'),  // Node reference
   nextButton: document.querySelector('#slide-next4'), 
-  nav: false,                          // String selector
+  nav: false,                     
   responsive: {
     950: {
       items: 4,
@@ -130,7 +130,7 @@ let slider5 = tns({
   autoplay: false,
   prevButton: document.querySelector('#slide-prev5'),  // Node reference
   nextButton: document.querySelector('#slide-next5'), 
-  nav: false,                          // String selector
+  nav: false,                    
   responsive: {
     950: {
       items: 4,
