@@ -1,3 +1,4 @@
+// Take care of the cover-photo-carousel of the main page
 var slidePosition = 1;
 SlideShow(slidePosition);
 
@@ -30,7 +31,7 @@ function SlideShow(n) {
 
 
 
-// Tiny slider
+// Tiny slider - take care of the slides for each Best Seller on the main page
 let slider = tns({
   container: '.my-slider',
   items: 4,
