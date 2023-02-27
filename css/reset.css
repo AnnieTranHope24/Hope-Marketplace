@@ -1,3 +1,4 @@
+/* Reset the style so it's independent of the browser's default */
 html, body, header, footer, main, nav, article, section, figure, 
 figcaption, h1, h2, h3, ul, li, body, div, p, img 
 { 
