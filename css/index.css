@@ -1,97 +1,103 @@
-/* Header */
-*{
-  padding:0;
+* {
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-a{
+a {
   color: white;
   text-decoration: none;
 }
-a:hover{
+
+a:hover {
   color: #89CFF0;
 }
 
+/* Bereket Bessie - Header */
 .search-form {
-  flex:1;
+  flex: 1;
 }
 
-.search_box{
-max-width:700px;
-width: 100%;
-max-height: 60px;
-background:#aa440e;
-padding:14px;
-border-radius: 50px;
-display:inline-flex;
-align-content: center;
-align-items: center;
-margin-left:10%;
+/* Bereket Bessie - Container for the search-box and search-btn. */
+.search_box {
+  max-width: 700px;
+  width: 100%;
+  max-height: 60px;
+  display: inline-flex;
+  background: #aa440e;
+  padding: 14px;
+  border-radius: 50px;
+  align-content: center;
+  align-items: center;
+  margin-left: 10%;
 }
 
+/*Bereket Bessie - Container for the search-box and search-btn for page size below 950px. */
 .searchbox_moblie {
-  width:100%;
-  display:inline-flex;
+  width: 100%;
+  display: inline-flex;
   align-content: center;
   border-radius: 50px;
   border: 2px solid;
 }
 
+/*Bereket Bessie - Search button that submits search form. */
 .search_btn {
-width: 30px;
-height: 30px;
-border-radius: 50%;
-background: #f58e53;
-justify-content: center;
-align-items: center;
-color:#fff;
-margin-left:15px;
-padding:3px 1px;
-cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f58e53;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-left: 15px;
+  padding: 3px 1px;
+  cursor: pointer;
 }
 
+/*Bereket Bessie - Search-box that takes text input. */
 .mySearch {
-  width:100%;
-  padding:5px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 50px;
+  outline: none;
+  border: 0;
+  background: #f1f1f1;
+  color: #111;
+  padding: 12px 20px;
+  height: 30px;
   border-radius: 50px;
 }
 
-.search_box .mySearch {
-outline:none;
-border:0;
-background: #f1f1f1;
-color:#111;
-padding:12px 20px;
-width:100%;
-height: 30px;
-border-radius: 50px;
+/*Bereket Bessie - Formatting the text displayed the search box. */
+::-webkit-input-placeholder {
+  color: black;
+  font-weight: 500;
 }
 
-::-webkit-input-placeholder{
-color:black;
-font-weight: 500;
-}
-
+/*Bereket Bessie - Containter for the account icon and account link. */
 .personal {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap:5%;
-margin-left: 5%;
-} 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5%;
+  margin-left: 5%;
+}
 
+/*Bereket Bessie - Formattiing the link to Account page. */
 #account {
-font-size: x-large;
-font-weight: bold;
-color:#111;
+  font-size: x-large;
+  font-weight: bold;
+  color: #111;
 }
 
+/*Bereket Bessie - Changing the color Account link when mouse hoveres over. */
 #account:hover {
-color:white;
+  color: white;
 }
 
+/*Bereket Bessie - Container for the Navbar. */
 .navbar {
   width: 100%;
   height: 1.9em;
@@ -100,257 +106,246 @@ color:white;
   align-items: center;
   font-size: 25px;
   background-color: black;
-  border-top:2px solid rgba(0,0,0,0.5);
-  box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
   padding: 15px 100px;
 }
 
-#category:hover{
+/* Bereket Bessie - Changing the color of Catagroies on the navbar to help to the user identify which catagroies they are viewing. */
+#category:hover {
   border-bottom: 1px solid #ddd;
   color: #7f8183;
   transition: 0.2s;
 }
 
+/* Bereket Bessie - Container for the sub-catagories within the main catagories. Set the display to none make it hidden. */
 .dropdown-content {
-  position:absolute;
-  left:0;
+  position: absolute;
+  left: 0;
+  width: 100%;
   display: none;
-  width:100%;
+  background-color: rgba(0, 0, 0, 0.95);
   justify-content: space-between;
   padding: 0em 3em;
   line-height: 2;
-  color:#818181;
+  color: #818181;
   font-size: larger;
-  background-color: rgba(0, 0, 0, 0.95);
   z-index: 1;
 }
 
+/* Bereket Bessie - Containers for all individual sub-catagory and formatting that makes them have even width size. */
 .dropdown-content div {
-  flex:1;
+  flex: 1;
   padding: 10px;
 }
 
+/* Bereket Bessie - Formatting sub-catagories links. */
 .dropdown-content a {
-  text-align: left;
   display: block;
+  text-align: left;
   font-size: 20px;
   font-weight: bold;
 }
 
-.dropdown:hover .dropdown-content {display:flex;} 
-
-
-/* Top navigation*/
-.topnav{
-  width:100%;
+/* Bereket Bessie - Makes the container for the sub-catagories visble one mouse hovers over each specifc catagory. */
+.dropdown:hover .dropdown-content {
   display: flex;
-  max-height: 50px ;
+}
+
+
+/* Bereket Bessie - Container for Top navigation. */
+.topnav {
+  width: 100%;
+  max-height: 50px;
+  margin-bottom: 1px;
+  padding: 2em 0.5em;
+  display: flex;
   background-color: darkorange;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1px;
-  padding:  2em 0.5em;
 }
 
-/* Modify logo size to fit the window size*/
+/* Bereket Bessie - Modify logo size to fit the window size. */
 .logo img {
   max-width: 100%;
   object-fit: cover;
 }
 
+/* Bereket Bessie - Formatting cart icon and item-counter. */
 .cart {
-  display:block;
+  margin: -6px 15px 0px 10px;
+  display: block;
   text-align: center;
-  margin: -6px 15px  0px 10px;
 }
 
-
+/* Bereket Bessie - Container for the menu bars made hidden till window size is 950px. */
 .hamburger {
   display: none;
 }
 
+/* Bereket Bessie - Formatting and making transation speed of menu bars. */
 .bar {
-  display: block;
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  display: block;
   background-color: white;
+  transition: all 0.3s ease-in-out;
 }
 
-
+/* Bereket Bessie - Animation for the middle bar to make it hidden. */
 .hamburger.active .bar:nth-child(2) {
   opacity: 0;
 }
 
+/* Bereket Bessie - Animation for the first bar to make it rotate 45 degrees. */
 .hamburger.active .bar:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
 
+/* Bereket Bessi - Animation fo thte third bar to make it roate - 45 degrees. */
 .hamburger.active .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-.simpsons {
-  display:inline-flex;
-}
-
-.search_call {
-  background-color: black;
-}
-
+/* Bereket Bessie - Formatting hamburger menu items. */
 .nav-link {
-  display:block;
-  text-align: start;
-  color:black;
-  font-weight: 550;
-  padding:1.5em 1em ;
   margin: 0px 25px;
+  padding: 1.5em 1em;
+  display: block;
+  text-align: start;
+  color: black;
+  font-weight: 550;
   border-radius: 50px;
   transition: 0.2s ease-in;
-  flex:1;
+  flex: 1;
 }
-.nav-link > img  {
-  width:30px;
+
+/* Bereket Bessie - Resizing and agjusting position of the icons associated with hamburger menu items. */
+.nav-link>img {
+  width: 30px;
   height: 30px;
   margin: -10px 0;
-  object-fit:fit;
   margin-right: 20px;
-  
 }
+
+/* Bereket Bessie - Creating a visual indicator for which item is being view in the hamburger menu items. */
 .nav-link:hover {
   color: black;
   border-radius: 50px;
   background-color: gray;
 }
 
+/* Bereket Bessie - Container for the hamburger menu items that is hidden. */
 .nav-menu {
   position: absolute;
-  flex:1;
   left: -100%;
   top: 7rem;
-  background-color:rgb(255,255,255,0.95);
   width: 50%;
-  height:100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255, 0.95);
   text-align: center;
-  transition: 0.3s;
-  z-index: 1;
   font-size: medium;
   border-radius: 2px;
+  transition: 0.3s;
+  flex: 1;
+  z-index: 1;
 }
 
+/* Bereket Bessie - Containter for seach-bar form in the hamburger menu*/
 .nav_moblie {
   margin: 2px 20px;
-  background-color:  rgb(114, 112, 112);
-  padding:8px;
+  padding: 8px;
+  background-color: rgb(114, 112, 112);
   border-radius: 50px;
 }
 
+/* Bereket Bessie - Media qeury that functions to hides navbar catagories when screen size is below 950px and displays repsonsive hamburger bar and menu  */
 @media only screen and (max-width: 950px) {
-  .searchbox_moblie, .mySearch{
-    border:none;
+
+  .searchbox_moblie,
+  .mySearch {
+    border: none;
   }
+
   .search_btn {
     background-color: rgb(193, 192, 192);
   }
+
   .navbar {
-    padding:10px;
+    padding: 10px;
   }
 
-.nav-menu.active {
+  .nav-menu.active {
     left: 0;
-}
+  }
 
-.hamburger {
-    display:block;
+  .hamburger {
+    display: block;
     cursor: pointer;
-}
-}
+  }
 
-
-
-
-.track {
-  display: inline-flex;
-  height: 100%;
-  transition: transform 0.2s ease-in-out;
-}
-
-.card-container {
-  width: 275px;
-  height: 400px;
-  flex-shrink: 0;
-  padding-right: 10px;
-}
-
-.card-container img {
-  width: 100%;
-  max-width: 250px;
-  height: 300px;
-  object-fit: cover;
-  border: 2px solid black;
-}
-.track::-webkit-scrollbar {
-width:0;
-}
-
-
-
-@media only screen and (max-width: 950px) {
-   .search-form,.dropdown {
-    display:none;
+  .search-form,
+  .dropdown {
+    display: none;
   }
 }
 
 /* Footer */
 footer {
-  box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
   background-color: darkorange;
 }
 
+/* Bereket Bessie - Container for footer nav items set to fill footer. */
 .footer-nav {
-  padding:2em;
+  padding: 2em;
   display: flex;
-  justify-content: center;
-  grid-gap:2em;
+  justify-content: space-evenly;
+  grid-gap: 2em;
   text-align: center;
   flex-wrap: wrap;
-  color:black;
+  color: black;
 }
 
+/* Bereket Bessie - Formatting individual nav items. */
 .footer-item {
-    flex:1;
-    width:100%;
-    min-width: 300px;
-    border-radius: 0.3em;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  min-width: 300px;
+  border-radius: 0.3em;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex: 1;
 }
 
+/* Bereket Bessie - Formatting nav link information pages. */
 .footer-nav a {
-  display:block;
-  
+  display: block;
 }
 
+/*  Bereket Bessie - Formatting soical media icons */
 .links {
   width: 100%;
   min-height: 40px;
-  display:flex;
-  gap: 2%;
+  display: flex;
+  gap: 5%;
   justify-content: center;
   margin-top: 5px;
 }
 
+/*  Bereket Bessie - Copy rights disclamier. */
 #copyRight {
   margin-left: 40%;
 }
+
 /*End of Footer*/
 
 /* Main */
 /* Carousel */
 
-* {box-sizing:border-box}
+* {
+  box-sizing: border-box
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -366,18 +361,22 @@ footer {
   background-color: #e5d9bf;
 
 }
+
 #item2 {
   background-color: #797faf;
 
 }
+
 #item3 {
   background-color: #8387a9;
 
 }
+
 #item4 {
   background-color: #241964;
 
 }
+
 #item5 {
   background-color: #f3efe3;
 
@@ -397,8 +396,9 @@ footer {
 }
 
 /*when the user hovers,add a black background with some little opacity */
-.Back:hover, .forward:hover {
-  background-color: rgba(0,0,0,0.8);
+.Back:hover,
+.forward:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption Info */
@@ -433,7 +433,8 @@ footer {
   transition: background-color 0.5s ease;
 }
 
-.enable, .dots:hover {
+.enable,
+.dots:hover {
   background-color: #717161;
 }
 
@@ -446,13 +447,23 @@ footer {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .5}
-  to {opacity: 2}
+  from {
+    opacity: .5
+  }
+
+  to {
+    opacity: 2
+  }
 }
 
 @keyframes fade {
-  from {opacity: .5}
-  to {opacity: 2}
+  from {
+    opacity: .5
+  }
+
+  to {
+    opacity: 2
+  }
 }
 
 .slideImage {
@@ -475,7 +486,8 @@ footer {
 .cover {
   text-align: center;
 }
-*{
+
+* {
   box-sizing: border-box;
 }
 
@@ -484,7 +496,7 @@ footer {
   padding: 20px;
 }
 
-.gallery img{
+.gallery img {
   width: 100%;
   max-width: 250px;
   height: 300px;
@@ -499,13 +511,13 @@ footer {
 
 
 /* My slider with tns */
-.slide-img img{
+.slide-img img {
   width: 100%;
   max-width: 300px;
   height: 350px;
   object-fit: cover;
   border: 2px solid black;
-  
+
 }
 
 @media (max-width: 950px) {
@@ -514,7 +526,8 @@ footer {
   }
 }
 
-.slide-prev, .slide-next{
+.slide-prev,
+.slide-next {
   background-color: white;
   border-color: transparent;
   cursor: pointer;
@@ -529,7 +542,8 @@ footer {
 
 }
 
-.Back, .forward {
+.Back,
+.forward {
   cursor: pointer;
   position: absolute;
   top: 48%;
@@ -545,5 +559,3 @@ footer {
   padding-left: 30px;
   padding-right: 30px;
 }
-
-
