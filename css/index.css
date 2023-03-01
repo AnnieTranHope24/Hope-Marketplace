@@ -347,16 +347,13 @@ footer {
   box-sizing: border-box
 }
 
-/* Slideshow container */
+/* The cover-photo-carousel */
 .slideshow-container {
   max-width: 100%;
   position: relative;
   margin: auto;
-  /* background-color: #ded2ae; */
-
-
 }
-
+/* Each slide */
 #item1 {
   background-color: #e5d9bf;
 
@@ -383,9 +380,6 @@ footer {
 }
 
 
-/* Make the images invisible by default */
-
-
 /* forward & Back buttons */
 
 
@@ -401,26 +395,22 @@ footer {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Caption Info */
-.Info {
-  color: #e3e3e3;
-  font-size: 16px;
-  padding: 10px 14px;
+.Back, .forward {
+  cursor: pointer;
   position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
+  top: 48%;
+  width: auto;
+  margin-top: -23px;
+  padding: 17px;
+  color: grey;
+  font-weight: bold;
+  font-size: 19px;
+  transition: 0.4s ease;
+  border-radius: 0 5px 5px 0;
+  user-select: none;
+  padding-left: 30px;
+  padding-right: 30px;
 }
-
-/* Worknumbering (1/3 etc) */
-.MessageInfo {
-  color: #f2f2f3;
-  font-size: 14px;
-  padding: 10px 14px;
-  position: absolute;
-  top: 0;
-}
-
 /* The circles or bullets and indicators */
 .dots {
   cursor: pointer;
@@ -465,7 +455,7 @@ footer {
     opacity: 2
   }
 }
-
+/* Style each image of each slide */
 .slideImage {
   object-fit: cover;
   margin-left: 30%;
@@ -474,42 +464,15 @@ footer {
   width: 100%;
   z-index: 0;
   margin-bottom: -4px;
-
-
 }
-
-
 
 /* end of Carousel */
 
-
-.cover {
-  text-align: center;
-}
-
-* {
+*{
   box-sizing: border-box;
 }
 
-.gallery {
-  background-color: #818181;
-  padding: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  max-width: 250px;
-  height: 300px;
-  object-fit: cover;
-  border: 2px solid black;
-}
-
-.gallery a {
-  margin-right: 40px;
-}
-
-
-
+/* The slides for Best Sellers */
 /* My slider with tns */
 .slide-img img {
   width: 100%;
@@ -520,12 +483,13 @@ footer {
 
 }
 
+/* Make the slide responsive */
 @media (max-width: 950px) {
   .container {
     width: 100%;
   }
 }
-
+/* Style the slide buttons */
 .slide-prev,
 .slide-next {
   background-color: white;
@@ -542,20 +506,6 @@ footer {
 
 }
 
-.Back,
-.forward {
-  cursor: pointer;
-  position: absolute;
-  top: 48%;
-  width: auto;
-  margin-top: -23px;
-  padding: 17px;
-  color: grey;
-  font-weight: bold;
-  font-size: 19px;
-  transition: 0.4s ease;
-  border-radius: 0 5px 5px 0;
-  user-select: none;
-  padding-left: 30px;
-  padding-right: 30px;
-}
+
+
+

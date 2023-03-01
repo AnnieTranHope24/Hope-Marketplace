@@ -10,16 +10,6 @@
     flex:1;
     width:20%;
     min-width: 300px;
-    /* border-radius: 0.3em;
-    border-style: solid;
-    border-width: 0.5px; */
-
-    /* border-width: 10px;
-    border-style: initial;
-    border-bottom-color: #89CFF0;
-    border:#89CFF0; */
-    /* border-color: black; */
-    /* box-shadow: 10px 10px 30px rgba(0,0,0,0.5); */
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 50px;
 }
