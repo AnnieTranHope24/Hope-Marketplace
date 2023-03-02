@@ -291,7 +291,7 @@ a:hover {
   }
 }
 
-/* Footer */
+/* Annie Tran - Footer */
 footer {
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
   background-color: darkorange;
@@ -338,8 +338,7 @@ footer {
   margin-left: 40%;
 }
 
-/*End of Footer*/
-
+/* Annie Tran */
 /* Main */
 /* Carousel */
 
@@ -347,13 +346,13 @@ footer {
   box-sizing: border-box
 }
 
-/* The cover-photo-carousel */
+/* Annie Tran - The cover-photo-carousel */
 .slideshow-container {
   max-width: 100%;
   position: relative;
   margin: auto;
 }
-/* Each slide */
+/* Annie Tran - Each slide */
 #item1 {
   background-color: #e5d9bf;
 
@@ -380,16 +379,16 @@ footer {
 }
 
 
-/* forward & Back buttons */
+/* Annie Tran - forward & Back buttons */
 
 
-/* Place the "forward button" to the right */
+/* Annie Tran - Place the "forward button" to the right */
 .forward {
   right: 0;
   border-radius: 4px 0 0 4px;
 }
 
-/*when the user hovers,add a black background with some little opacity */
+/* Annie Tran - when the user hovers,add a black background with some little opacity */
 .Back:hover,
 .forward:hover {
   background-color: rgba(0, 0, 0, 0.8);
@@ -411,7 +410,7 @@ footer {
   padding-left: 30px;
   padding-right: 30px;
 }
-/* The circles or bullets and indicators */
+/* Annie Tran - The circles or bullets and indicators */
 .dots {
   cursor: pointer;
   height: 16px;
@@ -428,7 +427,7 @@ footer {
   background-color: #717161;
 }
 
-/* Faint animation */
+/* Annie Tran - Faint animation */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.4s;
@@ -455,7 +454,7 @@ footer {
     opacity: 2
   }
 }
-/* Style each image of each slide */
+/* Annie Tran - Style each image of each slide */
 .slideImage {
   object-fit: cover;
   margin-left: 30%;
@@ -466,12 +465,12 @@ footer {
   margin-bottom: -4px;
 }
 
-/* end of Carousel */
 
 *{
   box-sizing: border-box;
 }
 
+/* Annie Tran */
 /* The slides for Best Sellers */
 /* My slider with tns */
 .slide-img img {
@@ -483,13 +482,13 @@ footer {
 
 }
 
-/* Make the slide responsive */
+/* Annie Tran - Make the slide responsive */
 @media (max-width: 950px) {
   .container {
     width: 100%;
   }
 }
-/* Style the slide buttons */
+/* Annie Tran - Style the slide buttons */
 .slide-prev,
 .slide-next {
   background-color: white;
