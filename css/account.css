@@ -33,9 +33,13 @@
 
 
 .mainBox {
-    margin: 3% 0 0 14%;
+    margin: 9% 0 0 14%;
 
 }
 .mainBox h1 {
     font-size: 30px;
+}
+
+main {
+    height: 300px;
 }
