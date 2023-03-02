@@ -101,7 +101,8 @@
 }
 
 /* Bereket Bessie - Formatting of view deail buttons. */
-.details {
+.detail-btn1,
+.detail-btn2 {
     padding: 3px;
     border-radius: 15px;
     color: cornsilk;
