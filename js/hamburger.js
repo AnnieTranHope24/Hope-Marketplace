@@ -1,3 +1,4 @@
+
 /* Bereket Bessie - Function is called on click to add or remove an item from the cart item-counter. */
 const adds = document.querySelectorAll(".add");
 // Forloop that goes through all individual add buttons
@@ -25,6 +26,27 @@ adds.forEach((add) => {
     }
   });
 });
+
+
+
+const toggleSwitch = document.querySelector('input[type="checkbox"]');
+toggleSwitch.addEventListener('change', () => {
+ if (toggleSwitch.checked) {
+     board.style.display = "flex";
+
+
+   }else {
+     board.style.display = "none";
+   }
+});
+
+
+const request = document.querySelector('.request-button')
+const board = document.querySelector('.card-container ');
+const title = document.querySelector('.request-title');
+const toggle = document.querySelector('.toggle');
+
+
 
 /* Bereket Bessie - Function is called onclick to display menu items. */
 const hamburger = document.querySelector(".hamburger");
