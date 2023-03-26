@@ -529,6 +529,7 @@ footer {
   max-width: 100%;
   position: relative;
   margin: auto;
+  display: none;
 }
 /* Annie Tran - Each slide */
 #item1 {
@@ -589,16 +590,7 @@ footer {
   padding-right: 30px;
 }
 /* Annie Tran - The circles or bullets and indicators */
-.dots {
-  cursor: pointer;
-  height: 16px;
-  width: 16px;
-  margin: 0 3px;
-  background-color: #acc;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.5s ease;
-}
+
 
 .enable,
 .dots:hover {
@@ -648,6 +640,10 @@ footer {
   box-sizing: border-box;
 }
 
+
+
+
+
 /* Annie Tran */
 /* The slides for Best Sellers */
 /* My slider with tns */
@@ -656,9 +652,10 @@ footer {
   max-width: 300px;
   height: 350px;
   object-fit: cover;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 
 }
+
 
 /* Annie Tran - Make the slide responsive */
 @media (max-width: 950px) {
@@ -667,21 +664,56 @@ footer {
   }
 }
 /* Annie Tran - Style the slide buttons */
+.slide-next {
+  right: 0;
+}
 .slide-prev,
 .slide-next {
-  background-color: white;
+  background-color: transparent;
   border-color: transparent;
   cursor: pointer;
   top: 48%;
-  margin-top: -23px;
-  padding-left: 50px;
-  padding-right: 50px;
+  margin-bottom: -50%;
+  /* padding-left: 250px;
+  padding-right: 250px; */
   font-weight: bold;
   font-size: 19px;
   color: grey;
 
 
 }
+.slide-prev {
+  padding-right: 90%;
+}
+.slide-next {
+  padding-right: -90%;
+}
+
+
+/* .slide-prev {
+  padding-left: -200em;
+}
+.slide-next {
+  padding-left: 50em;
+} */
+
+
+/* Annie Tran - Slide for the cover */
+.cover img{
+  width: 100%;
+  max-width: 2000px;
+  height: 450px;
+  object-fit: cover;
+  margin-left: 30%;
+}
+#slide-prev-cover {
+  margin-left: 3%;
+  padding-right: 90%;
+}
+#slide-next-cover {
+  padding-right: -90%;
+}
+
 
 
 

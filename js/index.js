@@ -29,9 +29,40 @@ function SlideShow(n) {
 } 
 
 
+// Annie Tran - Tiny slider for the cover carousel
+let sliderCover = tns({
+  container: '.my-slider-cover',
+  items: 1,
+  slideBy: '1', 
+  autoplayButtonOutput: false,
+  prevButton: document.querySelector('#slide-prev-cover'),  // Node reference
+  nextButton: document.querySelector('#slide-next-cover'), 
+  autoPlayTimeout: false,
+  autoplay: true,
+  nav: false,                          
+  responsive: {
+    950: {
+      items: 1,
+      gutter: 20
+    },
+    500: {
+      items: 1,
+      gutter: 20      
+    },
 
+
+  }
+  
+})
+var buttons = document.querySelectorAll('.slider-cover button')
+	buttons.forEach(function() {
+		this.addEventListener('click', function(e) {
+			sliderCover.play()
+		})
+	})
 
 // Annie Tran - Tiny slider - take care of the slides for each Best Seller on the main page
+
 let slider = tns({
   container: '.my-slider',
   items: 4,
