@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Room</title>
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/index.css" />
-  <link rel="stylesheet" href="about.html" />
-</head>
-
-<body>
-  <header>
-    <!-- Annie Tran - Top nav bar with logo, search bar, account, and cart -->
-    <div class="topnav">
-      <a class="logo" href="index.html"><img src="images/icons/logo.svg" width="400px" /></a>
+<div class="topnav">
+      <a class="logo" href="index.php"><img src="images/icons/logo.svg" width="400px" /></a>
       <form class="search-form" method="get" action="http://www.randyconnolly.com/tests/process.php">
         <div class="search_box">
           <input name="search" type="text" class="mySearch" placeholder="Search.." src="images/icons/search.svg">
@@ -24,15 +10,14 @@
         </div>
       </form>
       <div class="personal">
-        <a href="account.html"><img src="images/icons/person-circle.svg" width="30px"></a>
-        <a id="account" href="account.html">Account</a>
+        <a href="account.php"><img src="images/icons/person-circle.svg" width="30px"></a>
+        <a id="account" href="account.php">Account</a>
         <div class="cart">
           <h3 id="item-counter">0</h3>
-          <a class="cart" href="cart.html"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
+          <a class="cart" href="cart.php"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
         </div>
       </div>
     </div>
-    
     <div class="nav-menu">
       <div class="nav-item">
         <form class="nav_moblie" method="get" action="http://www.randyconnolly.com/tests/process.php">
@@ -44,16 +29,15 @@
             </div>
           </div>
         </form>
-        <a class="nav-link" href="academics.html"><img src=images/icons/book-icon.svg> Academics</a>
-        <a class="nav-link" href="health.html"><img src=images/icons/Weights.svg>Health</a>
-        <a class="nav-link" href="fashion.html"><img src=images/icons/Cloth.svg>Fashion</a>
-        <a class="nav-link" href="room.html"><img src=images/icons/Lamp.svg>Room</a>
-        <a class="nav-link" href="entertainment.html"><img src=images/icons/TV.svg>Entertainment</a>
+        <a class="nav-link" href="academics.php"><img src=images/icons/book-icon.svg> Academics</a>
+        <a class="nav-link" href="health.php"><img src=images/icons/Weights.svg>Health</a>
+        <a class="nav-link" href="fashion.php"><img src=images/icons/Cloth.svg>Fashion</a>
+        <a class="nav-link" href="room.php"><img src=images/icons/Lamp.svg>Room</a>
+        <a class="nav-link" href="entertainment.php"><img src=images/icons/TV.svg>Entertainment</a>
         <hr>
         <p id="log-in"> <img src="images/icons/person-add.svg"> sign-up | log-in</p>
       </div>
     </div>
-    <!-- Annie Tran - A hamburgur that is displayed when the window is small -->
     <div class="navbar">
       <div class="hamburger">
         <span class="bar"></span>
@@ -61,15 +45,17 @@
         <span class="bar"></span>
       </div>
       <div class="dropdown">
-        <a id="category" href="academics.html"> Academics </a>
+        <a id="category" href="academics.php"> Academics </a>
         <div class="dropdown-content">
           <div>
+            <img src="images/icons/resources.png" alt="">
             <h3>Resources</h3>
-            <a href="/academics.html#textbooks"> Textbooks</a>
-            <a href="/academics.html#books"> Books</a>
-            <a href="/academics.html#testprep"> Test Prep</a>
+            <a href="/academics.php#textbooks"> Textbooks</a>
+            <a href="/academics.php#books"> Books</a>
+            <a href="/academics.php#testprep"> Test Prep</a>
           </div>
           <div>
+            <img src="images/icons/supplies.png" alt="">
             <h3>Supplies</h3>
             <a href="#"> Folder</a>
             <a href="#"> Pens & Pencils</a>
@@ -79,9 +65,10 @@
         </div>
       </div>
       <div class="dropdown">
-        <a id="category" href="health.html"> Health </a>
+        <a id="category" href="health.php"> Health </a>
         <div class="dropdown-content">
           <div>
+            <img class="catagory-img" src="images/icons/gym.png" alt="">
             <h3>Gym Equipment</h3>
             <a href="#"> Home Workout Equipment</a>
             <a href="#"> Fitness Clothes</a>
@@ -90,7 +77,8 @@
             <a href="#"> Sport Equipment</a>
           </div>
           <div>
-            <h3>Personal Care</h3>
+            <img src="images/icons/yoga.png" alt="">
+            <h3>Recovery</h3>
             <a href="#"> Yoga Matts</a>
             <a href="#"> Waterbottles</a>
             <a hrer="#"> Bodyweight Scales</a>
@@ -99,9 +87,10 @@
         </div>
       </div>
       <div class="dropdown">
-        <a id="category" href="room.html">Room</a>
+        <a id="category" href="room.php">Room</a>
         <div class="dropdown-content">
           <div>
+            <img src="images/icons/sofa.png" alt="">
             <h3>Room Decorations</h3>
             <a href="#"> Plants</a>
             <a href="#"> Lights</a>
@@ -109,6 +98,7 @@
             <a href="#"> Art</a>
           </div>
           <div>
+            <img src="images/icons/cutlery.png" alt="">
             <h3>Essientals</h3>
             <a href="#">Plates & Bowls</a>
             <a href="#"> Utensils</a>
@@ -119,7 +109,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <a id="category" href="fashion.html">Fashion</a>
+        <a id="category" href="fashion.php">Fashion</a>
         <div class="dropdown-content">
           <div>
             <h3>Mens</h3>
@@ -143,7 +133,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <a id="category" href="entertainment.html">Entertainment</a>
+        <a id="category" href="entertainment.php">Entertainment</a>
         <div class="dropdown-content">
           <div>
             <h3>Technology</h3>
@@ -167,42 +157,3 @@
         </div>
       </div>
     </div>
-  </header>
-
-  <body>
-    <main>
-
-    </main>
-    <footer>
-      <div class="footer-nav">
-        <div class="footer-item">
-          <h3>Get to Know Us</h3>
-          <a href="about.html"> About Us</a><br>
-          <div class="links">
-            <a href="mailto:ngoc.tran@hope.edu"> <img src="images/icons/envelope.svg"></a>
-            <a href=""> <img src="images/icons/linkedin.svg"></a>
-            <a href=""> <img src="images/icons/instagram.svg"></a>
-            <a href=""> <img src="images/icons/twitter.svg"></a>
-            <a href=""> <img src="images/icons/snapchat.svg"></a>
-          </div>
-        </div>
-        <div class="footer-item">
-          <h3>Make Money with Us</h3>
-          <a href="#"> Sell products</a>
-          <a href="#"> Advertise Your Products</a>
-          <a href="#"> Get paid </a>
-        </div>
-        <div class="footer-item">
-          <h3>Frequently Asked Questions</h3>
-          <a href="#"> How to find products</a>
-          <a href="#"> What is the condition of products</a>
-          <a href="#"> How to contact seller </a>
-          <a href="#"> Help</a>
-        </div>
-      </div>
-      <span id="copyRight"><small>&copy; 2022 Hope Marketplace. All Rights Reserved</small></span>
-    </footer>
-    <script src="js/hamburger.js"></script>
-  </body>
-
-</html>
