@@ -1,4 +1,4 @@
-<?php ?>
+
 <!DOCTYPE php>
 <php lang="en">
 

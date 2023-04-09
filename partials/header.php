@@ -1,3 +1,7 @@
+<!-- connect file -->
+<?php 
+  include 'includes/connect.php';
+ ?>
 <div class="topnav">
       <a class="logo" href="index.php"><img src="images/icons/logo.svg" width="400px" /></a>
       <form class="search-form" method="get" action="http://www.randyconnolly.com/tests/process.php">
@@ -18,6 +22,7 @@
         </div>
       </div>
     </div>
+
     <div class="nav-menu">
       <div class="nav-item">
         <form class="nav_moblie" method="get" action="http://www.randyconnolly.com/tests/process.php">
@@ -29,11 +34,24 @@
             </div>
           </div>
         </form>
-        <a class="nav-link" href="academics.php"><img src=images/icons/book-icon.svg> Academics</a>
+          <!-- look at <a> here -->
+          <?php 
+          $select_cat = "select * from categories";
+          $result_cat = mysqli_query($con, $select_cat);
+          // $row_data = mysqli_fetch_assoc($result_cat);
+
+          // fix the link of the category page
+          while($row_data = mysqli_fetch_assoc($result_cat)){
+            $cat_title = $row_data['cat_title'];
+            $cat_id = $row_data['cat_id'];
+            echo '<a class="nav-link" href="academics.php"><img src=images/icons/book-icon.svg>'.$cat_title.'</a>';
+          }
+        ?>              
+        <!-- <a class="nav-link" href="academics.php"><img src=images/icons/book-icon.svg> Academics</a>
         <a class="nav-link" href="health.php"><img src=images/icons/Weights.svg>Health</a>
         <a class="nav-link" href="fashion.php"><img src=images/icons/Cloth.svg>Fashion</a>
         <a class="nav-link" href="room.php"><img src=images/icons/Lamp.svg>Room</a>
-        <a class="nav-link" href="entertainment.php"><img src=images/icons/TV.svg>Entertainment</a>
+        <a class="nav-link" href="entertainment.php"><img src=images/icons/TV.svg>Entertainment</a> -->
         <hr>
         <p id="log-in"> <img src="images/icons/person-add.svg"> sign-up | log-in</p>
       </div>
@@ -44,7 +62,37 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
-      <div class="dropdown">
+        <!-- look at <a> here -->
+        <?php 
+          $select_cat = "select * from categories";
+          $result_cat = mysqli_query($con, $select_cat);
+          // $row_data = mysqli_fetch_assoc($result_cat);
+          while($row_data = mysqli_fetch_assoc($result_cat)){
+            $cat_title = $row_data['cat_title'];
+            $cat_id = $row_data['cat_id'];
+            echo '      <div class="dropdown">        
+            <a id="category" href="academics.php">'.$cat_title.'</a>
+            <div class="dropdown-content">
+              <div>
+                <img src="images/icons/resources.png" alt="">
+                <h3>Resources</h3>
+                <a href="/academics.php#textbooks"> Textbooks</a>
+                <a href="/academics.php#books"> Books</a>
+                <a href="/academics.php#testprep"> Test Prep</a>
+              </div>
+              <div>
+                <img src="images/icons/supplies.png" alt="">
+                <h3>Supplies</h3>
+                <a href="#"> Folder</a>
+                <a href="#"> Pens & Pencils</a>
+                <a href="#"> Binders</a>
+                <a href="#"> Note Cards</a>
+              </div>
+            </div>
+          </div>';
+          }
+        ?>  
+      <!-- <div class="dropdown">        
         <a id="category" href="academics.php"> Academics </a>
         <div class="dropdown-content">
           <div>
@@ -155,5 +203,5 @@
             <a href="#"> Collectibles</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>

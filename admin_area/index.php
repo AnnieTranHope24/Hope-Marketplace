@@ -6,7 +6,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- font awesome link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <?php include 'head.php' ?>
+  <?php include 'partials/head.php' ?>
   <title>Admin</title>
   
   <link href="style.css" rel="stylesheet">
@@ -14,7 +14,7 @@
 
 <body>
   <header>
-    <?php include 'header.php'?>
+    <?php include 'partials/header.php'?>
   </header>
   
   <main>
@@ -45,7 +45,7 @@
         </div>
       </div>
       <!-- third child -->
-      <div class="container my-5">
+      <div class="container my-3">
         <?php
           if(isset($_GET['insert_cat'])){
             include "insert_cat.php";
@@ -58,7 +58,7 @@
 
   </main>
   <footer>
-    <?php include 'footer.php'?>
+    <?php include 'partials/footer.php'?>
   </footer>
   <script src="../js/hamburger.js"></script>
   
