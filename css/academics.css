@@ -13,15 +13,26 @@
 }
 
 /* Bereket Bessie - Uniform formatting for all items. */
-.wrapper .item {
-  width: 400px;
-  height: 300px;
-  background-color: rgb(223, 217, 217);
-  margin: 30px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
-  line-height: 30px;
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  margin: 10px;
+}
+
+
+.itemname {
+  font-size: 16px;
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+.itemprice {
+  font-size: 14px;
 }
 
 /* Bereket Bessie - Adjusting item image sized to be more uniform. */
