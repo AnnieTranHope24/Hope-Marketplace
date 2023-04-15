@@ -650,14 +650,7 @@ footer {
 /* Annie Tran */
 /* The slides for Best Sellers */
 /* My slider with tns */
-.slide-img img {
-  width: 100%;
-  max-width: 300px;
-  height: 350px;
-  object-fit: cover;
-  /* border: 2px solid black; */
 
-}
 
 
 /* Annie Tran - Make the slide responsive */
@@ -706,8 +699,18 @@ footer {
   width: 100%;
   max-width: 2000px;
   height: 450px;
+  object-fit:cover;
+  /* margin-left: 30%; */
+}
+
+.catslider img {
+  width: 100%;
+  max-width: 300px;
+  height: 350px;
   object-fit: cover;
-  margin-left: 30%;
+  
+  /* border: 2px solid black; */
+
 }
 #slide-prev-cover {
   margin-left: 3%;
