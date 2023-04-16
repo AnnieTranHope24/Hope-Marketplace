@@ -51,7 +51,7 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="health.php"><img src="images/cover-theme-academic.jpg" ></a>
+              <a href="health.php"><img src="images/cover-theme-health.jpg" ></a>
             </div>
 
 
@@ -61,7 +61,7 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="room.php"><img src="images/room/cozyroom.gif" ></a>
+              <a href="room.php"><img src="images/cover-theme-room.jpg" ></a>
             </div>
 
 
@@ -71,7 +71,7 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="entertainment.php"><img src="images/entertainment/techcover.gif" ></a>
+              <a href="entertainment.php"><img src="images/cover-theme-entertainment.jpg" ></a>
             </div>
 
 
@@ -81,7 +81,7 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="fashion.php"><img src="images/fashion/fashioncover.gif" ></a>
+              <a href="fashion.php"><img src="images/cover-theme-fashion.jpg" ></a>
             </div>
 
           </div>
