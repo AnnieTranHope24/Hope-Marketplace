@@ -57,7 +57,7 @@
         </div>
 
         <div class="accItem" id="accItem4">
-          <a href="#">
+          <a href="sellItem.php">
             <div>
 
               <h2>Sell items</h2>

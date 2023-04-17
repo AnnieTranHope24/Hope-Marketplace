@@ -1,0 +1,45 @@
+.accItem > a{
+    color: black;
+}
+
+.accItem > a:hover{
+    color: #89CFF0;
+}
+
+.accItem {
+    flex:1;
+    width:20%;
+    min-width: 300px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 60px;
+}
+.acc-row {
+    display: flex;
+    list-style-type: none;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    grid-gap:10px;  
+ 
+}
+.accItem div {
+    border-radius: 0.3em;
+    border-style: solid;
+    border-width: 0.5px;
+    width: 80%;
+    height: 100%;
+    padding: 1%;
+    flex-wrap: wrap;
+}
+
+
+.mainBox {
+    margin: 9% 0 0 14%;
+
+}
+.mainBox h1 {
+    font-size: 30px;
+}
+
+main {
+    height: 300px;
+}

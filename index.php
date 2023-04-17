@@ -1,4 +1,4 @@
-<?php ?>
+
 <!DOCTYPE php>
 <php lang="en">
 
@@ -26,12 +26,10 @@
       </div>
 
       <div class="my-slider-cover">
-
-
-        <div>
+      <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="academics.php"><img src="images/academics/academicscover.gif" style="width:40%"></a>
+              <a href="#"><img src="images/cover-theme.jpg" ></a>
             </div>
 
 
@@ -42,7 +40,18 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="health.php"><img src="images/health/healthfitnesscover.gif" style="width:40%"></a>
+              <a href="academics.php"><img src="images/cover-theme-academic.jpg" ></a>
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div>
+          <div class="slide">
+            <div class="slide-img cover">
+              <a href="health.php"><img src="images/cover-theme-health.jpg" ></a>
             </div>
 
 
@@ -52,7 +61,7 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="room.php"><img src="images/room/cozyroom.gif" style="width:40%"></a>
+              <a href="room.php"><img src="images/cover-theme-room.jpg" ></a>
             </div>
 
 
@@ -62,7 +71,7 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="entertainment.php"><img src="images/entertainment/techcover.gif" style="width:40%"></a>
+              <a href="entertainment.php"><img src="images/cover-theme-entertainment.jpg" ></a>
             </div>
 
 
@@ -72,7 +81,7 @@
         <div>
           <div class="slide">
             <div class="slide-img cover">
-              <a href="fashion.php"><img src="images/fashion/fashioncover.gif" style="width:40%"></a>
+              <a href="fashion.php"><img src="images/cover-theme-fashion.jpg" ></a>
             </div>
 
           </div>
@@ -211,7 +220,7 @@
           <div class="my-slider">
             <div>
               <div class="slide">
-                <div class="slide-img img-1">
+                <div class="slide-img img-1 catslider">
                   <a href="chemistrybook.php"><img src="images/academics/Chemtextbook.jpg"></a>
                 </div>
 
@@ -220,7 +229,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-2">
+                    <div class="slide-img img-2 catslider">
                       <a href="chemistrybook.php"><img src="images/academics/EconTextbook.jpg"></a>
                     </div>
 
@@ -229,7 +238,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-3">
+                    <div class="slide-img img-3 catslider">
                       <a href="chemistrybook.php"><img src="images/academics/physics.jpg"></a>
                     </div>
 
@@ -238,7 +247,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-4">
+                    <div class="slide-img img-4 catslider">
                       <a href="chemistrybook.php"><img src="images/academics/stattextbook.jpg"></a>
                     </div>
 
@@ -248,7 +257,7 @@
 
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/academics/testprep2.jpg"></a>
                     </div>
 
@@ -274,7 +283,7 @@
               <div class="my-slider2">
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/health/band.jpg"></a>
                     </div>
 
@@ -283,7 +292,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-2">
+                    <div class="slide-img img-2 catslider">
                       <a href="chemistrybook.php"><img src="images/health/jumprope.jpg"></a>
                     </div>
 
@@ -292,7 +301,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-3">
+                    <div class="slide-img img-3 catslider">
                       <a href="chemistrybook.php"><img src="images/health/pushupboard.jpg"></a>
                     </div>
 
@@ -301,7 +310,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-4">
+                    <div class="slide-img img-4 catslider">
                       <a href="chemistrybook.php"><img src="images/health/waterbottle.png"></a>
                     </div>
 
@@ -311,7 +320,7 @@
 
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/health/yogamatt.jpg"></a>
                     </div>
 
@@ -339,7 +348,7 @@
               <div class="my-slider3">
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/room/desklamp.jpg"></a>
                     </div>
 
@@ -348,7 +357,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-2">
+                    <div class="slide-img img-2 catslider">
                       <a href="chemistrybook.php"><img src="images/room/plant.jpg"></a>
                     </div>
 
@@ -357,7 +366,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-3">
+                    <div class="slide-img img-3 catslider">
                       <a href="chemistrybook.php"><img src="images/room/desklamp.jpg"></a>
                     </div>
 
@@ -366,7 +375,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-4">
+                    <div class="slide-img img-4 catslider">
                       <a href="chemistrybook.php"><img src="images/health/waterbottle.png"></a>
                     </div>
 
@@ -376,7 +385,7 @@
 
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/health/yogamatt.jpg"></a>
                     </div>
 
@@ -402,7 +411,7 @@
               <div class="my-slider4">
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/fashion/jackect.jpg"></a>
                     </div>
 
@@ -411,7 +420,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-2">
+                    <div class="slide-img img-2 catslider">
                       <a href="chemistrybook.php"><img src="images/fashion/shirt.jpg"></a>
                     </div>
 
@@ -420,7 +429,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-3">
+                    <div class="slide-img img-3 catslider">
                       <a href="chemistrybook.php"><img src="images/fashion/Sweater.jpg"></a>
                     </div>
 
@@ -429,7 +438,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-4">
+                    <div class="slide-img img-4 catslider">
                       <a href="chemistrybook.php"><img src="images/fashion/sweatpants.jpg"></a>
                     </div>
 
@@ -439,7 +448,7 @@
 
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/fashion/Sweatshirt.jpg"></a>
                     </div>
 
@@ -465,7 +474,7 @@
               <div class="my-slider5">
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/entertainment/appletv.jpg"></a>
                     </div>
 
@@ -474,7 +483,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-2">
+                    <div class="slide-img img-2 catslider">
                       <a href="chemistrybook.php"><img src="images/entertainment/headphones.jpg"></a>
                     </div>
 
@@ -483,7 +492,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-3">
+                    <div class="slide-img img-3 catslider">
                       <a href="chemistrybook.php"><img src="images/entertainment/laptop.jpg"></a>
                     </div>
 
@@ -492,7 +501,7 @@
                 </div>
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-4">
+                    <div class="slide-img img-4 catslider">
                       <a href="chemistrybook.php"><img src="images/entertainment/headphones.jpg"></a>
                     </div>
 
@@ -502,7 +511,7 @@
 
                 <div>
                   <div class="slide">
-                    <div class="slide-img img-1">
+                    <div class="slide-img img-1 catslider">
                       <a href="chemistrybook.php"><img src="images/entertainment/appletv.jpg"></a>
                     </div>
 
