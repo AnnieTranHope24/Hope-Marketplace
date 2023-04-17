@@ -1,6 +1,8 @@
-<?php require_once('config.php');
+<?php 
+require_once('config.php');
+include 'categories.php';
 try {
-  $dbh = new PDO(DBCONNSTRING,DBUSER,DBPASS);
+  $dbh = new PDO(DBCONNSTRING, DBUSER, DBPASS);
   $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
   echo 'Connection failed: ' . $e->getMessage();
@@ -35,56 +37,50 @@ try {
     <main>
       <h1 id="textbook">Textbooks</h1>
       <div class="wrapper">
-        <?php
-        $stmt = $dbh->prepare("SELECT * FROM items Where Subcategory='textbook'");
-				$stmt->execute();
-				$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-				// Display items
-				foreach ($items as $item) {
+      <?php
+      if (isset($_GET['subcategory'])) {
+        $name = lcfirst($_GET['subcategory']);
+        $stmt = $dbh->prepare("SELECT * FROM items Where Subcategory= '$name'");
+        $stmt->execute();
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo '<h1>' . $_GET['subcategory'] . '</h1>';
+        echo '<div class="wrapper2">';
+        // Display items
+        foreach ($items as $item) {
           echo '<div class="item">';
-          echo '<a href="#">'. '<img src="UPLOADS/' . $item['Image'] . '"></a>';
-          echo '<p class="itemname">'.$item['Name'].'</p>';
-          echo '<p class="itemprice">$'.$item['Price'].'</p>';
+          echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+          echo '<p class="itemname">' . $item['Name'] . '</p>';
+          echo '<p class="itemprice">$' . $item['Price'] . '</p>';
           echo '<button class="add">Add Item</button>';
           echo '</div>';
-         }
-        ?>
-      </div>
-      <h1 id="testprep">Test Preparation</h1>
-      <div class="wrapper">
-      <?php
-        $stmt = $dbh->prepare("SELECT * FROM items Where Subcategory='testprep'");
-				$stmt->execute();
-				$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-				// Display items
-				foreach ($items as $item) {
-         echo '<div class="item">';
-         echo '<a href="#">'. '<img src="UPLOADS/' . $item['Image'] . '"></a>';
-         echo '<p class="itemname">'.$item['Name'].'</p>';
-         echo '<p class="itemprice">$'.$item['Price'].'</p>';
-         echo '<button class="add">Add Item</button>';
-         echo '</div>';
         }
-        ?>
-      </div>
-      <h1  class="books">Books</h1>
-      <div class="wrapper">
-      <?php
-        $stmt = $dbh->prepare("SELECT * FROM items Where Subcategory='book'");
-				$stmt->execute();
-				$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-				// Display items
-				foreach ($items as $item) {
-          echo '<div class="item">';
-          echo '<a href="#">'. '<img src="UPLOADS/' . $item['Image'] . '"></a>';
-          echo '<p class="itemname">'.$item['Name'].'</p>';
-          echo '<p class="itemprice">$'.$item['Price'].'</p>';
-          echo '<button class="add">Add Item</button>';
-          echo '</div>';
-         }
+        echo '</div>';
+      } else {
+        foreach ($categories as $category) {
+          if ($category['category'] == 'academics') {
+            foreach ($category['subcategories'] as $sub) {
+              foreach ($sub as $subcategory) {
+                $name = lcfirst($subcategory);
+                $stmt = $dbh->prepare("SELECT * FROM items Where Subcategory= '$name'");
+                $stmt->execute();
+                $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                echo '<h1>' . $subcategory . '</h1>';
+                echo '<div class="wrapper">';
+                // Display items
+                foreach ($items as $item) {
+                  echo '<div class="item">';
+                  echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+                  echo '<p class="itemname">' . $item['Name'] . '</p>';
+                  echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+                  echo '<button class="add">Add Item</button>';
+                  echo '</div>';
+                }
+                echo '</div>';
+              }
+            }
+          }
+        }
+      }
         ?>
       </div>
     </main>
