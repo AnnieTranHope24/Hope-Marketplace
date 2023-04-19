@@ -4,7 +4,7 @@
 <head>
   <?php include './partials/head.php' ?>
   <title>About</title>
-  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="about.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather&display=swap"
@@ -18,29 +18,17 @@
   <div class="title">For Students, by Students</div>
   <div class="text">
     <div class="text-content"> <img src="images/icons/target.png">
-      <p>The mission and purpose of two students making a website for their fellow students at their school is to create
-        a platform that allows students to easily trade or sell items they no longer need or use, and to facilitate cost
-        savings for students who might otherwise have to purchase new items at full price. </p>
+      <p>Two students have undertaken the task of building a website for their peers at school with the aim of providing a user-friendly platform that enables students to trade or sell unwanted items, thereby helping other students save on costs that they would otherwise have to incur on buying new items at their full price. </p>
     </div>
     <div class="text-content"> <img src="images/icons/save-the-planet.png">
-      <p>The primary mission of the website is to promote sustainability and reduce waste by encouraging the reuse of
-        goods within the school community. By enabling students to trade or sell items they no longer need, the website
-        helps to prevent those items from being thrown away and ending up in landfills. This is an important goal for
-        students who are increasingly aware of the need to reduce their environmental impact. </P>
+      <p>The website promotes a circular economy, where items are kept in use for as long as possible and waste is minimized. This reduces the amount of waste generated from discarded items and helps to conserve landfill space.</P>
     </div>
     <div class="text-content"> <img src="images/icons/fair-trade.png">
-      <p>In addition to promoting sustainability, the website also has a financial purpose. By allowing students to
-        exchange goods with one another, the website enables students to save money on items they might otherwise have
-        to purchase new. For example, if a student needs a new textbook for a class, they could use the website to find
-        another student who has already taken the class and no longer needs the book. This could save the student a
-        significant amount of money, particularly if the textbook is expensive.
+      <p>Students who are selling or trading items on the website benefit from the opportunity to declutter their possessions and earn some extra money in the process. They can also feel good about contributing to the circular economy and reducing waste by passing their items along to someone else who can use them.
       </p>
     </div>
     <div class="text-content"> <img src="images/icons/community.png">
-      <p> Overall, the mission and purpose of the website created by these two students is to provide a platform that
-        promotes sustainability and cost savings for students in their school community. By enabling students to
-        exchange goods with one another, the website helps to reduce waste and save money, while also fostering a sense
-        of community and collaboration among the students.
+      <p> The website could serve as a platform for students to share information and advice on a variety of topics related to student life, such as academics, extracurricular activities, and social events. This can help students feel more connected to their school community and provide them with a support system as they navigate their educational journey.
       </p>
     </div>
   </div>

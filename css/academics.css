@@ -6,6 +6,25 @@
   overflow-x: auto;
 }
 
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.maincontent {
+  flex: 1;
+}
+
+.mainfooter {
+  flex-shrink: 0;
+}
 
 /* Bereket Bessie - Hidding scrollbar from the bottom of item container, however it is still being used. */
 .wrapper::-webkit-scrollbar {
@@ -21,7 +40,6 @@
   margin: 10px;
 }
 
-
 .itemname {
   font-size: 16px;
   white-space: nowrap;
@@ -29,6 +47,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5;
+}
+.wrapper2{
+  display: flex;
+  padding:0px 50px;
+  flex: 1;
+  flex-wrap:nowrap;
 }
 
 .itemprice {

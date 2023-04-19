@@ -1,7 +1,7 @@
 <?php
 define('DBHOST', '');
-define('DBNAME', 'art');
+define('DBNAME', 'hopemarketplace');
 define('DBUSER', 'testuser');
 define('DBPASS', 'mypassword');
-define('DBCONNSTRING','mysql:dbname=art;charset=utf8mb4;');
+define('DBCONNSTRING','mysql:dbname=hopemarketplace;charset=utf8mb4;');
 ?>
