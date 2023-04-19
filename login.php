@@ -23,10 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // setcookie("Username", $_POST['username'], $expiryTime);       
         // Password is correct, create a session for the user
-    } elseif (validLogin() === false) {
-        echo '<script>alert("Login unsuccessfully")</script>';
     } elseif (registerUser($_POST['username'], $_POST['password']) === true) {
-    }
+    }elseif (validLogin() === false) {
+        echo '<script>alert("Login unsuccessfully")</script>';
     if (isset($_SESSION['user_id'])) {
         // Redirect to the login page
         header('Location: hopemarketplace.php');
