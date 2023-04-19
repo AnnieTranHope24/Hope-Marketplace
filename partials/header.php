@@ -16,7 +16,12 @@
       </form>
       <div class="personal">
         <a href="account.php"><img src="images/icons/person-circle.svg" width="30px"></a>
-        <a id="account" href="account.php">Account</a>
+        <div class="dropdown">
+      <a id="account" href="#" class="dropbtn">Account</a>
+      <div class="dropdown-content1">
+        <a href="?logout">Log Out</a>
+      </div>
+    </div>
         <div class="cart">
           <h3 id="item-counter">0</h3>
           <a class="cart" href="cart.php"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
