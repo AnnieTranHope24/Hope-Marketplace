@@ -17,16 +17,22 @@
 // Start the session
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (validLogin()) {
-        // add 1 day to the current time for expiry time
-        //    $expiryTime = time()+60*60*24;
+    if (isset($_POST['login-username']) && isset($_POST['login-password'])) {
+        registerUser($_POST['login-username'], $_POST['login-password']);
+        echo '<script>alert("Registeration successfully")</script>';
+    }
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        if (validLogin()) {
+            echo '<script>alert("Login successful")</script>';
+            // add 1 day to the current time for expiry time
+            //    $expiryTime = time()+60*60*24;
 
-        // setcookie("Username", $_POST['username'], $expiryTime);       
-        // Password is correct, create a session for the user
-    } elseif (registerUser($_POST['username'], $_POST['password']) === true) {
-    }elseif (validLogin() === false) {
-        echo '<script>alert("Login unsuccessfully")</script>';
-    if (isset($_SESSION['user_id'])) {
+            // setcookie("Username", $_POST['username'], $expiryTime);       
+            // Password is correct, create a session for the user
+        } elseif (validLogin() === false) {
+            echo '<script>alert("Login unsuccessfully")</script>';
+        }
+    }    if (isset($_SESSION['username'])) {
         // Redirect to the login page
         header('Location: hopemarketplace.php');
         exit;
@@ -43,9 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $statement->bindValue(':pass',$_POST['password']);
    $statement->execute();
    if($statement->rowCount()>0){
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
-    $_SESSION['user_id'] = $user['UserID'];
-    $_SESSION['username'] = $user['Username'];
+    $_SESSION['username'] = $_POST['username'];
     $pdo = null;
      return true;
    }
@@ -54,8 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function registerUser($username, $password) {
+    require_once("config.php");
    $pdo = new PDO(DBCONNSTRING,DBUSER,DBPASS);
-   
    // generate random salt
    $salt = bin2hex(random_bytes(4));
    
@@ -70,9 +74,8 @@ function registerUser($username, $password) {
    $statement->bindValue(':pass', $hashedPassword);
    $statement->bindValue(':seed', $salt);
    $statement->execute();
-   $user = $statement->fetch(PDO::FETCH_ASSOC);
-   $_SESSION['user_id'] = $user['UserID'];
-   $_SESSION['username'] = $user['Username'];
+   $_SESSION['username'] =  $username;
+   $pdo = null;
    return true;
 }
 ?>
@@ -84,7 +87,7 @@ function registerUser($username, $password) {
                 <h2>Sign Up</h2>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" pattern="[a-zA-Z0-9 ]{1,10}" title="Please enter letters and numbers only (up to 10 characters)" required>
+                        <input type="text" class="form-control" id="username" name="login-username" pattern="[a-zA-Z0-9 ]{1,10}" title="Please enter letters and numbers only (up to 10 characters)" required>
                         <small id="passwordHelpInline" class="text-muted">
                         Please enter a username that contains letters, numbers, and special characters only (up to 10 characters).
                             </small>
@@ -98,7 +101,7 @@ function registerUser($username, $password) {
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" pattern="[a-zA-Z0-9!@#$%^&*()_+=\-\\[\]{}|\\:;\',.<>/? ]{1,10}" title="Please enter letters, numbers, and special characters only (up to 10 characters)" required>
+                        <input type="password" class="form-control" id="password" name="login-password" pattern="[a-zA-Z0-9!@#$%^&*()_+=\-\\[\]{}|\\:;\',.<>/? ]{1,10}" title="Please enter letters, numbers, and special characters only (up to 10 characters)" required>
                         <small id="passwordHelpInline" class="text-muted">
                              Please enter a password that contains letters, numbers, and special characters only (up to 10 characters).
                             </small>
