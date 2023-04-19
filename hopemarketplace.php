@@ -100,7 +100,7 @@ if (isset($_GET['logout'])) {
                     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     if (!empty($items)) {
                       echo '<h1>' . $subcategory . '</h1>';
-                      echo '<div class="wrapper2">';
+                      echo '<div class="wrapper">';
                       foreach($items as $item){
                       echo '<div class="item">';
                       echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';

@@ -13,8 +13,8 @@ array("Room Decorations" => array("Plants", "Lights", "Rugs", "Art"),
                "Essientals"  => array("Plates & Bowls", "Utensils", "Water Heaters","Coffee Machines", "Pots & Pans"))
 );
 $categories[] = array("category" => "fashion", "subcategories" =>
-array("Mens" => array("Clothing", "Sports Fan Shop", "Shoes"),
-               "Women"  => array("Clothing", "Sports Fan Shop", "Shoes"),
+array("Mens" => array("Mens Clothing", "Mens Sports Fan Shop", "Mens Footwear"),
+               "Women"  => array("Womens Clothing", "Womens Sports Fan Shop", "Womens Footwear"),
                           "Accessories"  => array("Handbags & Backpacks", "Sunglasses", "Hats", "Jewelery & Watches"))
 );
 $categories[] = array("category" => "technology", "subcategories" =>

@@ -436,6 +436,8 @@ footer {
  
  
  .switch-title{
+  display:inline-flex;
+  gap:5px;
   padding:5px;
   color:#002244;
   border-radius: 50px;
