@@ -14,7 +14,6 @@ a:hover {
   color: #002244;
   transition: 0.2s ease-in-out;
 }
-
 /* Bereket Bessie - Header */
 .search-form {
   flex: 1;
@@ -178,7 +177,11 @@ a:hover {
 }
 
 /* Bereket Bessie - Makes the container for the sub-catagories visble one mouse hovers over each specifc catagory. */
-.dropdown:hover .dropdown-content,.dropdown-content1{
+.dropdown:hover .dropdown-content{
+  display: flex;
+}
+
+.dropdown:hover .dropdown-content1{
   display: flex;
 }
 

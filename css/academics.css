@@ -52,7 +52,7 @@ html,body {
   display: flex;
   padding:0px 50px;
   flex: 1;
-  flex-wrap:nowrap;
+  flex-wrap:wrap;
 }
 
 .itemprice {
