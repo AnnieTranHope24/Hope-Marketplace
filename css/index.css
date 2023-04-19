@@ -178,10 +178,13 @@ a:hover {
 }
 
 /* Bereket Bessie - Makes the container for the sub-catagories visble one mouse hovers over each specifc catagory. */
-.dropdown:hover .dropdown-content,.dropdown-content1{
+.dropdown:hover .dropdown-content{
   display: flex;
 }
 
+.dropdown:hover .dropdown-content1{
+  display: flex;
+}
 /* Bereket Bessie - Container for Top navigation. */
 .topnav {
   width: 100%;
