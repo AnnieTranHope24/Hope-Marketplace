@@ -1,10 +1,5 @@
 <?php
-// Check if the user is not logged in
-if (!isset($_SESSION['user_id'])) {
-	// Redirect to the login page
-	header('Location: login.php');
-	exit;
-  }
+
 require_once('config.php');
 include 'categories.php';
 ?>
