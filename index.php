@@ -1,537 +1,141 @@
+<?php
+session_start();
+
+$_SESSION['ref-time'] = time();
+// Check if the user is not logged in
+if (!isset($_SESSION['username'])) {
+  // Redirect to the login page
+  header('Location: login.php');
+  exit;
+}
+
+if (isset($_GET['logout'])){
+  session_unset(); // Unset all session variables
+  session_destroy(); // Destroy the session
+  header('Location: login.php'); // Redirect to the login page or any other desired page
+  exit;
+}
+?>
 
 <!DOCTYPE php>
+
 <php lang="en">
 
-<head>
-  <?php include './partials/head.php' ?>
-  <title>Hope Marketplace</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-</head>
+  <head>
+    <?php include './partials/head.php' ?>
+    <title>Hope Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
-<body>
-  <header>
-    <?php include './partials/header.php'?>
-  </header>
+  </head>
 
-  <!-- Annie Tran - Main display items -->
-  <main>
-    <!-- Annie Tran - Carousel using Tiny Slider  -->
+  <body>
 
-    <div class="slider-wrapper">
-      <br>
-      <div class="slider-cover">
-        <button class="slide-prev" id="slide-prev-cover">&#10094;</button>
-        <button class="slide-next" id="slide-next-cover">&#10095;</button>
-      </div>
+    <header>
+      <?php include './partials/header.php' ?>
+    </header>
 
-      <div class="my-slider-cover">
-      <div>
-          <div class="slide">
-            <div class="slide-img cover">
-              <a href="#"><img src="images/cover-theme.jpg" ></a>
-            </div>
+    <!-- Annie Tran - Main display items -->
+    <div class="maincontainer">
+      <div class="maincontent">
+        <main>
+          <!-- Annie Tran - Carousel using Tiny Slider  -->
+          <?php
+          require_once('config.php');
 
-
-          </div>
-
-        </div>
-
-        <div>
-          <div class="slide">
-            <div class="slide-img cover">
-              <a href="academics.php"><img src="images/cover-theme-academic.jpg" ></a>
-            </div>
-
-
-          </div>
-
-        </div>
-
-        <div>
-          <div class="slide">
-            <div class="slide-img cover">
-              <a href="health.php"><img src="images/cover-theme-health.jpg" ></a>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div>
-          <div class="slide">
-            <div class="slide-img cover">
-              <a href="room.php"><img src="images/cover-theme-room.jpg" ></a>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div>
-          <div class="slide">
-            <div class="slide-img cover">
-              <a href="entertainment.php"><img src="images/cover-theme-entertainment.jpg" ></a>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div>
-          <div class="slide">
-            <div class="slide-img cover">
-              <a href="fashion.php"><img src="images/cover-theme-fashion.jpg" ></a>
-            </div>
-
-          </div>
-        </div>
-        
-      </div>  
-    </div>  
-
-  <!-- Annie Tran - The cover-photo-carousel -->
-    <div class="slideshow-container" >
-
-      <!-- Annie Tran - Full images -->
-      <div class="Containers" id="item1">
-        <img class="slideImage" src="images/academics/academicscover.gif" style="width:40%">
-      </div>
-
-      <div class="Containers" id="item2">
-        <img class="slideImage" src="images/health/healthfitnesscover.gif" style="width:40%">
-      </div>
-
-      <div class="Containers" id="item3">
-        <img class="slideImage" src="images/entertainment/techcover.gif" style="width:40%">
-      </div>
-
-      <div class="Containers" id="item4">
-        <img class="slideImage" src="images/room/cozyroom.gif" style="width:40%" >
-      </div>
-
-      <div class="Containers" id="item5">
-        <img class="slideImage" src="images/fashion/fashioncover.gif" style="width:40%">
-      </div>
-
-      <!-- Annie Tran - Back and forward buttons -->
-      <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="forward" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-
-
-    <!-- Annie Tran - The circles/dots -->
-    <div style="text-align:center">
-      <span class="dots" onclick="currentSlide(1)"></span>
-      <span class="dots" onclick="currentSlide(2)"></span>
-      <span class="dots" onclick="currentSlide(3)"></span>
-      <span class="dots" onclick="currentSlide(4)"></span>
-      <span class="dots" onclick="currentSlide(5)"></span>
-      <div class="toggle">
-        <h1 class="switch-title">Request Board
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider"></span>
-        </h1>
-        </div> 
-        <div class="card-container">
-          <h1 class="req">Request Board <img src="images/icons/window-plus.svg" width="30px"> </h1>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/50x50" alt="User Profile Image">
-              <h3 class="card-username">John Doe</h3>
-            </div>
-            <div class="card-content">
-              <h2 class="card-title">Lamp</h2>
-              <p class="card-description">Anything that I could use to study or read on book on my book shelf. </p>
-            <button class="card-contact"><img src="images/icons/send-plus.svg"></button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/50x50" alt="User Profile Image">
-              <h3 class="card-username">Jane Doe</h3>
-            </div>
-            <div class="card-content">
-              <h2 class="card-title">Dress</h2>
-              <p class="card-description">Something to wear to a form event on campus.  </p>
-            <button class="card-contact"><img src="images/icons/send-plus.svg"></button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/50x50" alt="User Profile Image">
-              <h3 class="card-username">John Doe</h3>
-            </div>
-            <div class="card-content">
-              <h2 class="card-title">Plant</h2>
-              <p class="card-description">A small house plant to keep in my dorm for decoration. </p>
-            <button class="card-contact"><img src="images/icons/send-plus.svg"></button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/50x50" alt="User Profile Image">
-              <h3 class="card-username">Jane Doe</h3>
-            </div>
-            <div class="card-content">
-              <h2 class="card-title">iPhone Charger</h2>
-              <p class="card-description">Preferably with a long cord and fast charging. </p>
-            <button class="card-contact"><img src="images/icons/send-plus.svg"></button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/50x50" alt="User Profile Image">
-              <h3 class="card-username">John Doe</h3>
-            </div>
-            <div class="card-content">
-              <h2 class="card-title">Small TV</h2>
-              <p class="card-description">Looking for a TV to have in the dorms. </p>
-            <button class="card-contact"><img src="images/icons/send-plus.svg"></button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/50x50" alt="User Profile Image">
-              <h3 class="card-username">Jane Doe</h3>
-            </div>
-            <div class="card-content">
-              <h2 class="card-title">TI84 Calculator</h2>
-              <p class="card-description">Any version of the TI84 that has come out that past few years will do.  </p>
-            <button class="card-contact"><img src="images/icons/send-plus.svg"></button>
-            </div>
-          </div>
-        </div> 
+          include 'categories.php';
           
-  <section id="slider">
-    <div class="container">
-      <div class="subcontainer">
-        <div class="slider-wrapper">
-          <div>
-            <br>
-            <h1>Best Sellers in Academics</h1>
-          </div>
-          <br>
-          <div>
-            <button class="slide-prev" id="slide-prev1">&#10094;</button>
-            <button class="slide-next" id="slide-next1">&#10095;</button>
-          </div>
-          <div class="my-slider">
-            <div>
-              <div class="slide">
-                <div class="slide-img img-1 catslider">
-                  <a href="chemistrybook.php"><img src="images/academics/Chemtextbook.jpg"></a>
-                </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-2 catslider">
-                      <a href="chemistrybook.php"><img src="images/academics/EconTextbook.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-3 catslider">
-                      <a href="chemistrybook.php"><img src="images/academics/physics.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-4 catslider">
-                      <a href="chemistrybook.php"><img src="images/academics/stattextbook.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/academics/testprep2.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-            </div>
-
-            <div class="slider-wrapper">
-              <div>
-                <br>
-                <h1>Best Sellers in Health</h1>
-              </div>
-              <br>
-              <div>
-                <button class="slide-prev" id="slide-prev2">&#10094;</button>
-                <button class="slide-next" id="slide-next2">&#10095;</button>
-              </div>
-              <div class="my-slider2">
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/health/band.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-2 catslider">
-                      <a href="chemistrybook.php"><img src="images/health/jumprope.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-3 catslider">
-                      <a href="chemistrybook.php"><img src="images/health/pushupboard.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-4 catslider">
-                      <a href="chemistrybook.php"><img src="images/health/waterbottle.png"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/health/yogamatt.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-            </div>
-
-
-
-            <div class="slider-wrapper">
-              <div>
-                <br>
-                <h1>Best Sellers in Room</h1>
-              </div>
-              <br>
-              <div>
-                <button class="slide-prev" id="slide-prev3">&#10094;</button>
-                <button class="slide-next" id="slide-next3">&#10095;</button>
-              </div>
-              <div class="my-slider3">
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/room/desklamp.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-2 catslider">
-                      <a href="chemistrybook.php"><img src="images/room/plant.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-3 catslider">
-                      <a href="chemistrybook.php"><img src="images/room/desklamp.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-4 catslider">
-                      <a href="chemistrybook.php"><img src="images/health/waterbottle.png"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/health/yogamatt.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-            </div>
-
-            <div class="slider-wrapper">
-              <div>
-                <br>
-                <h1>Best Sellers in Fashion</h1>
-              </div>
-              <br>
-              <div>
-                <button class="slide-prev" id="slide-prev4">&#10094;</button>
-                <button class="slide-next" id="slide-next4">&#10095;</button>
-              </div>
-              <div class="my-slider4">
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/fashion/jackect.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-2 catslider">
-                      <a href="chemistrybook.php"><img src="images/fashion/shirt.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-3 catslider">
-                      <a href="chemistrybook.php"><img src="images/fashion/Sweater.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-4 catslider">
-                      <a href="chemistrybook.php"><img src="images/fashion/sweatpants.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/fashion/Sweatshirt.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>
-
-
-
-            </div>
-
-            <div class="slider-wrapper">
-              <div>
-                <br>
-                <h1>Best Sellers in Entertainment</h1>
-              </div>
-              <br>
-              <div>
-                <button class="slide-prev" id="slide-prev5">&#10094;</button>
-                <button class="slide-next" id="slide-next5">&#10095;</button>
-              </div>
-              <div class="my-slider5">
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/entertainment/appletv.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-2 catslider">
-                      <a href="chemistrybook.php"><img src="images/entertainment/headphones.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-3 catslider">
-                      <a href="chemistrybook.php"><img src="images/entertainment/laptop.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-4 catslider">
-                      <a href="chemistrybook.php"><img src="images/entertainment/headphones.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-
-                <div>
-                  <div class="slide">
-                    <div class="slide-img img-1 catslider">
-                      <a href="chemistrybook.php"><img src="images/entertainment/appletv.jpg"></a>
-                    </div>
-
-
-                  </div>
-                </div>
-              </div>         
-        </div> 
+          try {
+            $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+          }
+          if (isset($_POST['search'])) {
+            $name = $_POST['search'];
+            $stmt = $pdo->prepare("SELECT * FROM items WHERE Name LIKE CONCAT('%', :name, '%')");
+            $stmt->bindParam(':name', $name);
+            $stmt->execute();
+            $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            echo '<div class="wrapper2">';
+            if (!empty($items)) {
+            foreach ($items as $item) {
+              echo '<div class="item" onclick="fill(\'' . $item['Name'] . $item['Price'] . $item['Image'] . '\')">' . '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+              echo '<p class="itemname">' . $item['Name'] . '</p>';
+              echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+              echo '<button class="add">Add Item</button>';
+              echo '</div>';
+            }}else {
+              echo '<h1>No Results</h1>';
+            }
+            echo '</div>';
+          } elseif (isset($_GET['subcategory'])) {
+            $name = $_GET['subcategory'];
+            $stmt = $pdo->prepare("SELECT * FROM items WHERE Subcategory = ?");
+            $stmt->bindParam(1,$name, PDO::PARAM_STR);
+            $stmt->execute();
+            $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!empty($items)) {
+              echo '<h1>' . $_GET['subcategory'] . '</h1>';
+              echo '<div class="wrapper2">';
+              foreach($items as $item){
+              echo '<div class="item">';
+              echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+              echo '<p class="itemname">' . $item['Name'] . '</p>';
+              echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+              echo '<button class="add">Add Item</button>';
+              echo '</div>';
+            } }else {
+              echo '<h1>No Results</h1>';
+            }
+            echo '</div>';            
+          } elseif (isset($_GET['category'])) {
+            foreach ($categories as $category) {
+              if ($category['category'] == $_GET['category']) {
+                foreach ($category['subcategories'] as $sub) {
+                  foreach ($sub as $subcategory) {
+                    $stmt = $pdo->prepare("SELECT * FROM items Where Subcategory= ?");
+                    $stmt->bindParam(1,$subcategory, PDO::PARAM_STR);
+                    $stmt->execute();
+                    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (!empty($items)) {
+                      echo '<a class="not-white" href="?subcategory=';
+                      echo $subcategory;
+                      echo '"><h1>' . $subcategory . '</h1></a>';
+                      echo '<div class="wrapper">';
+                      foreach($items as $item){
+                      echo '<div class="item">';
+                      echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+                      echo '<p class="itemname">' . $item['Name'] . '</p>';
+                      echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+                      echo '<button class="add">Add Item</button>';
+                      echo '</div>';
+                    }
+                  }
+                    echo '</div>';            
+                  }
+                }
+              }
+            }
+          } else {
+            include 'carousel.html';
+          }
+
+          ?>
+
+        </main>
+      </div>
+      <div class="mainfooter">
+        <footer>
+          <?php include './partials/footer.php' ?>
+        </footer>
       </div>
     </div>
-  </section>
 
-  </main>
-  <!-- Annie Tran - The footer of the page -->
-  <footer>
-    <?php include './partials/footer.php'?>
-  </footer>
-  <script src="js/hamburger.js"></script>
-  <script src="js/index.js"></script>
-</body>
+    <script src="js/hamburger.js"></script>
+    <script src="js/index.js"></script>
 
+  </body>
 
 </php>

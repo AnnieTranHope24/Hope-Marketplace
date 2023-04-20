@@ -176,6 +176,12 @@ a:hover {
   font-weight: 500;
 }
 
+.not-white{
+    margin:5px;
+    text-decoration: none;
+    color:black;
+}
+
 /* Bereket Bessie - Makes the container for the sub-catagories visble one mouse hovers over each specifc catagory. */
 .dropdown:hover .dropdown-content{
   display: flex;
@@ -242,8 +248,8 @@ a:hover {
 
 /* Bereket Bessie - Formatting hamburger menu items. */
 .nav-link {
-  margin: 0px 25px;
-  padding: 1.5em 1em;
+  margin: 0px 10px;
+  padding: 1.5em 0.5em;
   display: block;
   text-align: start;
   color: black;
@@ -258,7 +264,7 @@ a:hover {
   width: 30px;
   height: 30px;
   margin: -10px 0;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 /* Bereket Bessie - Creating a visual indicator for which item is being view in the hamburger menu items. */
@@ -728,7 +734,6 @@ footer {
   max-width: 2000px;
   height: 450px;
   object-fit: cover;
-  margin-left: 30%;
 }
 #slide-prev-cover {
   margin-left: 3%;

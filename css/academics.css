@@ -41,13 +41,14 @@ html,body {
 }
 
 .itemname {
-  font-size: 16px;
-  white-space: nowrap;
-  width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.5;
+  text-align: center;
+font-size: 16px;
+width: 200px;
+word-wrap: break-word;
+height: 40px;
+line-height: 1.5;
 }
+
 .wrapper2{
   display: flex;
   padding:0px 50px;

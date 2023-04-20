@@ -29,14 +29,19 @@ include 'categories.php';
 </head>
 
 <body>
+	<header>
+	<?php
+	include 'header.php';
+	?>
+	<header>
 	<div class="container">
 		<h1 class="h2">Post Item Form</h1>
 		<form action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 			<div class="form-group">
 				<label>Item name:</label>
-				<input type="text" name="name" class="form-control" pattern="^[a-zA-Z0-9 ]{1,50}$" title="Please enter letters, numbers and spaces only (up to 50 characters)" required>
+				<input type="text" name="name" class="form-control" pattern="^[a-zA-Z0-9 ]{1,40}$" title="Please enter letters, numbers and spaces only (up to 50 characters)" required>
 				<small id="passwordHelpInline" class="text-muted">
-					Enter the name of your item (letters, numbers and spaces only, up to 50 characters)
+					Enter the name of your item (letters, numbers and spaces only, up to 40 characters)
 				</small>
 			</div>
 
@@ -130,6 +135,11 @@ include 'categories.php';
 				<input type="reset" class="btn btn-secondary" />
 		</form>
 	</div>
+	<footer>
+	<?php
+	include 'footer.php';
+	?>
+	<footer>
 	<script>
 		const subcategories = {
 			academics: ['Textbook', 'Testprep', 'Book', 'Folder', 'Pens & Pencils', 'Binders', 'Note Cards'],
