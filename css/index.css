@@ -191,6 +191,9 @@ a:hover {
   display: flex;
 }
 
+.dropdown:hover .dropdown-content1{
+  display: flex;
+}
 /* Bereket Bessie - Container for Top navigation. */
 .topnav {
   width: 100%;

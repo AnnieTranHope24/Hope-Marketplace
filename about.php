@@ -4,7 +4,7 @@
 <head>
   <?php include './partials/head.php' ?>
   <title>About</title>
-  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="css/about.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather&display=swap"
