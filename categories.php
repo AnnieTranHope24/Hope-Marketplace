@@ -1,7 +1,7 @@
 <?php
 $categories = array();
 $categories[] = array("category" => "academics", "subcategories" =>
-array("Resources" => array("Textbooks", "Books", "Test Prep"),
+array("Resources" => array("Textbooks", "Books", "Test Preps"),
                "Supplies"  => array("Folders", "Pens & Pencils", "Binders","Note Cards"))
 );
 $categories[] = array("category" => "health", "subcategories" =>
