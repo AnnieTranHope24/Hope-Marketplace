@@ -29,14 +29,19 @@ include 'categories.php';
 </head>
 
 <body>
+	<header>
+	<?php
+	include 'header.php';
+	?>
+	<header>
 	<div class="container">
 		<h1 class="h2">Post Item Form</h1>
 		<form action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 			<div class="form-group">
 				<label>Item name:</label>
-				<input type="text" name="name" class="form-control" pattern="^[a-zA-Z0-9 ]{1,50}$" title="Please enter letters, numbers and spaces only (up to 50 characters)" required>
+				<input type="text" name="name" class="form-control" pattern="^[a-zA-Z0-9 ]{1,40}$" title="Please enter letters, numbers and spaces only (up to 50 characters)" required>
 				<small id="passwordHelpInline" class="text-muted">
-					Enter the name of your item (letters, numbers and spaces only, up to 50 characters)
+					Enter the name of your item (letters, numbers and spaces only, up to 40 characters)
 				</small>
 			</div>
 
@@ -69,7 +74,7 @@ include 'categories.php';
 				<label>Price:</label>
 				<div class="input-group">
 					<div> $
-					<input type="number" name="price" placeholder="5.00" patter="[0-9][.]{1}[0-9]{2}" aria-label="Amount (to the nearest dollar)" required><br>
+					<input type="number" name="price" placeholder="5" patter="[0-9]{1,9}" aria-label="Amount (to the nearest dollar)" required><br>
 					<small id="passwordHelpInline" class="text-muted">
 						Enter a price you would like to sell the item
 					</small>
@@ -85,7 +90,7 @@ include 'categories.php';
 
 			<div class="form-group">
 				<label>Email:</label>
-				<input type="email" name="email"  class="form-control" placeholder="hopemarketplace@gmail.com"  pattern="[a-zA-Z0-9]{1,50}[@]{1}[a-zA-Z0-9]{1,10}[.]{1}[a-zA-Z]{1,4}" title="Please match this format ' hopemarketplace@gmail.com '" class="form-control" required>
+				<input type="email" class="form-control" id="email" name="email"  pattern="[a-zA-Z0-9.]{1,50}[@]{1}[a-zA-Z0-9]{1,10}[.]{1}[a-zA-Z]{1,4}" title="Please match this format ' hopemarketplace@gmail.com '" required>
 				<small id="passwordHelpInline" class="text-muted">
 					Enter an email address to be contacted with
 				</small>
@@ -130,12 +135,17 @@ include 'categories.php';
 				<input type="reset" class="btn btn-secondary" />
 		</form>
 	</div>
+	<footer>
+	<?php
+	include 'footer.php';
+	?>
+	<footer>
 	<script>
 		const subcategories = {
 			academics: ['Textbook', 'Testprep', 'Book', 'Folder', 'Pens & Pencils', 'Binders', 'Note Cards'],
 			health: ['Home Workout Equipment', 'Fitness Clothes', 'Weightlifting Belts', 'Foam Rollers', 'Sport Equipment', 'Yoga Matts', 'Waterbottles', 'Bodyweight Scales', 'Massage Guns'],
 			room: ['Plants', 'Lights', 'Rugs', 'Art', 'Plates & Bowls', 'Utensils', 'Water Heaters', 'Coffee Machines', 'Pots & Pans'],
-			fashion: ['Mens Clothing', 'Mens Sports Fan Shop', 'Mens Footwear', 'Womens Clothing', 'Womens Sports Fan Shop', 'Womens Footwear', 'Handbagsn & BackPacks', 'Sunglassess', 'Hats', 'Jewelery & Watches'],
+			fashion: ['Mens Clothing', 'Mens Sports Fan Shop', 'Mens Footwear', 'Womens Clothing', 'Womens Sports Fan Shop', 'Womens Footwear', 'Handbags & BackPacks', 'Sunglasses', 'Hats', 'Jewelery & Watches'],
 			entertainment: ['Computers & Tablets', 'TV & Home Theater', 'Cameras', 'Speakers', 'Smart Watches', 'Headphones', 'Phones', 'Video Games', 'Movies & Music', 'Collectibles']
 		};
 

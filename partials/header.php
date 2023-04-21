@@ -1,79 +1,141 @@
-<!-- connect file -->
-<?php 
-  include 'categories.php';
-  include 'includes/connect.php';
- ?>
-<div class="topnav">
-      <a class="logo" href="hopemarketplace.php"><img src="images/icons/logo.svg" width="400px" /></a>
-      <form class="search-form" method="post" action="">
-        <div class="search_box">
-          <input name="search" type="text" class="mySearch" id="search" autocomplete="off" placeholder="Search.." src="images/icons/search.svg">
-          <div>
-            <button class="search_btn" type="submit"><img src="images/icons/search.svg" alt="search button" width="25px"
-                height="20px"></button>
-          </div>
-        </div>
-      </form>
-      <div class="personal">
-        <a href="account.php"><img src="images/icons/person-circle.svg" width="30px"></a>
-        <div class="dropdown">
-        <a id="account" class="dropbtn"href="account.php">Account</a>
-          <div class="dropdown-content1 ">
-            <a href="?logout">Log Out</a>
-          </div>
-        </div>
-        <div class="cart">
-          <h3 id="item-counter">0</h3>
-          <a class="cart" href="cart.php"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="nav-menu">
-      <div class="nav-item">
-        <form class="nav_moblie" method="post" action="">
-          <div class="searchbox_moblie">
-            <input name="search" type="text" class="mySearch" placeholder="Search.." id="search" autocomplete="off" src="images/icons/search.svg">
-            <div>
-              <button class="search_btn" type="submit"><img src="images/icons/search.svg" alt="search button"
-                  width="25px" height="20px"></button>
-            </div>
-          </div>
-        </form>
-        <a class="nav-link" href="hopemarketplace.php?category=academics"><img src=images/icons/book-icon.svg> Academics</a>
-        <a class="nav-link" href="hopemarketplace.php?category=health"><img src=images/icons/Weights.svg>Health</a>
-        <a class="nav-link" href="hopemarketplace.php?category=fashion"><img src=images/icons/Cloth.svg>Fashion</a>
-        <a class="nav-link" href="hopemarketplace.php?category=room"><img src=images/icons/Lamp.svg>Room</a>
-        <a class="nav-link" href="hopemarketplace.php?category=entertainment"><img src=images/icons/TV.svg>Entertainment</a>
-        <hr>
-        <p id="log-in"> <img src="images/icons/person-add.svg"> sign-up | log-in</p>
-      </div>
-    </div>
-    <div class="navbar">
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
 <?php
-foreach($categories as $category){
-     echo '<div class="dropdown">';
-     $query = http_build_query(['category' => $category['category']]);
-     echo '<a id="category" href="hopemarketplace.php?'.$query.'">'.ucfirst($category['category']) .'</a>';
-     echo '<div class="dropdown-content">';
-        $titles = array();
-        $titles = array_keys($category['subcategories']);
- foreach($titles as $title){
-        echo '<div>';
-        echo '<h3>'.$title.'</h3>';
- foreach($category['subcategories'][$title] as $subcategory){
-        $query = http_build_query(['subcategory' => $subcategory]);
-         echo '<a href="hopemarketplace.php?'.$query.'">'.$subcategory .'</a>';
-       }
-         echo '</div>';
-     }
-     echo '</div>';
-   echo '</div>';
-  }
-  ?>
+session_start();
 
+$_SESSION['ref-time'] = time();
+// Check if the user is not logged in
+if (!isset($_SESSION['username'])) {
+  // Redirect to the login page
+  header('Location: login.php');
+  exit;
+}
+
+if (isset($_GET['logout'])){
+  session_unset(); // Unset all session variables
+  session_destroy(); // Destroy the session
+  header('Location: login.php'); // Redirect to the login page or any other desired page
+  exit;
+}
+?>
+
+<!DOCTYPE php>
+
+<php lang="en">
+
+  <head>
+    <?php include './partials/head.php' ?>
+    <title>Hope Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      <?php include './partials/header.php' ?>
+    </header>
+
+    <!-- Annie Tran - Main display items -->
+    <div class="maincontainer">
+      <div class="maincontent">
+        <main>
+          <!-- Annie Tran - Carousel using Tiny Slider  -->
+          <?php
+          require_once('config.php');
+
+          include 'categories.php';
+          
+          try {
+            $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+          }
+          if (isset($_POST['search'])) {
+            $name = $_POST['search'];
+            $stmt = $pdo->prepare("SELECT * FROM items WHERE Name LIKE CONCAT('%', :name, '%')");
+            $stmt->bindParam(':name', $name);
+            $stmt->execute();
+            $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            echo '<div class="wrapper2">';
+            if (!empty($items)) {
+            foreach ($items as $item) {
+              echo '<div class="item" onclick="fill(\'' . $item['Name'] . $item['Price'] . $item['Image'] . '\')">' . '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+              echo '<p class="itemname">' . $item['Name'] . '</p>';
+              echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+              echo '<button class="add">Add Item</button>';
+              echo '</div>';
+            }}else {
+              echo '<h1>No Results</h1>';
+            }
+            echo '</div>';
+          } elseif (isset($_GET['subcategory'])) {
+            $name = $_GET['subcategory'];
+            $stmt = $pdo->prepare("SELECT * FROM items WHERE Subcategory = ?");
+            $stmt->bindParam(1,$name, PDO::PARAM_STR);
+            $stmt->execute();
+            $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!empty($items)) {
+              echo '<h1>' . $_GET['subcategory'] . '</h1>';
+              echo '<div class="wrapper2">';
+              foreach($items as $item){
+              echo '<div class="item">';
+              echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+              echo '<p class="itemname">' . $item['Name'] . '</p>';
+              echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+              echo '<button class="add">Add Item</button>';
+              echo '</div>';
+            } }else {
+              echo '<h1>No Results</h1>';
+            }
+            echo '</div>';            
+          } elseif (isset($_GET['category'])) {
+            foreach ($categories as $category) {
+              if ($category['category'] == $_GET['category']) {
+                foreach ($category['subcategories'] as $sub) {
+                  foreach ($sub as $subcategory) {
+                    $stmt = $pdo->prepare("SELECT * FROM items Where Subcategory= ?");
+                    $stmt->bindParam(1,$subcategory, PDO::PARAM_STR);
+                    $stmt->execute();
+                    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (!empty($items)) {
+                      echo '<a class="not-white" href="?subcategory=';
+                      echo $subcategory;
+                      echo '"><h1>' . $subcategory . '</h1></a>';
+                      echo '<div class="wrapper">';
+                      foreach($items as $item){
+                      echo '<div class="item">';
+                      echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+                      echo '<p class="itemname">' . $item['Name'] . '</p>';
+                      echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+                      echo '<button class="add">Add Item</button>';
+                      echo '</div>';
+                    }
+                  }
+                    echo '</div>';            
+                  }
+                }
+              }
+            }
+          } else {
+            include 'carousel.html';
+          }
+
+          ?>
+
+        </main>
+      </div>
+      <div class="mainfooter">
+        <footer>
+          <?php include './partials/footer.php' ?>
+        </footer>
+      </div>
     </div>
+
+    <script src="js/hamburger.js"></script>
+    <script src="js/index.js"></script>
+
+  </body>
+
+</php>

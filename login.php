@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Login/Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- Custom CSS -->
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }    if (isset($_SESSION['username'])) {
         // Redirect to the login page
-        header('Location: hopemarketplace.php');
+        header('Location: index.php');
         exit;
     }
 }
