@@ -79,6 +79,7 @@
     <?php include './partials/footer.php'?>
   </footer>
   <script src="js/account.js"></script>
+  <script src="js/hamburger.js"></script>
 </body>
 
 

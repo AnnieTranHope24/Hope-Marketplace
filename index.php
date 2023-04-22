@@ -5,6 +5,7 @@
 
   <head>
     <?php include './partials/head.php' ?>
+    <?php include './includes/common_functions.php'?>
     <title>Hope Marketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
@@ -100,6 +101,9 @@
                 }
               }
             }
+            $ip = getIPAddress();  
+            echo 'User Real IP Address - '.$ip;  
+
           } else {
             include 'carousel.html';
           }
@@ -108,6 +112,7 @@
 
         </main>
       </div>
+
       <div class="mainfooter">
         <footer>
           <?php include './partials/footer.php' ?>

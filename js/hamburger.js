@@ -145,6 +145,8 @@ adds.forEach((add) => {
       count++;
       item.textContent = count;
     } else {
+// AT: changes here for cart
+
       // Otherwise, reverts the changes made to the button, decrements the count variable, and update the text content of the 'item-counter' element
       add.textContent = "Add Item";
       add.style.backgroundColor = "lightblue";
