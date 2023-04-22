@@ -5,7 +5,7 @@
 
   <head>
     <?php include './partials/head.php' ?>
-    <?php include './includes/common_functions.php'?>
+    
     <title>Hope Marketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
@@ -31,6 +31,7 @@
           try {
             $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            include './includes/common_functions.php';
           } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
           }
@@ -47,7 +48,7 @@
               echo '<div class="item" onclick="fill(\'' . $item['Name'] . $item['Price'] . $item['Image'] . '\')">' . '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
               echo '<p class="itemname">' . $item['Name'] . '</p>';
               echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-              echo '<button class="add">Add Item</button>';
+              echo '<a href="index.php?add_to_cart="' . $item['ID'] . ' class="add">Add Item</a>';
               echo '</div>';
             }}else {
               echo '<h1>No Results</h1>';
@@ -67,7 +68,9 @@
               echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
               echo '<p class="itemname">' . $item['Name'] . '</p>';
               echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-              echo '<button class="add">Add Item</button>';
+              // echo '<a href="#" class="add">Add Item</a>';
+              // echo '<a href="index.php?subcategory='.$_GET['subcategory']. '" class="add">Add Item</a>';
+              echo '<a href="index.php?subcategory='.$_GET['subcategory'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
               echo '</div>';
             } }else {
               echo '<h1>No Results</h1>';
@@ -92,7 +95,7 @@
                       echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
                       echo '<p class="itemname">' . $item['Name'] . '</p>';
                       echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-                      echo '<button class="add">Add Item</button>';
+                      echo '<a href="index.php?add_to_cart="' . $item['ID'] . ' class="add">Add Item</a>';
                       echo '</div>';
                     }
                   }
