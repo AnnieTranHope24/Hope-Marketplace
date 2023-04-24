@@ -3,7 +3,7 @@
 
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
   <!-- font awesome link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <?php include 'partials/head.php' ?>
@@ -54,12 +54,31 @@
         
       </div>
 
+      <div class="container">
+        <div class="row">
+          <div class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th>Product Title</th>
+                <th>Product Image</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Remove</th>
+                <th>Operations</th>
+              </tr>
+            </thead>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </main>
   <footer>
     <?php include 'partials/footer.php'?>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../js/hamburger.js"></script>
   
 </body>

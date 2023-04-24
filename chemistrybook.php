@@ -22,7 +22,6 @@
         <img src="images/academics/Chemtextbook.jpg" />
       </div>
       <div class="description">
-
         <h1>General Chemistry 4.0026: Chemistry 132 - Laboratory Manual 6E</h1>
         <h2>Christiana A.M Guest, Ph.D</h2>
         <h2>$28.99</h2>

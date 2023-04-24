@@ -31,7 +31,7 @@ include 'categories.php';
 <body>
 	<header>
 	<?php
-	include 'header.php';
+	// include 'header.php';
 	?>
 	<header>
 	<div class="container">
@@ -137,7 +137,7 @@ include 'categories.php';
 	</div>
 	<footer>
 	<?php
-	include 'footer.php';
+	// include 'footer.php';
 	?>
 	<footer>
 	<script>
