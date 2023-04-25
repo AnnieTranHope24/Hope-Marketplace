@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
  function validLogin(){  
+    global $pdo;
    $sql = "SELECT * FROM Credentials WHERE Username=:user and Password=MD5(CONCAT(:pass, Seed))";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user',$_POST['username']);
@@ -59,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function registerUser($username, $password,$email) {
+    global $pdo;
    $sql = "SELECT * FROM Credentials WHERE Username=:user OR Password=MD5(CONCAT(:pass, Seed))";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user',$username);

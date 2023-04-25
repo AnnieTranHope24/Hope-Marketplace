@@ -148,16 +148,11 @@
             } }else {
               echo '<h1>No Results</h1>';
             }
-          }else {
-            
-            // $ip = getIPAddress();  
-            // echo 'User Real IP Address - '.$ip;  
-
           } else {
             include 'carousel.html';
           }
-            $ip = getIPAddress();  
-            echo 'User Real IP Address - '.$ip;  
+            // $ip = getIPAddress();  
+            // echo 'User Real IP Address - '.$ip;  
 
           ?>
 
