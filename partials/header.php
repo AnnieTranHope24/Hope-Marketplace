@@ -1,6 +1,7 @@
 <!-- connect file -->
 <?php 
   include 'categories.php';
+
  ?>
 <div class="topnav">
       <a class="logo" href="index.php"><img src="images/icons/logo.svg" width="400px" /></a>
@@ -22,7 +23,7 @@
       </div>
     </div>
         <div class="cart">
-          <h3 id="item-counter">0</h3>
+          <h3 id="item-counter"><?php cart_item_count(); ?></h3>
           <a class="cart" href="cart.php"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
         </div>
       </div>

@@ -22,13 +22,79 @@
 
 //TODO: finish the cart function
 function cart(){
+
+    if(isset($_GET['add_to_cart'])){
+        global $pdo;
+        $ip =   getIPAddress();
+        $get_product_id = $_GET['add_to_cart'];
+        $stmt = $pdo->prepare("SELECT * FROM cart WHERE ip_address=? and ID=?");
+        $stmt->bindParam(1,$ip, PDO::PARAM_INT);
+        $stmt->bindParam(2,$get_product_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $count = 0;
+        //TODO: fix so that it comes back the current page
+        if (!empty($items)) {
+            echo "<script>alert('This item is already in the cart')</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
+        }
+        else {
+            $sql = "INSERT INTO cart (ID, ip_address, quantity) VALUES (?,?,?)";
+            $pdo->prepare($sql)->execute([$get_product_id, $ip, 1]);
+            echo "<script>alert('Item is added to cart')</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
+                // $url = 'index.php?category='.$_GET['category'];
+                // echo "<script>window.open($url, '_self')</script>";            
+            
+        }
+    }
+
+}
+//function to get cart item number
+function cart_item_count(){
+
     global $pdo;
     $ip =   getIPAddress();
-    $get_product_id = $_GET['add_to_cart'];
-    $stmt = $pdo->prepare("SELECT * FROM cart WHERE ip_address=? and ID=?");
-    $stmt->bindParam(1,$ip, PDO::PARAM_INT);
-    $stmt->bindParam(2,$get_product_id, PDO::PARAM_INT);
+    $stmt = $pdo->prepare("SELECT * FROM cart");
     $stmt->execute();
     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $count = 0;
+    foreach($items as $item){
+        $count += 1;
+    }
+
+    echo $count;
+}
+
+//get the total price
+function get_total_price(){
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM cart");
+    $stmt->execute();
+    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $total_price = 0;
+    foreach($items as $item){
+        $stmt = $pdo->prepare("SELECT * FROM items WHERE ID = ?");
+        $stmt->bindParam(1,$item['ID'], PDO::PARAM_INT);
+        $stmt->execute();
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);		
+        foreach($products as $product)	{
+            $total_price += $product['Price'];
+        }  
+}
+    echo $total_price;
+}
+
+//remove cart item
+function remove_cart_item(){
+    global $pdo;
+    if(isset($POST['remove_cart'])){
+        foreach($_POST['removeitem'] as $remove_id){
+            echo $remove_id;
+            $delete_query = "DELETE From cart where ID=?";
+            $stmt= $pdo->prepare($$delete_query);
+            $stmt->execute([$remove_id]);
+        }
+    }
 }
 ?>  
