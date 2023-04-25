@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
     <style>
         #signupForm{
             display:none;
@@ -17,33 +15,35 @@
 <?php
 // Start the session
 session_start();
+require 'config.php';
+try {
+  $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo 'Connection failed: ' . $e->getMessage();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['login-username']) && isset($_POST['login-password'])) {
-        registerUser($_POST['login-username'], $_POST['login-password']);
+    if (isset($_POST['signup-username']) && isset($_POST['signup-password']) && isset($_POST['signup-email'])) {
+        if(registerUser($_POST['signup-username'], $_POST['signup-password'],$_POST['signup-email'])===true){
         echo '<script>alert("Registeration successfully")</script>';
+        }else{
+        echo '<script>alert("Username or password may already exist")</script>';
+        }
     }
     if (isset($_POST['username']) && isset($_POST['password'])) {
         if (validLogin()) {
             echo '<script>alert("Login successful")</script>';
-            // add 1 day to the current time for expiry time
-            //    $expiryTime = time()+60*60*24;
-
-            // setcookie("Username", $_POST['username'], $expiryTime);       
-            // Password is correct, create a session for the user
         } elseif (validLogin() === false) {
             echo '<script>alert("Login unsuccessfully")</script>';
         }
     }    if (isset($_SESSION['username'])) {
-        // Redirect to the login page
         header('Location: index.php');
         exit;
     }
 }
 
- function validLogin(){
-    require_once("config.php");
-   $pdo = new PDO(DBCONNSTRING,DBUSER,DBPASS);   
-   //very simple (and insecure) check of valid credentials.
+ function validLogin(){  
    $sql = "SELECT * FROM Credentials WHERE Username=:user and Password=MD5(CONCAT(:pass, Seed))";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user',$_POST['username']);
@@ -58,9 +58,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    return false;
 }
 
-function registerUser($username, $password) {
-    require_once("config.php");
-   $pdo = new PDO(DBCONNSTRING,DBUSER,DBPASS);
+function registerUser($username, $password,$email) {
+   $sql = "SELECT * FROM Credentials WHERE Username=:user OR Password=MD5(CONCAT(:pass, Seed))";
+   $statement = $pdo->prepare($sql);
+   $statement->bindValue(':user',$username);
+   $statement->bindValue(':pass',$password);
+   $statement->execute();
+   if($statement->rowCount()>0){
+    $pdo = null;
+     return false;
+   }else{
    // generate random salt
    $salt = bin2hex(random_bytes(4));
    
@@ -69,15 +76,17 @@ function registerUser($username, $password) {
    $hashedPassword = md5($saltedPassword);
    
    // insert the user's credentials into the database
-   $sql = "INSERT INTO Credentials (Username, Password, Seed) VALUES (:user, :pass, :seed)";
+   $sql = "INSERT INTO Credentials (Username, Password, Seed, Email) VALUES (:user, :pass, :seed, :email)";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user', $username);
    $statement->bindValue(':pass', $hashedPassword);
    $statement->bindValue(':seed', $salt);
+   $statement->bindValue(':email', $email);
    $statement->execute();
    $_SESSION['username'] =  $username;
    $pdo = null;
    return true;
+   }
 }
 ?>
     <div class="container">
@@ -88,21 +97,21 @@ function registerUser($username, $password) {
                 <h2>Sign Up</h2>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="login-username" pattern="[a-zA-Z0-9 ]{1,10}" title="Please enter letters and numbers only (up to 10 characters)" required>
+                        <input type="text" class="form-control" id="username" name="signup-username" pattern="[a-zA-Z0-9 ]{1,10}" title="Please enter letters and numbers only (up to 10 characters)" required>
                         <small id="passwordHelpInline" class="text-muted">
                         Please enter a username that contains letters, numbers, and special characters only (up to 10 characters).
                             </small>
                     </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email"  pattern="[a-zA-Z0-9.]{1,50}[@]{1}[a-zA-Z0-9]{1,10}[.]{1}[a-zA-Z]{1,4}" title="Please match this format ' hopemarketplace@gmail.com '" required>
+                        <input type="email" class="form-control" id="email" name="signup-email"  pattern="[a-zA-Z0-9.]{1,50}[@]{1}[a-zA-Z0-9]{1,10}[.]{1}[a-zA-Z]{1,4}" title="Please match this format ' hopemarketplace@gmail.com '" required>
                         <small id="passwordHelpInline" class="text-muted">
                             Please enter a valid email address.
                         </small>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="login-password" pattern="[a-zA-Z0-9!@#$%^&*()_+=\-\\[\]{}|\\:;\',.<>/? ]{1,10}" title="Please enter letters, numbers, and special characters only (up to 10 characters)" required>
+                        <input type="password" class="form-control" id="password" name="signup-password" pattern="[a-zA-Z0-9!@#$%^&*()_+=\-\\[\]{}|\\:;\',.<>/? ]{1,10}" title="Please enter letters, numbers, and special characters only (up to 10 characters)" required>
                         <small id="passwordHelpInline" class="text-muted">
                              Please enter a password that contains letters, numbers, and special characters only (up to 10 characters).
                             </small>
@@ -163,3 +172,5 @@ function registerUser($username, $password) {
     </script>
 </body>
 </html>
+
+

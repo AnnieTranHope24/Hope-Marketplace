@@ -2,217 +2,147 @@
 <html lang="en">
 
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="css/bootstrap.min.css" rel="stylesheet">  
+<link rel="stylesheet" href="css/reset.css" />
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
   <!-- font awesome link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-  <?php include './partials/head.php' ?>
-  <link rel="stylesheet" href=".css/cart.css">  
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   -->
+  <!-- <?php include './partials/head.php' ?> -->
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/academics.css" />
+  <link href="about.php" />
+  <link rel="stylesheet" href="css/moblie-index.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  <link rel="stylesheet" href=".css/cart.css">
+    
   <title>Cart</title>
+
+  <?php
+
+include "includes/common_functions.php";
+
+include './partials/head.php' ;
+require_once('config.php');
+
+include 'categories.php';
+try {
+  $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo 'Connection failed: ' . $e->getMessage();
+}
+?>
 </head>
 
 <body>
   <header>
     <?php include './partials/header.php'?>
   </header>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"> -->
+  <div class="container">
+	<table id="cart" class="table table-hover table-condensed" style="height: 450px">
+    				<thead>
 
-  <section class="h-100 h-custom">
-  <div class="container h-100 py-5">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
 
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" class="h5">Shopping Bag</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">
-                  <div class="d-flex align-items-center">
-                    <img src="https://i.imgur.com/2DsA49b.webp" class="img-fluid rounded-3"
-                      style="width: 120px;" alt="Book">
-                    <div class="flex-column ms-4">
-                      <p class="mb-2">Thinking, Fast and Slow</p>
-                      <p class="mb-0">Daniel Kahneman</p>
-                    </div>
-                  </div>
-                </th>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
 
-                <td class="align-middle">
-                  <div class="d-flex flex-row">
-                    <button class="btn btn-link px-2"
-                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                      <i class="fas fa-minus"></i>
-                    </button>
+					<!-- php code to display dynamic data -->
+					<?php
+					    global $pdo;
+						$ip =   getIPAddress();
+						$stmt = $pdo->prepare("SELECT * FROM cart");
+						$stmt->execute();
+						$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+						foreach($items as $item){
+							$stmt = $pdo->prepare("SELECT * FROM items WHERE ID = ?");
+							$stmt->bindParam(1,$item['ID'], PDO::PARAM_INT);
+							$stmt->execute();
+							$products = $stmt->fetchAll(PDO::FETCH_ASSOC);		
+							foreach($products as $product)	{
+								echo '			<tr>
+								<td data-th="Product">
+									<div class="row">
+										<div class="col-sm-2 hidden-xs"><img src="images/academics/'.$product['Image'].'" alt="..." class="img-responsive"/></div>
+										<div class="col-sm-10">
+											<h4 class="nomargin">'.$product['Name'].'</h4>
+											
+										</div>
+									</div>
+								</td>
+								<td data-th="Price">$'.$product['Price'].'</td>
+								<td data-th="Quantity">
+									<input type="number" class="form-control text-center" value="1">
+								</td>
+								<td data-th="Subtotal" class="text-center">$'.$product['Price'].'</td>
+								<td class="actions" data-th="">
+									<input type="checkbox" class="btn btn-danger btn-sm" name="removeitem[]" value="'.$product["ID"].'">
+									<input type="submit" class="btn btn-danger btn-sm" name="remove_cart" value="Remove">							
+								</td>
+							</tr>';
+							}			
 
-                    <input id="form1" min="0" name="quantity" value="2" type="number"
-                      class="form-control form-control-sm" style="width: 50px;" />
+						}
+					
+						
+					
+					
+					?>
 
-                    <button class="btn btn-link px-2"
-                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </div>
-                </td>
-                <td class="align-middle">
-                  <p class="mb-0" style="font-weight: 500;">$9.99</p>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="border-bottom-0">
-                  <div class="d-flex align-items-center">
-                    <img src="https://i.imgur.com/Oj1iQUX.webp" class="img-fluid rounded-3"
-                      style="width: 120px;" alt="Book">
-                    <div class="flex-column ms-4">
-                      <p class="mb-2">Homo Deus: A Brief History of Tomorrow</p>
-                      <p class="mb-0">Yuval Noah Harari</p>
-                    </div>
-                  </div>
-                </th>
-
-                <td class="align-middle border-bottom-0">
-                  <div class="d-flex flex-row">
-                    <button class="btn btn-link px-2"
-                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                      <i class="fas fa-minus"></i>
-                    </button>
-
-                    <input id="form1" min="0" name="quantity" value="1" type="number"
-                      class="form-control form-control-sm" style="width: 50px;" />
-
-                    <button class="btn btn-link px-2"
-                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </div>
-                </td>
-                <td class="align-middle border-bottom-0">
-                  <p class="mb-0" style="font-weight: 500;">$13.50</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
-          <div class="card-body p-4">
-
-            <div class="row">
-              <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
-                <form>
-                  <div class="d-flex flex-row pb-3">
-                    <div class="d-flex align-items-center pe-2">
-                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
-                        value="" aria-label="..." checked />
-                    </div>
-                    <div class="rounded border w-100 p-3">
-                      <p class="d-flex align-items-center mb-0">
-                        <i class="fab fa-cc-mastercard fa-2x text-dark pe-2"></i>Credit
-                        Card
-                      </p>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row pb-3">
-                    <div class="d-flex align-items-center pe-2">
-                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2v"
-                        value="" aria-label="..." />
-                    </div>
-                    <div class="rounded border w-100 p-3">
-                      <p class="d-flex align-items-center mb-0">
-                        <i class="fab fa-cc-visa fa-2x fa-lg text-dark pe-2"></i>Debit Card
-                      </p>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="d-flex align-items-center pe-2">
-                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3v"
-                        value="" aria-label="..." />
-                    </div>
-                    <div class="rounded border w-100 p-3">
-                      <p class="d-flex align-items-center mb-0">
-                        <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal
-                      </p>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="col-md-6 col-lg-4 col-xl-6">
-                <div class="row">
-                  <div class="col-12 col-xl-6">
-                    <div class="form-outline mb-4 mb-xl-5">
-                      <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                        placeholder="John Smith" />
-                      <label class="form-label" for="typeName">Name on card</label>
-                    </div>
-
-                    <div class="form-outline mb-4 mb-xl-5">
-                      <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY"
-                        size="7" id="exp" minlength="7" maxlength="7" />
-                      <label class="form-label" for="typeExp">Expiration</label>
-                    </div>
-                  </div>
-                  <div class="col-12 col-xl-6">
-                    <div class="form-outline mb-4 mb-xl-5">
-                      <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                        placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" />
-                      <label class="form-label" for="typeText">Card Number</label>
-                    </div>
-
-                    <div class="form-outline mb-4 mb-xl-5">
-                      <input type="password" id="typeText" class="form-control form-control-lg"
-                        placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                      <label class="form-label" for="typeText">Cvv</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-xl-3">
-                <div class="d-flex justify-content-between" style="font-weight: 500;">
-                  <p class="mb-2">Subtotal</p>
-                  <p class="mb-2">$23.49</p>
-                </div>
-
-                <div class="d-flex justify-content-between" style="font-weight: 500;">
-                  <p class="mb-0">Shipping</p>
-                  <p class="mb-0">$2.99</p>
-                </div>
-
-                <hr class="my-4">
-
-                <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
-                  <p class="mb-2">Total (tax included)</p>
-                  <p class="mb-2">$26.48</p>
-                </div>
-
-                <button type="button" class="btn btn-primary btn-block btn-lg">
-                  <div class="d-flex justify-content-between">
-                    <span>Checkout</span>
-                    <span>$26.48</span>
-                  </div>
-                </button>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
+						<!-- <tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="images/academics/book1.jpg" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">Product 1</h4>
+										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">$1.99</td>
+							<td data-th="Quantity">
+								<input type="number" class="form-control text-center" value="1">
+							</td>
+							<td data-th="Subtotal" class="text-center">1.99</td>
+							<td class="actions" data-th="">
+								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr> -->
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total $<?php get_total_price()?></strong></td>
+						</tr>
+						<tr>
+							<td><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total $<?php get_total_price()?></strong></td>
+							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+</div>
+   
   
 
 
 
 
   <footer>
-    <?php include './partials/footer.php'?>
+   <?php include './partials/footer.php'?>
   </footer>
   <script src="hamburger.js"></script>
   <script src="index.js"></script>

@@ -1,12 +1,5 @@
 <?php
-session_start();
-// Check if the user is not logged in
-if (!isset($_SESSION['username'])) {
-	// Redirect to the login page
-	header('Location: about.php');
-	exit;
-  }
-require_once('config.php');
+require 'seesion.php';
 include 'categories.php';
 ?>
 <!DOCTYPE html>
@@ -179,9 +172,10 @@ include 'categories.php';
 	</script>
 	<?php
 	// Connect to database
+	require_once('config.php');
 	try {
-		$dbh = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	} catch (PDOException $e) {
 		echo 'Connection failed: ' . $e->getMessage();
 	}
@@ -192,21 +186,9 @@ include 'categories.php';
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($destination, PATHINFO_EXTENSION));
 
-		// Check if image file is a actual image or fake image
-		$check = getimagesize($fileToMove);
-		if ($check === false) {
-			echo "File is not an image.";
-			$uploadOk = 0;
-		}
-		// Check file size
-		if ($_FILES["file1"]["size"] > 500000) {
-			echo "Sorry, your file is too large.";
-			$uploadOk = 0;
-		}
-
 		// Allow certain file formats
-		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-			echo '<script>alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed.")</script>';
+		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+			echo '<script>alert("Sorry, only JPG, JPEG, and PNG files are allowed.")</script>';
 			$uploadOk = 0;
 		}
 
@@ -218,7 +200,7 @@ include 'categories.php';
 				$category = $_POST['category'];
 				$subcategory = $_POST['subcategory'];
 				$image = $_FILES["file1"]["name"];
-				$stmt = $dbh->prepare("INSERT INTO items (name,category, subcategory, image) VALUES (?,?,?,?)");
+				$stmt = $pdo->prepare("INSERT INTO items (name,category, subcategory, image) VALUES (?,?,?,?)");
 				$stmt->bindParam(1, $name);
 				$stmt->bindParam(2, $category);
 				$stmt->bindParam(3, $subcategory);

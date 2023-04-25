@@ -1,5 +1,5 @@
-<!-- connect file -->
 <?php 
+  require 'session.php';
   include 'categories.php';
  ?>
 <div class="topnav">
@@ -16,13 +16,13 @@
       <div class="personal">
         <a href="account.php"><img src="images/icons/person-circle.svg" width="30px"></a>
         <div class="dropdown">
-      <a id="account" href="account.php" class="dropbtn">Account</a>
+      <a id="account" href="account.php" class="dropbtn"><?php echo '<h6>Welcome!</h6>'. $_SESSION['username'].'';?></a>
       <div class="dropdown-content1">
         <a class="log-out" href="?logout">log-out</a>
       </div>
     </div>
         <div class="cart">
-          <h3 id="item-counter">0</h3>
+          <h3 id="item-counter"><?php cart_item_count(); ?></h3>
           <a class="cart" href="cart.php"><img src="images/icons/cart.svg" width="30px" height="30px" /></a>
         </div>
       </div>
@@ -75,3 +75,4 @@ foreach($categories as $category){
   }
   ?>
     </div>
+

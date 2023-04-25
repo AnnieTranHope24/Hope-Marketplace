@@ -143,7 +143,7 @@ adds.forEach((add) => {
       add.style.backgroundColor = "#f35a5a";
       isAdded = true;
       count++;
-      item.textContent = count;
+      // item.textContent = count;
     } else {
 // AT: changes here for cart
 
@@ -152,7 +152,7 @@ adds.forEach((add) => {
       add.style.backgroundColor = "lightblue";
       isAdded = false;
       count--;
-      item.textContent = count;
+      // item.textContent = count;
     }
   });
 });

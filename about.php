@@ -71,12 +71,14 @@
     </div>
   </div>
   <div class="video">
-    <video controls class="vid">
-      <source src="images/icons/aboutUs.mp4" type="video/mp4" />
-    </video>
+    <div controls class="vid">
+      <iframe width="100%" height="600px"src="https://www.youtube.com/embed/e9YZAPoCprc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
   </div>
   <script src="js/hamburger.js"></script>
 </body>
 <footer>
   <?php include './partials/footer.php'?>
 </footer>
+
+
