@@ -14,4 +14,5 @@ if (isset($_GET['logout']) || isset($_SESSION['LAST_ACTIVITY']) && (time() - $_S
   exit;
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
 ?>

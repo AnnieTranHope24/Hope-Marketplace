@@ -20,6 +20,7 @@
   <title>Cart</title>
 
   <?php
+  require 'session.php';
 
 include "includes/common_functions.php";
 
@@ -45,6 +46,7 @@ try {
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"> -->
   <div class="container">
+	<form action="" method="post">
 	<table id="cart" class="table table-hover table-condensed" style="height: 450px">
     				<thead>
 
@@ -62,7 +64,6 @@ try {
 					<!-- php code to display dynamic data -->
 					<?php
 					    global $pdo;
-						$ip =   getIPAddress();
 						$stmt = $pdo->prepare("SELECT * FROM cart");
 						$stmt->execute();
 						$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -88,8 +89,10 @@ try {
 								</td>
 								<td data-th="Subtotal" class="text-center">$'.$product['Price'].'</td>
 								<td class="actions" data-th="">
+								
 									<input type="checkbox" class="btn btn-danger btn-sm" name="removeitem[]" value="'.$product["ID"].'">
-									<input type="submit" class="btn btn-danger btn-sm" name="remove_cart" value="Remove">							
+									<input type="submit" class="btn btn-danger btn-sm" name="remove_cart" value="Remove">	
+													
 								</td>
 							</tr>';
 							}			
@@ -99,6 +102,26 @@ try {
 						
 					
 					
+					?>
+					<?php
+												//remove cart item
+						function remove_cart_item(){
+							global $pdo;
+							if(isset($POST['remove_cart'])){
+								echo "<script>alert('Remove_cart is set')</script>";
+								foreach($_POST['removeitem'] as $remove_id){
+									echo $remove_id;
+									$delete_query = "DELETE From cart where ID=?";
+									$stmt= $pdo->prepare($delete_query);
+									$stmt->execute([$remove_id]);
+								}
+							}
+							// else{
+							// 	echo "<script>alert('Remove_cart is not set')</script>";
+							// }
+						}
+
+						echo $remove_item=remove_cart_item();
 					?>
 
 						<!-- <tr>
@@ -134,6 +157,7 @@ try {
 						</tr>
 					</tfoot>
 				</table>
+				</form>
 </div>
    
   

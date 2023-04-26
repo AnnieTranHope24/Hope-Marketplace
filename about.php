@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+  require 'session.php';
 
+include "includes/common_functions.php";
+
+include './partials/head.php' ;
+require_once('config.php');
+
+include 'categories.php';
+try {
+  $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo 'Connection failed: ' . $e->getMessage();
+}
+?>
 <head>
   <?php include './partials/head.php' ?>
   <title>About</title>
