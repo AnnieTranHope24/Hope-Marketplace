@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-  <?php include './partials/head.php' ?>
+  <?php
+  session_start();
+   require 'session.php';
+   include './partials/head.php' ?>
   <title>Account</title>
   <link rel="stylesheet" href="css/account.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
