@@ -78,12 +78,12 @@ function registerUser($username, $password,$email) {
    $hashedPassword = md5($saltedPassword);
    
    // insert the user's credentials into the database
-   $sql = "INSERT INTO Credentials (Username, Password, Seed, Email) VALUES (:user, :pass, :seed, :email)";
+   $sql = "INSERT INTO Credentials (Username, Password, Seed) VALUES (:user, :pass, :seed)";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user', $username);
    $statement->bindValue(':pass', $hashedPassword);
    $statement->bindValue(':seed', $salt);
-   $statement->bindValue(':email', $email);
+//    $statement->bindValue(':email', $email);
    $statement->execute();
    $_SESSION['username'] =  $username;
    $pdo = null;
