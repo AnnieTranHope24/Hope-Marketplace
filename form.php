@@ -1,5 +1,5 @@
 <?php
-require 'seesion.php';
+require 'sesQsion.php';
 include 'categories.php';
 ?>
 <!DOCTYPE html>

@@ -2,9 +2,23 @@
 <html lang="en">
 
 <head>
+<?php
+    require 'session.php';
+    include "includes/common_functions.php";
+    include './partials/head.php' ;
+    require_once('config.php');
+    include 'categories.php';
+
+    try {
+      $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+      echo 'Connection failed: ' . $e->getMessage();
+    }
+    ?>
   <?php
-  session_start();
-   require 'session.php';
+  // session_start();
+  //  require 'session.php';
    include './partials/head.php' ?>
   <title>Account</title>
   <link rel="stylesheet" href="css/account.css" />
