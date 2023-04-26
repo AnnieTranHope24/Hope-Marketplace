@@ -1,5 +1,4 @@
 <?php 
-  require 'session.php';
   include 'categories.php';
  ?>
 <div class="topnav">
