@@ -24,8 +24,8 @@ try {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['signup-username']) && isset($_POST['signup-password']) && isset($_POST['signup-email'])) {
-        if(registerUser($_POST['signup-username'], $_POST['signup-password'],$_POST['signup-email'])===true){
+    if (isset($_POST['signup-username']) && isset($_POST['signup-password'])) {
+        if(registerUser($_POST['signup-username'], $_POST['signup-password'])===true){
         echo '<script>alert("Registeration successfully")</script>';
         }else{
         echo '<script>alert("Username or password may already exist")</script>';
@@ -44,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
  function validLogin(){  
+    $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    $sql = "SELECT * FROM Credentials WHERE Username=:user and Password=MD5(CONCAT(:pass, Seed))";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user',$_POST['username']);
@@ -58,7 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    return false;
 }
 
-function registerUser($username, $password,$email) {
+function registerUser($username, $password) {
+    $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    $sql = "SELECT * FROM Credentials WHERE Username=:user OR Password=MD5(CONCAT(:pass, Seed))";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user',$username);
@@ -76,12 +80,11 @@ function registerUser($username, $password,$email) {
    $hashedPassword = md5($saltedPassword);
    
    // insert the user's credentials into the database
-   $sql = "INSERT INTO Credentials (Username, Password, Seed, Email) VALUES (:user, :pass, :seed, :email)";
+   $sql = "INSERT INTO Credentials (Username, Password, Seed) VALUES (:user, :pass, :seed)";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user', $username);
    $statement->bindValue(':pass', $hashedPassword);
    $statement->bindValue(':seed', $salt);
-   $statement->bindValue(':email', $email);
    $statement->execute();
    $_SESSION['username'] =  $username;
    $pdo = null;

@@ -1,5 +1,7 @@
 <?php
-require 'seesion.php';
+session_start();
+require 'session.php';
+require_once('config.php');
 include 'categories.php';
 ?>
 <!DOCTYPE html>
@@ -22,12 +24,8 @@ include 'categories.php';
 </head>
 
 <body>
-	<header>
-	<?php
-	// include 'header.php';
-	?>
-	<header>
 	<div class="container">
+	    <h2><a href="index.php">Return to main page</a></h2>
 		<h1 class="h2">Post Item Form</h1>
 		<form action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 			<div class="form-group">
@@ -67,7 +65,7 @@ include 'categories.php';
 				<label>Price:</label>
 				<div class="input-group">
 					<div> $
-					<input type="number" name="price" placeholder="5" patter="[0-9]{1,9}" aria-label="Amount (to the nearest dollar)" required><br>
+					<input type="number" name="price" placeholder="5" patter="[0-9]{0,9}" aria-label="Amount (to the nearest dollar)" required><br>
 					<small id="passwordHelpInline" class="text-muted">
 						Enter a price you would like to sell the item
 					</small>
@@ -91,7 +89,7 @@ include 'categories.php';
 
 			<div class="form-group">
 				<label>Phone Number:</label>
-				<input type="tel" name="phone" placeholder="(123)-456-7891" pattern="[(]{1}[0-9]{3}[)]{1}[-]{1}[0-9]{3}[-]{1}[0-9]{4}" title="Please match this format ' (123)-456-7891 '" class="form-control" required>
+				<input type="tel" name="phone" placeholder="(123)-456-7891" pattern="[0-9]{10}" title="Please match this format ' (123)-456-7891 '" class="form-control" required>
 				<small id="passwordHelpInline" class="text-muted">
 					Enter an phone number to be contacted with
 				</small>
@@ -128,11 +126,6 @@ include 'categories.php';
 				<input type="reset" class="btn btn-secondary" />
 		</form>
 	</div>
-	<footer>
-	<?php
-	// include 'footer.php';
-	?>
-	<footer>
 	<script>
 		const subcategories = {
 			academics: ['Textbook', 'Testprep', 'Book', 'Folder', 'Pens & Pencils', 'Binders', 'Note Cards'],
@@ -172,10 +165,9 @@ include 'categories.php';
 	</script>
 	<?php
 	// Connect to database
-	require_once('config.php');
 	try {
-		$pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	} catch (PDOException $e) {
 		echo 'Connection failed: ' . $e->getMessage();
 	}
@@ -183,35 +175,33 @@ include 'categories.php';
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$fileToMove = $_FILES['file1']['tmp_name'];
 		$destination = "./UPLOADS/" . $_FILES["file1"]["name"];
-		$uploadOk = 1;
-		$imageFileType = strtolower(pathinfo($destination, PATHINFO_EXTENSION));
-
-		// Allow certain file formats
-		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-			echo '<script>alert("Sorry, only JPG, JPEG, and PNG files are allowed.")</script>';
-			$uploadOk = 0;
-		}
-
-		// Proceed with upload if all checks pass
-		if ($uploadOk == 1) {
-			if (move_uploaded_file($fileToMove, $destination)) {
+		
+				if (move_uploaded_file($fileToMove, $destination)) {
 				echo "File was sent to server <a href=''>Upload another file</a>";
 				$name = $_POST['name'];
 				$category = $_POST['category'];
 				$subcategory = $_POST['subcategory'];
+				$price = $_POST['price'];
+				$email =  $_POST['email'];
 				$image = $_FILES["file1"]["name"];
-				$stmt = $pdo->prepare("INSERT INTO items (name,category, subcategory, image) VALUES (?,?,?,?)");
+				$stmt = $dbh->prepare("INSERT INTO items (name,category, subcategory, price, image, email) VALUES (?,?,?,?,?,?)");
 				$stmt->bindParam(1, $name);
 				$stmt->bindParam(2, $category);
 				$stmt->bindParam(3, $subcategory);
-				$stmt->bindParam(4, $image);
+				$stmt->bindParam(4, $price);
+				$stmt->bindParam(5, $image);
+				$stmt->bindParam(6, $email);
 				$stmt->execute();
-				echo "The file " . htmlspecialchars(basename($_FILES["file1"]["name"])) . " has been uploaded.";
+				$stmt=null;
+				$pdo=null;
+				echo '<script>alert("You have succesfully added your item to the site.")</script>';
+				  header('Location: login.php');
 			} else {
-				echo "there was a problem moving the file";
+				echo '<script>alert("There was an issue while trying to upload your item to the site!")</script>';
+              $stmt=null;
+              $pdo=null;
 			}
 		}
-	}
 	?>
 </body>
 </html>

@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <?php
+  <?php 
   session_start();
-   require 'session.php';
-   include './partials/head.php' ?>
+  require 'session.php';
+  include './partials/head.php' ?>
   <title>Account</title>
   <link rel="stylesheet" href="css/account.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,8 @@
   <header>
     <?php include './partials/header.php'?>
   </header>
-  <main>
+      <div class="maincontainer">
+      <div class="maincontent">
     <div class="mainBox">
       <h1>Your Account</h1>
 
@@ -73,19 +74,15 @@
       </ul>
 
     </div>
-
-
-    <br>
-    <br>
-  </main>
+    </div>
+  
+  <div class="mainfooter">
   <footer>
     <?php include './partials/footer.php'?>
   </footer>
+  </div>
+  </div>
   <script src="js/account.js"></script>
   <script src="js/hamburger.js"></script>
 </body>
-
-
-
-
 </html>

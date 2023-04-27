@@ -2,7 +2,11 @@
 <html lang="en">
 
 <head>
-  <?php include './partials/head.php' ?>
+  <?php 
+  session_start();
+  require 'session.php';
+  include './partials/head.php' 
+  ?>
   <title>About</title>
   <link rel="stylesheet" href="css/about.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,5 +84,3 @@
 <footer>
   <?php include './partials/footer.php'?>
 </footer>
-
-

@@ -136,6 +136,7 @@ CREATE TABLE `items` (
   `Subcategory` varchar(50) DEFAULT NULL,
   `Price` int(11) DEFAULT NULL,
   `Image` varchar(50) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 

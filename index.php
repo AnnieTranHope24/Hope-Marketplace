@@ -1,24 +1,12 @@
 <!DOCTYPE php>
-
 <php lang="en">
 
   <head>
-    
-    <?php
-    require 'session.php';
-    include "includes/common_functions.php";
-    include './partials/head.php' ;
-    require_once('config.php');
-    include 'categories.php';
-
-    try {
-      $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-      echo 'Connection failed: ' . $e->getMessage();
-    }
-    ?>
-    
+            <?php 
+            session_start();
+            require 'session.php';
+            include './partials/head.php'; 
+            ?>
     <title>Hope Marketplace</title>
   </head>
 
@@ -34,6 +22,16 @@
         <main>
           <!-- Annie Tran - Carousel using Tiny Slider  -->
           <?php
+          require_once('config.php');
+
+          include 'categories.php';
+          
+          try {
+            $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+          }
           if (isset($_POST['search'])) {
             $name = $_POST['search'];
             $stmt = $pdo->prepare("SELECT * FROM items WHERE Name LIKE CONCAT('%', :name, '%') OR Subcategory LIKE CONCAT('%', :name, '%')");
@@ -71,10 +69,7 @@
               echo '<p class="itemprice">$' . $item['Price'] . '</p>';
               echo '<button class="add">Add Item</button>';
               echo '</div>';
-              cart();
-
-            }
-           }else {
+            } }else {
               echo '<h1>No Results</h1>';
             }
             echo '</div>';            
@@ -98,10 +93,8 @@
                       echo '<a href="index.php?'.$query.'">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
                       echo '<p class="itemname">' . $item['Name'] . '</p>';
                       echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-                      echo '<a href="index.php?category='.$_GET['category'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
+                      echo '<button class="add">Add Item</button>';
                       echo '</div>';
-                      cart();
-
                     }
                   }
                     echo '</div>';            
@@ -149,23 +142,16 @@
               echo '<h1>No Results</h1>';
             }
           }else {
-            
-            // $ip = getIPAddress();  
-            // echo 'User Real IP Address - '.$ip;  
-
-          } else {
             include 'carousel.html';
           }
-            $ip = getIPAddress();  
-            echo 'User Real IP Address - '.$ip;  
 
+          $ip = getIPAddress();  
+          echo 'User Real IP Address - '.$ip;  
+          
           ?>
-
-
 
         </main>
       </div>
-
       <div class="mainfooter">
         <footer>
           <?php include './partials/footer.php' ?>
@@ -175,5 +161,7 @@
 
     <script src="js/hamburger.js"></script>
     <script src="js/index.js"></script>
+
   </body>
-</php>
+
+</php>    

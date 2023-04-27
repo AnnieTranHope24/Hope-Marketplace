@@ -1,3 +1,4 @@
+
 html,body {
   height: 100%;
   margin: 0;
@@ -17,3 +18,13 @@ html,body {
 .mainfooter {
   flex-shrink: 0;
 }
+
+
+/* Bereket Bessie - Formatting catagory headers. */
+.title {
+  margin-top: 20px;
+  margin-left:30px;
+  font-size: larger;
+}
+
+

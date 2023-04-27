@@ -31,7 +31,6 @@
     flex-wrap: wrap;
 }
 
-
 .mainBox {
     margin: 9% 0 0 14%;
 
@@ -41,5 +40,5 @@
 }
 
 main {
-    height: 500px;
+    height: 300px;
 }
