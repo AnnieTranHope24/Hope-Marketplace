@@ -141,13 +141,12 @@
             } }else {
               echo '<h1>No Results</h1>';
             }
-          }else {
+          } else {
             include 'carousel.html';
           }
+            // $ip = getIPAddress();  
+            // echo 'User Real IP Address - '.$ip;  
 
-          $ip = getIPAddress();  
-          echo 'User Real IP Address - '.$ip;  
-          
           ?>
 
         </main>

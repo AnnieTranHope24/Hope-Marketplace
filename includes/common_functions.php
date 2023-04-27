@@ -85,16 +85,5 @@ function get_total_price(){
     echo $total_price;
 }
 
-//remove cart item
-function remove_cart_item(){
-    global $pdo;
-    if(isset($POST['remove_cart'])){
-        foreach($_POST['removeitem'] as $remove_id){
-            echo $remove_id;
-            $delete_query = "DELETE From cart where ID=?";
-            $stmt= $pdo->prepare($$delete_query);
-            $stmt->execute([$remove_id]);
-        }
-    }
-}
+
 ?>  

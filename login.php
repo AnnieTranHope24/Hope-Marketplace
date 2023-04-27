@@ -60,9 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    return false;
 }
 
-function registerUser($username, $password) {
-    $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+function registerUser($username, $password,$email) {
    $sql = "SELECT * FROM Credentials WHERE Username=:user OR Password=MD5(CONCAT(:pass, Seed))";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user',$username);
@@ -85,6 +83,7 @@ function registerUser($username, $password) {
    $statement->bindValue(':user', $username);
    $statement->bindValue(':pass', $hashedPassword);
    $statement->bindValue(':seed', $salt);
+   $statement->bindValue(':email', $email);
    $statement->execute();
    $_SESSION['username'] =  $username;
    $pdo = null;
