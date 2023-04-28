@@ -25,11 +25,11 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['signup-username']) && isset($_POST['signup-password'])) {
-        if(registerUser($_POST['signup-username'], $_POST['signup-password'])===true){
-        echo '<script>alert("Registeration successfully")</script>';
-        }else{
-        echo '<script>alert("Username or password may already exist")</script>';
-        }
+        // if(registerUser($_POST['signup-username'], $_POST['signup-password'])===true){
+        // echo '<script>alert("Registeration successfully")</script>';
+        // }else{
+        // echo '<script>alert("Username or password may already exist")</script>';
+        // }
     }
     if (isset($_POST['username']) && isset($_POST['password'])) {
         if (validLogin()) {
@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function registerUser($username, $password,$email) {
+   global $pdo; 
    $sql = "SELECT * FROM Credentials WHERE Username=:user OR Password=MD5(CONCAT(:pass, Seed))";
    $statement = $pdo->prepare($sql);
    $statement->bindValue(':user',$username);

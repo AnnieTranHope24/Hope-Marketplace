@@ -20,6 +20,7 @@
   <title>Cart</title>
 
   <?php
+  session_start();
   require 'session.php';
 
 include "includes/common_functions.php";

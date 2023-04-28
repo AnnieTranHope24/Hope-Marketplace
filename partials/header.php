@@ -1,6 +1,22 @@
 <?php 
   include 'categories.php';
  ?>
+  <?php
+  require 'session.php';
+
+include_once "includes/common_functions.php";
+
+include './partials/head.php' ;
+require_once('config.php');
+
+include 'categories.php';
+try {
+  $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo 'Connection failed: ' . $e->getMessage();
+}
+?> 
 <div class="topnav">
       <a class="logo" href="index.php"><img src="images/icons/logo.svg" width="400px" /></a>
       <form class="search-form" method="post" action="">
