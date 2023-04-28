@@ -1,4 +1,6 @@
+
 <!DOCTYPE php>
+
 <php lang="en">
 
   <head>
@@ -8,6 +10,9 @@
     include './partials/head.php';
     ?>
     <title>Hope Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
   </head>
 
   <body>
@@ -34,21 +39,19 @@
             /* Bereket Bessie - */
           if (isset($_POST['search'])) {
             $name = $_POST['search'];
-            $stmt = $pdo->prepare("SELECT * FROM items WHERE Name LIKE CONCAT('%', :name, '%') OR Subcategory LIKE CONCAT('%', :name, '%')");
+            $stmt = $pdo->prepare("SELECT * FROM items WHERE Name LIKE CONCAT('%', :name, '%')");
             $stmt->bindParam(':name', $name);
             $stmt->execute();
             $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo '<div class="wrapper2">';
             if (!empty($items)) {
-              foreach ($items as $item) {
-                $query = http_build_query(['item' => $item['Name']]);
-                echo '<div class="item" onclick="fill(\'' . $item['Name'] . $item['Price'] . $item['Image'] . '\')">' . '<a href="index.php?' . $query . '">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
-                echo '<p class="itemname">' . $item['Name'] . '</p>';
-                echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-                echo '<button class="add">Add Item</button>';
-                echo '</div>';
-              }
-            } else {
+            foreach ($items as $item) {
+              echo '<div class="item" onclick="fill(\'' . $item['Name'] . $item['Price'] . $item['Image'] . '\')">' . '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+              echo '<p class="itemname">' . $item['Name'] . '</p>';
+              echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+              echo '<a href="index.php?add_to_cart="' . $item['ID'] . ' class="add">Add Item</a>';
+              echo '</div>';
+            }}else {
               echo '<h1>No Results</h1>';
             }
             echo '</div>';
@@ -59,18 +62,21 @@
             $stmt->execute();
             $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (!empty($items)) {
-              echo '<h1 class="title">' . $_GET['subcategory'] . '</h1>';
+              echo '<h1>' . $_GET['subcategory'] . '</h1>';
               echo '<div class="wrapper2">';
-              foreach ($items as $item) {
-                $query = http_build_query(['item' => $item['Name']]);
-                echo '<div class="item">';
-                echo '<a href="index.php?' . $query . '">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
-                echo '<p class="itemname">' . $item['Name'] . '</p>';
-                echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-                echo '<button class="add">Add Item</button>';
-                echo '</div>';
-              }
-            } else {
+              foreach($items as $item){
+              echo '<div class="item">';
+              echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+              echo '<p class="itemname">' . $item['Name'] . '</p>';
+              echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+              // echo '<a href="#" class="add">Add Item</a>';
+              // echo '<a href="index.php?subcategory='.$_GET['subcategory']. '" class="add">Add Item</a>';
+              echo '<a href="index.php?subcategory='.$_GET['subcategory'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
+              echo '</div>';
+              cart();
+
+            }
+           }else {
               echo '<h1>No Results</h1>';
             }
             echo '</div>';
@@ -86,23 +92,28 @@
                     if (!empty($items)) {
                       echo '<a class="not-white" href="?subcategory=';
                       echo $subcategory;
-                      echo '"><h1 class="title">' . $subcategory . '</h1></a>';
+                      echo '"><h1>' . $subcategory . '</h1></a>';
                       echo '<div class="wrapper">';
-                      foreach ($items as $item) {
-                        $query = http_build_query(['item' => $item['Name']]);
-                        echo '<div class="item">';
-                        echo '<a href="index.php?' . $query . '">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
-                        echo '<p class="itemname">' . $item['Name'] . '</p>';
-                        echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-                        echo '<button class="add">Add Item</button>';
-                        echo '</div>';
-                      }
+                      foreach($items as $item){
+                      echo '<div class="item">';
+                      echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+                      echo '<p class="itemname">' . $item['Name'] . '</p>';
+                      echo '<p class="itemprice">$' . $item['Price'] . '</p>';
+                      echo '<a href="index.php?category='.$_GET['category'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
+                      echo '</div>';
+                      cart();
+
                     }
-                    echo '</div>';
+                  }
+                    echo '</div>';            
                   }
                 }
               }
             }
+            
+            // $ip = getIPAddress();  
+            // echo 'User Real IP Address - '.$ip;  
+
           } elseif (isset($_GET['item'])) {
             $name = $_GET['item'];
             $stmt = $pdo->prepare("SELECT * FROM items WHERE Name = ?");
@@ -147,10 +158,9 @@
             /* Annie Tran - Carousel using Tiny Slider */
             include 'carousel.html';
           }
-          // $ip = getIPAddress();  
-          // echo 'User Real IP Address - '.$ip;  
 
           ?>
+
         </main>
       </div>
         <!-- Bereket Bessie -  -->
