@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-  require 'session.php';
+  session_start();
+  
 
 include "includes/common_functions.php";
 
@@ -18,8 +19,6 @@ try {
 ?>
 <head>
   <?php 
-  session_start();
-  require 'session.php';
   include './partials/head.php' 
   ?>
   <title>About</title>
