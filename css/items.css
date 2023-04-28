@@ -1,19 +1,18 @@
-
 /* Bereket Bessie -  Container for items*/
 .wrapper {
     max-height: 400px;
     display: flex;
     flex: 1;
     overflow-x: auto;
-  }
-  
-  /* Bereket Bessie - Hidding scrollbar from the bottom of item container, however it is still being used. */
-  .wrapper::-webkit-scrollbar {
+}
+
+/* Bereket Bessie - Hidding scrollbar from the bottom of item container, however it is still being used. */
+.wrapper::-webkit-scrollbar {
     width: 0;
-  }
-  
-  /* Bereket Bessie - Uniform formatting for all items. */
-  .item {
+}
+
+/* Bereket Bessie - Uniform formatting for all items. */
+.item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,44 +20,47 @@
     background-color: #f2f2f2;
     border-radius: 10px;
     padding: 10px;
-    margin:20px 30px 20px;
-  }
-  
-  .itemname {
+    margin: 20px 30px 20px;
+}
+
+/* Bereket Bessie - */
+.itemname {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
     text-align: center;
-  }
-  
-  .wrapper2 {
+}
+
+/* Bereket Bessie - */
+.wrapper2 {
     display: flex;
     flex: 1;
-    flex-wrap:wrap;
-     justify-content:space-evenly;
-  }
-  
-  .itemprice {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* Bereket Bessie - */
+.itemprice {
     font-size: 16px;
     margin-bottom: 10px;
     text-align: center;
-  }
-  
-  /* Bereket Bessie - Adjusting item image sized to be more uniform. */
-  .item img {
+}
+
+/* Bereket Bessie - Adjusting item image sized to be more uniform. */
+.item img {
     min-width: 200px;
     max-height: 200px;
     object-fit: contain;
-  }
-  
-  /* Bereket Bessie - Hidding remove button untill its been clicked on.  */
-  #remove-btn {
+}
+
+/* Bereket Bessie - Hidding remove button untill its been clicked on.  */
+#remove-btn {
     display: none;
-  }
-  
-  /* Bereket Bessie - Formatting for add button. */
-  /* Style the add button */
-  .add {
+}
+
+/* Bereket Bessie - Formatting for add button. */
+/* Style the add button */
+.add {
     background-color: lightblue;
     border: none;
     color: white;
@@ -68,10 +70,9 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  /* Style the add button on hover */
-  .add:hover {
+}
+
+/* Style the add button on hover */
+.add:hover {
     background-color: #00205b;
-  }
-  
+}

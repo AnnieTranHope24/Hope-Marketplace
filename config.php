@@ -1,3 +1,4 @@
+<!-- Bereket Bessie - -->
 <?php
 define('DBHOST', '');
 define('DBNAME', 'hopemarketplace');

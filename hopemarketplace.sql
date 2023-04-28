@@ -7,6 +7,10 @@
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
+DROP DATABASE IF EXISTS `hopemarketplace`;
+CREATE DATABASE IF NOT EXISTS `hopemarketplace`;
+USE `hopemarketplace`;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -26,7 +30,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `cart`
 --
-
+DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
   `ID` int(11) NOT NULL,
   `ip_address` varchar(250) NOT NULL,
@@ -38,7 +42,7 @@ CREATE TABLE `cart` (
 --
 -- Table structure for table `credentials`
 --
-
+DROP TABLE IF EXISTS `credentials`;
 CREATE TABLE `credentials` (
   `UserID` int(11) NOT NULL,
   `Username` varchar(64) NOT NULL,
@@ -128,7 +132,7 @@ CREATE TABLE `Credentials` (
 ) ENGINE = MYISAM;*/
 
 UPDATE `Credentials` SET `Password` = MD5(CONCAT(`Password`, `seed`));
-
+DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `ID` int(11) NOT NULL,
   `Name` varchar(50) DEFAULT NULL,
@@ -136,7 +140,6 @@ CREATE TABLE `items` (
   `Subcategory` varchar(50) DEFAULT NULL,
   `Price` int(11) DEFAULT NULL,
   `Image` varchar(50) DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 

@@ -30,7 +30,7 @@
 /* Bereket Bessie - Formatting mission statment text. */
 .text p {
     min-height: 250px;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     color: #13465f;
     background-color: rgb(209, 232, 240, 0.5);
     border-radius: 15px;
@@ -45,9 +45,9 @@
 .text-content {
     max-width: 500px;
     max-height: 400px;
-    gap:5px;
+    gap: 5px;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     flex-wrap: wrap;
     display: flex;
 }

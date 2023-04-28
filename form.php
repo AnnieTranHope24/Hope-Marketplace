@@ -25,7 +25,7 @@ include 'categories.php';
 
 <body>
 	<div class="container">
-	    <h2><a href="index.php">Return to main page</a></h2>
+		<h2><a href="index.php">Return to main page</a></h2>
 		<h1 class="h2">Post Item Form</h1>
 		<form action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 			<div class="form-group">
@@ -65,65 +65,65 @@ include 'categories.php';
 				<label>Price:</label>
 				<div class="input-group">
 					<div> $
-					<input type="number" name="price" placeholder="5" patter="[0-9]{0,9}" aria-label="Amount (to the nearest dollar)" required><br>
+						<input type="number" name="price" placeholder="5" patter="[0-9]{0,9}" aria-label="Amount (to the nearest dollar)" required><br>
+						<small id="passwordHelpInline" class="text-muted">
+							Enter a price you would like to sell the item
+						</small>
+					</div>
+				</div><br>
+
+				<div class="form-group">
+					<label>Upload your photos:</label>
+					<input type="file" name="file1" id="file1" class="form-control-file" required onchange="previewImage(event)" />
+					<p class="help-block" id="errordiv">Browse for a file and post it to the server.</p>
+					<img id="preview-img" src="" alt="" />
+				</div>
+
+				<div class="form-group">
+					<label>Email:</label>
+					<input type="email" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9.]{1,50}[@]{1}[a-zA-Z0-9]{1,10}[.]{1}[a-zA-Z]{1,4}" title="Please match this format ' hopemarketplace@gmail.com '" required>
 					<small id="passwordHelpInline" class="text-muted">
-						Enter a price you would like to sell the item
+						Enter an email address to be contacted with
 					</small>
 				</div>
-			</div><br>
 
-			<div class="form-group">
-				<label>Upload your photos:</label>
-				<input type="file" name="file1" id="file1" class="form-control-file" required onchange="previewImage(event)" />
-				<p class="help-block" id="errordiv">Browse for a file and post it to the server.</p>
-				<img id="preview-img" src="" alt="" />
-			</div>
-
-			<div class="form-group">
-				<label>Email:</label>
-				<input type="email" class="form-control" id="email" name="email"  pattern="[a-zA-Z0-9.]{1,50}[@]{1}[a-zA-Z0-9]{1,10}[.]{1}[a-zA-Z]{1,4}" title="Please match this format ' hopemarketplace@gmail.com '" required>
-				<small id="passwordHelpInline" class="text-muted">
-					Enter an email address to be contacted with
-				</small>
-			</div>
-
-			<div class="form-group">
-				<label>Phone Number:</label>
-				<input type="tel" name="phone" placeholder="(123)-456-7891" pattern="[0-9]{10}" title="Please match this format ' (123)-456-7891 '" class="form-control" required>
-				<small id="passwordHelpInline" class="text-muted">
-					Enter an phone number to be contacted with
-				</small>
-			</div>
-
-			<div class="form-group">
-				<label>Payment Method:</label>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="payment_method" id="paypal" value="paypal">
-					<label class="form-check-label" for="paypal">
-						Paypal
-					</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="payment_method" id="venmo" value="venmo">
-					<label class="form-check-label" for="venmo">
-						Venmo
-					</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="payment_method" id="cashapp" value="cashapp">
-					<label class="form-check-label" for="cashapp">
-						Cash App
-					</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="payment_method" id="zelle" value="zelle">
-					<label class="form-check-label" for="zelle">
-						Zelle
-					</label>
+				<div class="form-group">
+					<label>Phone Number:</label>
+					<input type="tel" name="phone" placeholder="(123)-456-7891" pattern="[0-9]{10}" title="Please match this format ' (123)-456-7891 '" class="form-control" required>
+					<small id="passwordHelpInline" class="text-muted">
+						Enter an phone number to be contacted with
+					</small>
 				</div>
 
-				<input type="submit" class="btn btn-primary" />
-				<input type="reset" class="btn btn-secondary" />
+				<div class="form-group">
+					<label>Payment Method:</label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="payment_method" id="paypal" value="paypal">
+						<label class="form-check-label" for="paypal">
+							Paypal
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="payment_method" id="venmo" value="venmo">
+						<label class="form-check-label" for="venmo">
+							Venmo
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="payment_method" id="cashapp" value="cashapp">
+						<label class="form-check-label" for="cashapp">
+							Cash App
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="payment_method" id="zelle" value="zelle">
+						<label class="form-check-label" for="zelle">
+							Zelle
+						</label>
+					</div>
+
+					<input type="submit" class="btn btn-primary" />
+					<input type="reset" class="btn btn-secondary" />
 		</form>
 	</div>
 	<script>
@@ -175,33 +175,32 @@ include 'categories.php';
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$fileToMove = $_FILES['file1']['tmp_name'];
 		$destination = "./UPLOADS/" . $_FILES["file1"]["name"];
-		
-				if (move_uploaded_file($fileToMove, $destination)) {
-				echo "File was sent to server <a href=''>Upload another file</a>";
-				$name = $_POST['name'];
-				$category = $_POST['category'];
-				$subcategory = $_POST['subcategory'];
-				$price = $_POST['price'];
-				$email =  $_POST['email'];
-				$image = $_FILES["file1"]["name"];
-				$stmt = $dbh->prepare("INSERT INTO items (name,category, subcategory, price, image, email) VALUES (?,?,?,?,?,?)");
-				$stmt->bindParam(1, $name);
-				$stmt->bindParam(2, $category);
-				$stmt->bindParam(3, $subcategory);
-				$stmt->bindParam(4, $price);
-				$stmt->bindParam(5, $image);
-				$stmt->bindParam(6, $email);
-				$stmt->execute();
-				$stmt=null;
-				$pdo=null;
-				echo '<script>alert("You have succesfully added your item to the site.")</script>';
-				  header('Location: login.php');
-			} else {
-				echo '<script>alert("There was an issue while trying to upload your item to the site!")</script>';
-              $stmt=null;
-              $pdo=null;
-			}
+
+		if (move_uploaded_file($fileToMove, $destination)) {
+			echo "File was sent to server <a href=''>Upload another file</a>";
+			$name = $_POST['name'];
+			$category = $_POST['category'];
+			$subcategory = $_POST['subcategory'];
+			$price = $_POST['price'];
+			$image = $_FILES["file1"]["name"];
+			$stmt = $dbh->prepare("INSERT INTO items (name,category, subcategory, price, image) VALUES (?,?,?,?,?)");
+			$stmt->bindParam(1, $name);
+			$stmt->bindParam(2, $category);
+			$stmt->bindParam(3, $subcategory);
+			$stmt->bindParam(4, $price);
+			$stmt->bindParam(5, $image);
+			$stmt->execute();
+			$stmt = null;
+			$pdo = null;
+			echo '<script>alert("You have succesfully added your item to the site.")</script>';
+			header('Location: login.php');
+		} else {
+			echo '<script>alert("There was an issue while trying to upload your item to the site!")</script>';
+			$stmt = null;
+			$pdo = null;
 		}
+	}
 	?>
 </body>
+
 </html>

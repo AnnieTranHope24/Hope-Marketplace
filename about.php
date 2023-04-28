@@ -1,36 +1,21 @@
+/* Bereket Bessie - */
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-  require 'session.php';
-
-include "includes/common_functions.php";
-
-include './partials/head.php' ;
-require_once('config.php');
-
-include 'categories.php';
-try {
-  $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  echo 'Connection failed: ' . $e->getMessage();
-}
-?>
 <head>
-  <?php 
+  <?php
   session_start();
   require 'session.php';
-  include './partials/head.php' 
+  include './partials/head.php'
   ?>
   <title>About</title>
   <link rel="stylesheet" href="css/about.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <header>
-  <?php include './partials/header.php'?>
+  <?php include './partials/header.php' ?>
 </header>
 
 <body>
@@ -91,11 +76,11 @@ try {
   </div>
   <div class="video">
     <div controls class="vid">
-      <iframe width="100%" height="600px"src="https://www.youtube.com/embed/e9YZAPoCprc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe width="100%" height="600px" src="https://www.youtube.com/embed/e9YZAPoCprc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
   <script src="js/hamburger.js"></script>
 </body>
 <footer>
-  <?php include './partials/footer.php'?>
+  <?php include './partials/footer.php' ?>
 </footer>

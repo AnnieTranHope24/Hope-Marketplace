@@ -1,75 +1,91 @@
+/* Bereket Bessie - */
 
+
+/* Bereket Bessie - */
 .itemclass {
     display: flex;
-    justify-content:left;
+    justify-content: left;
 }
 
+/* Bereket Bessie - */
 .item-pic img {
     height: 500px;
     padding: 50px 150px 50px 50px;
 }
 
-@media only screen and (max-width: 720px){
+/* Bereket Bessie - */
+@media only screen and (max-width: 720px) {
     .item-pic img {
-    height: 350px;
-    padding: 50px 10px 0px 10px;
+        height: 350px;
+        padding: 50px 10px 0px 10px;
+    }
 }
-}
+
+/* Bereket Bessie - */
 .description {
     padding-top: 3%;
 }
 
-.description > h1 {
+/* Bereket Bessie - */
+.description>h1 {
     text-decoration: none;
-    margin:10px 10px 0px;
+    margin: 10px 10px 0px;
     font-size: 30px;
-    
+
 }
 
-.description > h2 {
-    margin:10px 10px 0px;
-
+/* Bereket Bessie - */
+.description>h2 {
+    margin: 10px 10px 0px;
     font-size: 25px;
 }
+
+/* Bereket Bessie - */
 #text {
     font-size: 20px;
-        margin:10px 10px 0px;
+    margin: 10px 10px 0px;
 
 }
 
+/* Bereket Bessie - */
 .review-row {
-        margin:10px 10px 0px;
-
+    margin: 10px 10px 0px;
     display: flex;
 }
 
+/* Bereket Bessie - */
 .review-row p {
-        margin:10px 10px 0px;
-
+    margin: 10px 10px 0px;
     padding-top: 4%;
     padding-left: 1%;
 }
+
+/* Bereket Bessie - */
 .quality-sel {
     height: 50px;
     width: 50px;
-        margin:10px 10px 0px;
+    margin: 10px 10px 0px;
 
 }
 
+/* Bereket Bessie - */
 .add-button {
     height: 50px;
     width: 150px;
     border-radius: 5px 5px 5px 5px;
     font-size: 15px;
     background-color: orange;
-        margin:10px 10px 0px;
+    margin: 10px 10px 0px;
 
 }
-.rating{
-    margin:10px 10px 0px;
+
+/* Bereket Bessie - */
+.rating {
+    margin: 10px 10px 0px;
 }
 
+/* Bereket Bessie - */
 .rating h1 {
     font-size: 20px;
-        margin:10px 10px 0px;
+    margin: 10px 10px 0px;
 }
