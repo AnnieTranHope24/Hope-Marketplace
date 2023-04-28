@@ -24,12 +24,12 @@ try {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['signup-username']) && isset($_POST['signup-password'])) {
-        // if(registerUser($_POST['signup-username'], $_POST['signup-password'])===true){
-        // echo '<script>alert("Registeration successfully")</script>';
-        // }else{
-        // echo '<script>alert("Username or password may already exist")</script>';
-        // }
+    if (isset($_POST['signup-username']) && isset($_POST['signup-password']) && isset($_POST['signup-email'])) {
+        if(registerUser($_POST['signup-username'], $_POST['signup-password'], $_POST['signup-email']) ===true){
+        echo '<script>alert("Registeration successfully")</script>';
+        }else{
+        echo '<script>alert("Username or password may already exist")</script>';
+        }
     }
     if (isset($_POST['username']) && isset($_POST['password'])) {
         if (validLogin()) {
