@@ -5,8 +5,12 @@
 
   <head>
     <?php
+    /* Bereket Bessie - Both session.php and config.php files are requried as they contain information to connect 
+					to the database and provide user authentication. */
     session_start();
     require 'session.php';
+    require_once('config.php');
+    include 'categories.php';
     include './partials/head.php';
     ?>
     <title>Hope Marketplace</title>
@@ -21,14 +25,10 @@
       <?php include './partials/header.php' ?>
     </header>
 
-  <!-- Bereket Bessie -  -->
     <div class="maincontainer">
       <div class="maincontent">
         <main>
           <?php
-          /* Bereket Bessie - */
-          require_once('config.php');
-          include 'categories.php';
 
           try {
             $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
@@ -36,11 +36,13 @@
           } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
           }
-            /* Bereket Bessie - */
+            /* Bereket Bessie - If the search parameter is set, then it is sanitized and items in a database that match the query are searched using a LIKE operator. 
+                                It then displays the results on the page along with their corresponding images, prices, and an "Add Item" button that allows users to add items to their cart. 
+                                If there are no search results, it displays a "No Results" message.*/
           if (isset($_POST['search'])) {
             $name = $_POST['search'];
             $stmt = $pdo->prepare("SELECT * FROM items WHERE Name LIKE CONCAT('%', :name, '%')");
-            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':name', $name, PDO::PARAM_STR);
             $stmt->execute();
             $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo '<div class="wrapper2">';
@@ -55,7 +57,10 @@
               echo '<h1>No Results</h1>';
             }
             echo '</div>';
-          } elseif (isset($_GET['subcategory'])) {
+          }
+          /*Bereket Bessie - If a user clicks on a subcategory link, all items from the database that have the selected subcategory are retrieved and displays them on the page along with their corresponding images, names, and prices.
+                             and an "Add Item" button that allows users to add the item to their cart. */
+           elseif (isset($_GET['subcategory'])) {
             $name = $_GET['subcategory'];
             $stmt = $pdo->prepare("SELECT * FROM items WHERE Subcategory = ?");
             $stmt->bindParam(1, $name, PDO::PARAM_STR);
@@ -69,18 +74,19 @@
               echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
               echo '<p class="itemname">' . $item['Name'] . '</p>';
               echo '<p class="itemprice">$' . $item['Price'] . '</p>';
-              // echo '<a href="#" class="add">Add Item</a>';
-              // echo '<a href="index.php?subcategory='.$_GET['subcategory']. '" class="add">Add Item</a>';
               echo '<a href="index.php?subcategory='.$_GET['subcategory'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
               echo '</div>';
               cart();
-
             }
            }else {
               echo '<h1>No Results</h1>';
             }
             echo '</div>';
-          } elseif (isset($_GET['category'])) {
+          } 
+          /* Bereket Bessie - If the category parameter is set, then it retrieves the subcategories of items from a database using prepared statements. 
+                              It then displays the retrieved items on the page along with their corresponding images, prices, and an "Add Item" button that allows users to add items to their cart. 
+                              The subcategories and items are obtained by iterating through the categories array that is included "categories".*/
+          elseif (isset($_GET['category'])) {
             foreach ($categories as $category) {
               if ($category['category'] == $_GET['category']) {
                 foreach ($category['subcategories'] as $sub) {
@@ -102,7 +108,6 @@
                       echo '<a href="index.php?category='.$_GET['category'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
                       echo '</div>';
                       cart();
-
                     }
                   }
                     echo '</div>';            
@@ -110,11 +115,12 @@
                 }
               }
             }
-            
-            // $ip = getIPAddress();  
-            // echo 'User Real IP Address - '.$ip;  
-
-          } elseif (isset($_GET['item'])) {
+          }
+          /*Bereket Bessie - If the "item" parameter is set, then sanitizes and uses it to search for items in the database that match the name. 
+                             If any matching items are found, it displays their image, name, price, and quantity selector along with "Add to Cart" and "Add to Wishlist" buttons. 
+                             It also displays a section for ratings and reviews, which shows a default message if there are no reviews available for the item.
+                             If no matching items are found, it displays a "No Results" message.*/
+           elseif (isset($_GET['item'])) {
             $name = $_GET['item'];
             $stmt = $pdo->prepare("SELECT * FROM items WHERE Name = ?");
             $stmt->bindParam(1, $name, PDO::PARAM_STR);
@@ -163,7 +169,6 @@
 
         </main>
       </div>
-        <!-- Bereket Bessie -  -->
       <div class="mainfooter">
         <footer>
           <?php include './partials/footer.php' ?>

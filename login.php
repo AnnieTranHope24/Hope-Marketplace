@@ -15,15 +15,19 @@
 
 <body>
     <?php
+    /* Bereket Bessie - Both session.php and config.php files are requried as they contain information to connect 
+		                to the database and provide user authentication. */
     session_start();
     require 'config.php';
+    //Connect to the database
     try {
         $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
-    /* Bereket Bessie - */
+    /* Bereket Bessie - If the request method is POST and if the username, password, and email fields have been set. 
+                        If so, it attempts to register the user using the provided info. */
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['signup-username']) && isset($_POST['signup-password']) && isset($_POST['signup-email'])) {
             if (registerUser($_POST['signup-username'], $_POST['signup-password'], $_POST['signup-email']) === true) {
@@ -32,7 +36,8 @@
                 echo '<script>alert("Username or password may already exist")</script>';
             }
         }
-        /* Bereket Bessie - */
+        /* Bereket Bessie - If the submitted form data for username and password is set. If the login credentials are valid, 
+                            it displays a success message using JavaScript, otherwise it displays a failure message.*/
         if (isset($_POST['username']) && isset($_POST['password'])) {
             if (validLogin()) {
                 echo '<script>alert("Login successful")</script>';
@@ -40,14 +45,16 @@
                 echo '<script>alert("Login unsuccessfully")</script>';
             }
         }
-        /* Bereket Bessie - */
+        /* Bereket Bessie - If a user is already logged in by checking if a session variable for the username is set.
+                            If the user is logged in, the code redirects them to the index page and exits.*/
         if (isset($_SESSION['username'])) {
             header('Location: index.php');
             exit;
         }
     }
     
-    /* Bereket Bessie - */
+    /* Bereket Bessie - This code validates a user's login credentials by querying a database and checking if the username and password match. 
+                        If the credentials are valid, it sets a session variable and returns true, otherwise it returns false. */
     function validLogin()
     {
         $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
@@ -66,7 +73,8 @@
         return false;
     }
 
-    /* Bereket Bessie - */
+    /* Bereket Bessie - This code registers a user by checking if the username and password already exist in the database. 
+                        If the username and password do not exist, a salt is generated, the password is hashed with the salt, and the user's credentials are inserted into the database. */
     function registerUser($username, $password, $email)
     {
         $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
