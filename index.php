@@ -12,6 +12,12 @@
     require_once('config.php');
     include 'categories.php';
     include './partials/head.php';
+    try {
+      $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+      echo 'Connection failed: ' . $e->getMessage();
+    }
     ?>
     <title>Hope Marketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
@@ -22,7 +28,15 @@
   <body>
 
     <header>
-      <?php include './partials/header.php' ?>
+      
+      <?php 
+      include_once "includes/common_functions.php";
+        if(isset($_GET['add_to_cart'])){
+          // cart("index.php?category=".$_GET['category']);
+          cart("index.php");
+          // unset($_GET['add_to_cart']);
+        }
+      include './partials/header.php' ?>
     </header>
 
     <div class="maincontainer">
@@ -30,15 +44,13 @@
         <main>
           <?php
 
-          try {
-            $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          } catch (PDOException $e) {
-            echo 'Connection failed: ' . $e->getMessage();
-          }
+
             /* Bereket Bessie - If the search parameter is set, then it is sanitized and items in a database that match the query are searched using a LIKE operator. 
                                 It then displays the results on the page along with their corresponding images, prices, and an "Add Item" button that allows users to add items to their cart. 
                                 If there are no search results, it displays a "No Results" message.*/
+                           
+
+                                      
           if (isset($_POST['search'])) {
             $name = $_POST['search'];
             $stmt = $pdo->prepare("SELECT * FROM items WHERE Name LIKE CONCAT('%', :name, '%')");
@@ -61,6 +73,7 @@
           /*Bereket Bessie - If a user clicks on a subcategory link, all items from the database that have the selected subcategory are retrieved and displays them on the page along with their corresponding images, names, and prices.
                              and an "Add Item" button that allows users to add the item to their cart. */
            elseif (isset($_GET['subcategory'])) {
+            
             $name = $_GET['subcategory'];
             $stmt = $pdo->prepare("SELECT * FROM items WHERE Subcategory = ?");
             $stmt->bindParam(1, $name, PDO::PARAM_STR);
@@ -76,8 +89,9 @@
               echo '<p class="itemprice">$' . $item['Price'] . '</p>';
               echo '<a href="index.php?subcategory='.$_GET['subcategory'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
               echo '</div>';
-              cart();
+              
             }
+           
            }else {
               echo '<h1>No Results</h1>';
             }
@@ -87,6 +101,7 @@
                               It then displays the retrieved items on the page along with their corresponding images, prices, and an "Add Item" button that allows users to add items to their cart. 
                               The subcategories and items are obtained by iterating through the categories array that is included "categories".*/
           elseif (isset($_GET['category'])) {
+            
             foreach ($categories as $category) {
               if ($category['category'] == $_GET['category']) {
                 foreach ($category['subcategories'] as $sub) {
@@ -96,23 +111,28 @@
                     $stmt->execute();
                     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     if (!empty($items)) {
+
                       echo '<a class="not-white" href="?subcategory=';
                       echo $subcategory;
                       echo '"><h1>' . $subcategory . '</h1></a>';
                       echo '<div class="wrapper">';
                       foreach($items as $item){
                       echo '<div class="item">';
-                      echo '<a href="#">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
+                      echo '<a href="index.php?item='.$item['Name'].'">' . '<img src="UPLOADS/' . $item['Image'] . '"></a>';
                       echo '<p class="itemname">' . $item['Name'] . '</p>';
                       echo '<p class="itemprice">$' . $item['Price'] . '</p>';
                       echo '<a href="index.php?category='.$_GET['category'] . '&add_to_cart='. $item['ID'] . '" class="add">Add Item</a>';
                       echo '</div>';
-                      cart();
+                      
                     }
                   }
                     echo '</div>';            
                   }
+                  
                 }
+
+
+                
               }
             }
           }
@@ -159,10 +179,12 @@
             } else {
               echo '<h1>No Results</h1>';
             }
-          } else {
+          } 
+          
+          else {
             /* Annie Tran - Main display items */
             /* Annie Tran - Carousel using Tiny Slider */
-            include 'carousel.html';
+            include './partials/carousel.php';
           }
 
           ?>
@@ -178,4 +200,5 @@
     <script src="js/hamburger.js"></script>
     <script src="js/index.js"></script>
   </body>
+
 </php>
