@@ -21,9 +21,9 @@
 
 
 //TODO: finish the cart function
-function cart(){
+function cart($link){
 
-    if(isset($_GET['add_to_cart'])){
+    if(isset($_GET['add_to_cart'])){       
         global $pdo;
         $ip =   getIPAddress();
         $get_product_id = $_GET['add_to_cart'];
@@ -32,17 +32,17 @@ function cart(){
         $stmt->bindParam(2,$get_product_id, PDO::PARAM_INT);
         $stmt->execute();
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $count = 0;
+        
         //TODO: fix so that it comes back the current page
         if (!empty($items)) {
             echo "<script>alert('This item is already in the cart')</script>";
-            echo "<script>window.open('index.php', '_self')</script>";
+            echo "<script>window.open($link, '_self')</script>";
         }
         else {
             $sql = "INSERT INTO cart (ID, ip_address, quantity) VALUES (?,?,?)";
             $pdo->prepare($sql)->execute([$get_product_id, $ip, 1]);
             echo "<script>alert('Item is added to cart')</script>";
-            echo "<script>window.open('index.php', '_self')</script>";
+            echo "<script>window.open($link, '_self')</script>";
                 // $url = 'index.php?category='.$_GET['category'];
                 // echo "<script>window.open($url, '_self')</script>";            
             
