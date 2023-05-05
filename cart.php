@@ -39,6 +39,25 @@ try {
 </head>
 
 <body>
+<?php 
+	//Annie Tran: function to remove cart item
+	function remove_cart_item(){
+		global $pdo;
+			if(isset($_POST['remove_cart']) ){					
+					if(isset($_POST['remove_id']) ){
+						$pdo->prepare("DELETE FROM cart WHERE ID=?")->execute([$_POST['remove_id']]);
+					}
+					else{
+						echo "<script>alert('Check the box before removing the item')</script>";
+					}
+
+				
+			}
+
+}
+echo $remove_item = remove_cart_item();
+
+?>	
   <header>
     <?php include './partials/header.php'?>
   </header>
@@ -46,8 +65,9 @@ try {
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"> -->
+  <form action="" method="post">
   <div class="container">
-	<form action="" method="post">
+	
 	<table id="cart" class="table table-hover table-condensed" style="height: 450px">
     				<thead>
 
@@ -60,7 +80,11 @@ try {
 							<th style="width:10%"></th>
 						</tr>
 					</thead>
-					<tbody>
+					<?php
+
+
+
+?>					<tbody>
 
 					<!-- php code to display dynamic data -->
 					<?php
@@ -89,62 +113,19 @@ try {
 									<input type="number" class="form-control text-center" value="1">
 								</td>
 								<td data-th="Subtotal" class="text-center">$'.$product['Price'].'</td>
-								<td class="actions" data-th="">
-								
-									<input type="checkbox" class="btn btn-danger btn-sm" name="removeitem[]" value="'.$product["ID"].'">
-									<input type="submit" class="btn btn-danger btn-sm" name="remove_cart" value="Remove">	
-													
+								<td class="actions" data-th=""><input type="checkbox" class="btn btn-danger btn-sm" name="remove_id" value="'.$product['ID'].'"></td>
+								<td class="actions" data-th="">	
+									<input type="submit" class="btn btn-danger btn-sm" name="remove_cart" value="Remove">														
 								</td>
 							</tr>';
-							}			
 
-						}
-					
-						
-					
-					
-					?>
-					<?php
-												//remove cart item
-						function remove_cart_item(){
-							global $pdo;
-							if(isset($POST['remove_cart'])){
-								echo "<script>alert('Remove_cart is set')</script>";
-								foreach($_POST['removeitem'] as $remove_id){
-									echo $remove_id;
-									$delete_query = "DELETE From cart where ID=?";
-									$stmt= $pdo->prepare($delete_query);
-									$stmt->execute([$remove_id]);
-								}
-							}
-							// else{
-							// 	echo "<script>alert('Remove_cart is not set')</script>";
-							// }
-						}
 
-						echo $remove_item=remove_cart_item();
+							}	
+	
+
+						}					
 					?>
 
-						<!-- <tr>
-							<td data-th="Product">
-								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="images/academics/book1.jpg" alt="..." class="img-responsive"/></div>
-									<div class="col-sm-10">
-										<h4 class="nomargin">Product 1</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-									</div>
-								</div>
-							</td>
-							<td data-th="Price">$1.99</td>
-							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
-							</td>
-							<td data-th="Subtotal" class="text-center">1.99</td>
-							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
-							</td>
-						</tr> -->
 					</tbody>
 					<tfoot>
 						<tr class="visible-xs">
@@ -158,8 +139,11 @@ try {
 						</tr>
 					</tfoot>
 				</table>
-				</form>
+				
 </div>
+
+</form>
+
    
   
 
@@ -169,8 +153,9 @@ try {
   <footer>
    <?php include './partials/footer.php'?>
   </footer>
-  <script src="hamburger.js"></script>
-  <script src="index.js"></script>
+  <script src="js/hamburger.js"></script>
+  <script src="js/index.js"></script>
 </body>
+
 
 </html>
