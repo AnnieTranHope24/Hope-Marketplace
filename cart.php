@@ -40,7 +40,8 @@ try {
 
 <body>
 <?php 
-	//Annie Tran: function to remove cart item
+	//Annie Tran: function to remove cart item from the database. If both remove button and checkbox are clicked, remove
+	// If the checkbox is not clicked, ask user to click it.
 	function remove_cart_item(){
 		global $pdo;
 			if(isset($_POST['remove_cart']) ){					

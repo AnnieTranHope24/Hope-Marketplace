@@ -1,4 +1,3 @@
-/* Bereket Bessie - */
 
 <!DOCTYPE html>
 <html lang="en">

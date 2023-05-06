@@ -1,6 +1,6 @@
 <?php  
 
-//get ip_address
+//<Annie Tran> get ip_address
     function getIPAddress() {  
     //whether ip is from the share internet  
      if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
@@ -19,8 +19,7 @@
 // $ip = getIPAddress();  
 // echo 'User Real IP Address - '.$ip;  
 
-
-//TODO: finish the cart function
+// <Annie Tran> add the item to the data base if add_to_cart is set
 function cart($link){
 
     if(isset($_GET['add_to_cart'])){       
@@ -33,7 +32,7 @@ function cart($link){
         $stmt->execute();
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
-        //TODO: fix so that it comes back the current page
+
         if (!empty($items)) {
             echo "<script>alert('This item is already in the cart')</script>";
             echo "<script>window.open($link, '_self')</script>";
@@ -42,15 +41,13 @@ function cart($link){
             $sql = "INSERT INTO cart (ID, ip_address, quantity) VALUES (?,?,?)";
             $pdo->prepare($sql)->execute([$get_product_id, $ip, 1]);
             echo "<script>alert('Item is added to cart')</script>";
-            echo "<script>window.open($link, '_self')</script>";
-                // $url = 'index.php?category='.$_GET['category'];
-                // echo "<script>window.open($url, '_self')</script>";            
+            echo "<script>window.open($link, '_self')</script>";          
             
         }
     }
 
 }
-//function to get cart item number
+//<Annie Tran> function to get cart item number
 function cart_item_count(){
 
     global $pdo;
@@ -66,7 +63,7 @@ function cart_item_count(){
     echo $count;
 }
 
-//get the total price
+//<Annie Tran> get the total price of the items in the cart table
 function get_total_price(){
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM cart");

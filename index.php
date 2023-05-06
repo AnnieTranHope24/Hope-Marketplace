@@ -31,6 +31,7 @@
       
       <?php 
       include_once "includes/common_functions.php";
+      // <Annie Tran> If add_to_cart is set, call the cart() method that will add the item to cart
         if(isset($_GET['add_to_cart'])){
           // cart("index.php?category=".$_GET['category']);
           cart("index.php");
