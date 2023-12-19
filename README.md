@@ -2,7 +2,7 @@ Webhost link: https://hopemarketplace.000webhostapp.com/login.php
 
 ![HOME!](home.png)
 
-We tried but failed to integrate my changes on the webhost. Please use local host to see all the functionalities of 
+Please use local host to see all the functionalities of 
 the website. We included the hopemarketplace.sql that can be imported on phpmyadmin.
 
 Folders: css, images, includes (with common php functions), js (javaScript files),
