@@ -1,6 +1,6 @@
 Webhost link: https://hopemarketplace.000webhostapp.com/login.php
 
-![HOME!](Screenshot 2023-12-19 at 9.45.17 AM.png)
+![HOME!](home.png)
 
 I tried but failed to integrate my changes on the webhost. Please use local host to see all the functionalities of 
 the website. We included the hopemarketplace.sql that can be imported on phpmyadmin.
