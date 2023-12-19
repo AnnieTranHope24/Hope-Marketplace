@@ -1,6 +1,8 @@
-<Annie Tran>
 Webhost link: https://hopemarketplace.000webhostapp.com/login.php
-<Annie Tran>: I tried but failed to integrate my changes on the webhost. Please use local host to see all the functionalities of 
+
+![HOME!](Screenshot 2023-12-19 at 9.45.17 AM.png)
+
+I tried but failed to integrate my changes on the webhost. Please use local host to see all the functionalities of 
 the website. We included the hopemarketplace.sql that can be imported on phpmyadmin.
 
 Folders: css, images, includes (with common php functions), js (javaScript files),
@@ -36,7 +38,6 @@ Your Account page:
 - Sell items links to a form where you can post an item
 About us: info about the website and developers
 
-<-- Bereket Bessie -->
 Error Handling: The file "form.php" is a form for users to post items to our database. The form has several input fields that are restricted in various ways to prevent 
 code injections. Error handling and input validation is futher elaborated within the comments of the file.
 
